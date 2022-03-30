@@ -12,9 +12,10 @@
     "commit": "git-cz"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json}": [
+    ".{js,jsx,ts,tsx,vue,json}": [
       "prettier --write",
-      "pnpm run patch-lint"
+      "eslint",
+      "git add"
     ]
   },
   "dependencies": {

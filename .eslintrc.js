@@ -15,6 +15,8 @@ module.exports = {
   },
   plugins: ['vue', '@typescript-eslint'],
   rules: {
-    'vue/no-multiple-template-root': 'off' // 关闭对Vue文件唯一节点的检测
+    'vue/no-multiple-template-root': 'off', // 关闭对Vue文件唯一节点的检测
+    'import/no-unresolved': 'off',
+    'import/extensions': 'off'
   }
 }

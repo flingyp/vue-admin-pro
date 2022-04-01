@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import { NLayoutHeader } from 'naive-ui'
 
-import IconifyIconVue from '@/components/IconifyIcon.vue'
+import IconifyIconVue from '@/components/iconifyIcon.vue'
 </script>
 
 <style scoped></style>

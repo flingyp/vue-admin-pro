@@ -23,7 +23,7 @@ import { ref } from 'vue'
 import { NLayoutSider, NMenu } from 'naive-ui'
 import type { MenuOption } from 'naive-ui'
 
-import SvgIcon from '@/components/SvgIcon.vue'
+import SvgIcon from '@/components/svgIcon.vue'
 
 const activeKey = ref<string | null>(null)
 

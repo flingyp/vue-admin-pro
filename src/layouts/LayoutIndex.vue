@@ -12,10 +12,10 @@
 <script setup lang="ts">
 import { NLayout } from 'naive-ui'
 
-import LayoutSiderCom from './components/layoutSider/LayoutSiderCom.vue'
-import LayoutHeaderCom from './components/layoutHeader/LayoutHeaderCom.vue'
-import LayoutContentCom from './components/layoutContent/LayoutContentCom.vue'
-import LayoutFooterCom from './components/layoutFooter/LayoutFooterCom.vue'
+import LayoutSiderCom from './components/layoutSider/layoutSiderCom.vue'
+import LayoutHeaderCom from './components/layoutHeader/layoutHeaderCom.vue'
+import LayoutContentCom from './components/layoutContent/layoutContentCom.vue'
+import LayoutFooterCom from './components/layoutFooter/layoutFooterCom.vue'
 </script>
 
 <style></style>

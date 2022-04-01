@@ -6,6 +6,13 @@ import WindiCSS from 'vite-plugin-windicss'
 // 如果编辑器提示 path 模块找不到，则可以安装一下 @types/node -> npm i @types/node -D
 import { resolve } from 'path'
 
+/**
+ * 如何在Vue3+Vite中使用SVG
+ * https://juejin.cn/post/6932037172178616334#heading-3
+ * https://github.com/JetBrains/svg-sprite-loader/issues/434
+ */
+import svgBuilder from './src/plugins/SvgBuilder'
+
 export default defineConfig({
   // 配置别名
   resolve: {
@@ -25,5 +32,5 @@ export default defineConfig({
     // https://cn.vitejs.dev/config/#server-proxy
     proxy: {}
   },
-  plugins: [WindiCSS(), vue()]
+  plugins: [WindiCSS(), vue(), svgBuilder('./src/assets/svg/')]
 })

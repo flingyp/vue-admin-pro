@@ -1,7 +1,8 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    'vue/setup-compiler-macros': true // 处理直接使用 defineProps、defineEmits报错问题
   },
   extends: [
     'plugin:vue/essential',

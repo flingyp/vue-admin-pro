@@ -8,6 +8,16 @@ const constantRouters: RouteRecordRaw[] = [
     path: '/dev/test',
     name: 'Test',
     component: () => import('@/views/Test.vue')
+  },
+  {
+    path: '/layout',
+    name: 'LayoutTest',
+    component: () => import('@/layouts/LayoutIndex.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/login/LoginIndex.vue')
   }
 ]
 

@@ -33,6 +33,7 @@ module.exports = {
         peerDependencies: false,
         bundledDependencies: false
       }
-    ]
+    ],
+    'no-param-reassign': ['error', { props: false }]
   }
 }

@@ -9,12 +9,15 @@ interface IUserStoreState {
 }
 
 export const useUserStore = defineStore('userStore', {
-  state() {
+  state: () => {
     const userStoreState: IUserStoreState = {
       token: getLocalKey('accessToken') || '',
       userInfo: {}
     }
     return userStoreState
+  },
+  getters: {
+    getPermissions: (state) => state.userInfo.permissions
   },
   actions: {
     // 获取用户信息

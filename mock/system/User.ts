@@ -27,7 +27,7 @@ const SysUserInfo = (token: string) => {
       nickname: '超级管理员',
       birthday: MockRandom.date(),
       roles: ['admin'],
-      permissions: ['*:*:*']
+      permissions: ['sys:user:*', 'sys:test:*']
     })
   }
   return failData('token错误')

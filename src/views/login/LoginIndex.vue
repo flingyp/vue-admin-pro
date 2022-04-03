@@ -1,7 +1,7 @@
 <template>
   <n-card class="box-page-center w-[45rem] shadow-xl shadow-gray-300">
-    <div class="flex justify-between items-center mb-[4rem]">
-      <SvgIcon name="logo-rocket" color="rgba(59, 130, 246, 1)" class="text-[6rem]" />
+    <div class="flex justify-center items-center mb-[4rem]">
+      <SvgIcon name="logo-rocket" color="rgba(59, 130, 246, 1)" class="w-[5rem] h-[5rem] mr-[1rem]" />
       <span style="color: rgba(59, 130, 246, 1)" class="text-[2.8rem] font-bold font-serif">Vue Admin Pro</span>
     </div>
 

@@ -1,7 +1,5 @@
 <template>
-  <n-layout-header bordered class="fixed top-0 h-[6rem] z-50">
-    <!-- mdi-light:format-indent-increase 右箭头-->
-    <!-- mdi-light:format-indent-decrease 左箭头-->
+  <n-layout-header bordered class="h-[6rem]">
     <div v-if="sysStore.isCollapsed" @click="clickIsCollapsedSider(false)" class="header-item-base-style">
       <IconifyIconVue icon-label="mdi-light:format-indent-increase" :fontSize="20" />
     </div>

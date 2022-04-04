@@ -1,5 +1,5 @@
 <template>
-  <n-layout-content bordered class="h-full bg-[#f6f9f8]">
+  <n-layout-content bordered class="h-full bg-[#f6f9f8] dark:bg-[#101014]">
     <transition name="fade-slide" mode="out-in" appear>
       <keep-alive>
         <router-view v-slot="{ Component, route }">
@@ -13,15 +13,3 @@
 <script setup lang="ts">
 import { NLayoutContent } from 'naive-ui'
 </script>
-
-<style>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-</style>

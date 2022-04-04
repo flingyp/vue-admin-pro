@@ -11,7 +11,7 @@
     </n-card>
 
     <n-card title="测试WindiCSS" hoverable>
-      <div class="text-[1rem] text-blue-600">Vue Admin Pro</div>
+      <div class="text-[1rem] text-red-400 dark:text-green-400 dark:text-[2rem]">Vue Admin Pro</div>
     </n-card>
   </div>
 </template>

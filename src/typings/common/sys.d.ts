@@ -1,4 +1,3 @@
-import { VNode } from 'vue'
 import 'vue-router'
 
 declare module 'vue-router' {
@@ -12,4 +11,12 @@ declare module 'vue-router' {
     // 访问此路由需要的权限
     permission?: string[]
   }
+}
+
+type themeModeType = 'light' | 'dark'
+
+// 系统配置
+interface ISysConfig {
+  themeMode: themeModeType // 主题模式
+  isNeedCollapsed: boolean // 侧边栏（是否折叠）
 }

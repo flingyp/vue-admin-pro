@@ -1,12 +1,15 @@
 import { defineStore } from 'pinia'
 import type { MenuOption } from 'naive-ui'
 import type { RouteRecordRaw } from 'vue-router'
+import { ISysConfig, themeModeType } from '@/typings/common/sys'
+
+import { getLocalKey } from '@/utils/common/handleLocalStorage'
 
 interface ISysStoreState {
   constantRoutes?: RouteRecordRaw[]
   asyncRoutes?: RouteRecordRaw[]
   sysMenus?: MenuOption[]
-  isCollapsed?: boolean // 系统侧边栏是否折叠
+  sysConfig: ISysConfig
 }
 
 export const useSysStore = defineStore('sysStore', {
@@ -15,9 +18,16 @@ export const useSysStore = defineStore('sysStore', {
       constantRoutes: [],
       asyncRoutes: [],
       sysMenus: [],
-      isCollapsed: false
+      sysConfig: {
+        themeMode: (getLocalKey('themeMode') as themeModeType) || 'light',
+        isNeedCollapsed: false
+      }
     }
     return sysStoreState
+  },
+  getters: {
+    themeMode: (state) => state.sysConfig.themeMode,
+    siderMenuCollapsed: (state) => state.sysConfig.isNeedCollapsed
   },
   actions: {
     setSysMenus(menus: MenuOption[]) {
@@ -30,9 +40,10 @@ export const useSysStore = defineStore('sysStore', {
       this.asyncRoutes = routes
     },
     setIsCollapsed(collapsed: boolean) {
-      console.log('collapsed', collapsed)
-
-      this.isCollapsed = collapsed
+      this.sysConfig.isNeedCollapsed = collapsed
+    },
+    setThemeMode(mode: themeModeType) {
+      this.sysConfig.themeMode = mode
     }
   }
 })

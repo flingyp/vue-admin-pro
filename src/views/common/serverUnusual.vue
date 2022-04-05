@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center w-full h-full">
+  <div class="flex-col-center w-full h-full">
     <svg-icon name="common-500" class="w-[35em] h-[35em]"></svg-icon>
     <n-button type="primary" class="w-[16rem] text-[1rem] mt-[1rem]" @click="callBackMain">回首页</n-button>
   </div>

@@ -11,6 +11,13 @@ export const constantRouters: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/layout',
+    component: import('@/layouts/testIndex.vue'),
+    meta: {
+      isShow: false
+    }
+  },
+  {
     path: '/404',
     redirect: '/common/404'
   },

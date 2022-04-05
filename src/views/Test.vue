@@ -24,7 +24,7 @@ import { NCard, NButton } from 'naive-ui'
 .n-card {
   display: inline-block;
   max-width: 300px;
-  margin: 15px 10px;
+  margin: 0px 5px;
   /* 设置元素的垂直对齐方式 */
   vertical-align: top;
 }

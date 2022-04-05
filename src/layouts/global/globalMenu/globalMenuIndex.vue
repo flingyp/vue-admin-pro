@@ -1,5 +1,5 @@
 <template>
-  <n-menu :value="routeKey" mode="vertical" :options="menuOptions" @update:value="clickMenu" />
+  <n-menu :value="routeKey" :mode="mode" :options="menuOptions" @update:value="clickMenu" />
 </template>
 
 <script setup lang="ts">
@@ -9,6 +9,14 @@ import type { MenuOption } from 'naive-ui'
 import { NMenu } from 'naive-ui'
 
 import { useSysStore } from '@/store/modules/sysStore'
+
+interface IGlobalMenuProps {
+  mode: 'vertical' | 'horizontal'
+}
+
+withDefaults(defineProps<IGlobalMenuProps>(), {
+  mode: 'vertical'
+})
 
 const route = useRoute()
 const router = useRouter()

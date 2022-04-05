@@ -45,12 +45,12 @@ export function useSwitchTheme() {
   // 2. 切换主题模式
   const switchTheme = (mode: themeModeType) => {
     setLocalKey(themeModeTitle, mode)
-    sysStore.setThemeMode(mode)
     if (currentThemeMode() === 'light') {
       removeDarkClass()
     } else {
       addDarkClass()
     }
+    sysStore.setThemeMode(mode)
   }
 
   return {

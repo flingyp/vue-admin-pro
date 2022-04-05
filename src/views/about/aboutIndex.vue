@@ -1,5 +1,5 @@
 <template>
-  <div class="p-[2rem]">
+  <div>
     <n-card title="Vue Admin Pro" bordered hoverable>
       Vue Admin Pro 是一款基于Vue3 + TypeScript +
       NaiveUI等技术栈搭建的后台系统。市面上已经开源成型的优秀后台系统太多了，理论上没有必要自己去造轮子了。
@@ -65,5 +65,9 @@ Object.keys(devDependencies).forEach((key) => {
 <style scoped>
 .n-card {
   margin-bottom: 20px;
+}
+
+.n-card:last-child {
+  margin: 0;
 }
 </style>

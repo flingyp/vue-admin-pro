@@ -76,7 +76,7 @@ const handlerUserLogin = () => {
 
     if (loginResData.code === 200) {
       setLocalKey('accessToken', loginResData.data)
-      router.push('/layout')
+      router.push('/test/index')
     } else {
       notification.error({
         content: '提示：',

@@ -1,5 +1,4 @@
 /* eslint-disable no-loop-func */
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Plugin } from 'vite'
 import { readFileSync, readdirSync, PathLike } from 'fs'
 

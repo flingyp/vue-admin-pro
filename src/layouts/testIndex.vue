@@ -22,13 +22,14 @@
       </n-layout>
     </n-layout>
   </n-space> -->
-  <BasicTopMenuLayout></BasicTopMenuLayout>
+  <BasicTopMixMenuLayout></BasicTopMixMenuLayout>
 </template>
 
 <script setup lang="ts">
 import { NLayout, NSpace, NLayoutContent, NLayoutFooter, NLayoutHeader, NLayoutSider } from 'naive-ui'
 import BasicLeftMenuLayout from '@/layouts/basicLayout/basicLeftMenuMode.vue'
 import BasicTopMenuLayout from '@/layouts/basicLayout/basicTopMenuMode.vue'
+import BasicTopMixMenuLayout from '@/layouts/basicLayout/basicTopMixMenuMode.vue'
 </script>
 
 <style scoped>

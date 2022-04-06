@@ -1,5 +1,4 @@
 <template>
-  <!-- hover:(bg-[#f6f6f6]) -->
   <div v-if="sysStore.siderMenuCollapsed" @click="clickIsCollapsedSider(false)" class="header-item-base-style">
     <IconifyIconVue icon-label="mdi-light:format-indent-increase" :fontSize="20" />
   </div>

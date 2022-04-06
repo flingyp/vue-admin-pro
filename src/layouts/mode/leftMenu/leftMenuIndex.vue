@@ -1,9 +1,14 @@
 <template>
   <BasicLeftMenuMode>
     <template #header>
-      <div class="h-full flex items-center">
-        <LeftMenuCollapsedIcon></LeftMenuCollapsedIcon>
-        <ThemeModeIcon></ThemeModeIcon>
+      <div class="h-full flex justify-between items-center">
+        <div class="flex items-center h-full">
+          <LeftMenuCollapsedIcon></LeftMenuCollapsedIcon>
+        </div>
+        <div class="flex items-center h-full">
+          <ThemeModeIcon></ThemeModeIcon>
+          <SysConfigIcon></SysConfigIcon>
+        </div>
       </div>
     </template>
 
@@ -26,4 +31,5 @@ import LeftMenuCollapsedIcon from '@/layouts/common/leftMenuCollapsedIcon.vue'
 import ThemeModeIcon from '@/layouts/common/themeModeIcon.vue'
 import GlobalMenuIndex from '@/layouts/global/globalMenu/globalMenuIndex.vue'
 import GlobalMainIndex from '@/layouts/global/globalMain/globalMainIndex.vue'
+import SysConfigIcon from '@/layouts/common/sysConfigIcon.vue'
 </script>

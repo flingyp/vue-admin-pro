@@ -1,33 +1,35 @@
 <template>
-  <BasicTopMenuMode>
+  <BasicTopMixMenuMode>
     <template #header>
-      <div class="h-full flex items-center justify-between">
+      <div class="h-full flex justify-between items-center">
         <div class="flex items-center h-full pl-[2rem]">
           <LogoTitle :is-need-collapsed="false"></LogoTitle>
-          <GlobalMenuIndex mode="horizontal"></GlobalMenuIndex>
+          <LeftMenuCollapsedIcon class="ml-[1rem]"></LeftMenuCollapsedIcon>
         </div>
-
         <div class="flex items-center h-full">
-          <ThemeModeIcon></ThemeModeIcon>
+          <ThemeModelIcon></ThemeModelIcon>
           <SysConfigIcon></SysConfigIcon>
         </div>
       </div>
     </template>
 
+    <template #sider>
+      <GlobalMenu></GlobalMenu>
+    </template>
+
     <template #main>
       <GlobalMain></GlobalMain>
     </template>
-  </BasicTopMenuMode>
+  </BasicTopMixMenuMode>
 </template>
 
 <script setup lang="ts">
-import SvgIcon from '@/components/svgIcon.vue'
+import BasicTopMixMenuMode from '@/layouts/basicLayout/basicTopMixMenuMode.vue'
 
-import BasicTopMenuMode from '@/layouts/basicLayout/basicTopMenuMode.vue'
-
-import GlobalMenuIndex from '@/layouts/global/globalMenu/globalMenuIndex.vue'
+import GlobalMenu from '@/layouts/global/globalMenu/globalMenuIndex.vue'
 import GlobalMain from '@/layouts/global/globalMain/globalMainIndex.vue'
-import ThemeModeIcon from '@/layouts/common/themeModeIcon.vue'
 import LogoTitle from '@/layouts/common/logoTitle.vue'
+import LeftMenuCollapsedIcon from '@/layouts/common/leftMenuCollapsedIcon.vue'
+import ThemeModelIcon from '@/layouts/common/themeModeIcon.vue'
 import SysConfigIcon from '@/layouts/common/sysConfigIcon.vue'
 </script>

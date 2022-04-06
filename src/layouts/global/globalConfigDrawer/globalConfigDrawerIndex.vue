@@ -11,7 +11,7 @@
           >{{ item.value }}</n-button
         >
       </BasicConfigItemBox>
-      <BasicConfigItemBox></BasicConfigItemBox>
+      <!-- <BasicConfigItemBox></BasicConfigItemBox> -->
     </n-drawer-content>
   </n-drawer>
 </template>

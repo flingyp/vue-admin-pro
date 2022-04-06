@@ -7,6 +7,7 @@
         </div>
         <div class="flex items-center h-full">
           <ThemeModeIcon></ThemeModeIcon>
+          <FullScreenIcon></FullScreenIcon>
           <SysConfigIcon></SysConfigIcon>
         </div>
       </div>
@@ -32,4 +33,5 @@ import ThemeModeIcon from '@/layouts/common/themeModeIcon.vue'
 import GlobalMenuIndex from '@/layouts/global/globalMenu/globalMenuIndex.vue'
 import GlobalMainIndex from '@/layouts/global/globalMain/globalMainIndex.vue'
 import SysConfigIcon from '@/layouts/common/sysConfigIcon.vue'
+import FullScreenIcon from '@/layouts/common/fullScreenIcon.vue'
 </script>

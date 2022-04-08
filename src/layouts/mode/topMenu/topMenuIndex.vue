@@ -9,6 +9,7 @@
 
         <div class="flex items-center h-full">
           <ThemeModeIcon></ThemeModeIcon>
+          <FullScreenIcon></FullScreenIcon>
           <SysConfigIcon></SysConfigIcon>
         </div>
       </div>
@@ -21,8 +22,6 @@
 </template>
 
 <script setup lang="ts">
-import SvgIcon from '@/components/svgIcon.vue'
-
 import BasicTopMenuMode from '@/layouts/basicLayout/basicTopMenuMode.vue'
 
 import GlobalMenuIndex from '@/layouts/global/globalMenu/globalMenuIndex.vue'
@@ -30,4 +29,5 @@ import GlobalMain from '@/layouts/global/globalMain/globalMainIndex.vue'
 import ThemeModeIcon from '@/layouts/common/themeModeIcon.vue'
 import LogoTitle from '@/layouts/common/logoTitle.vue'
 import SysConfigIcon from '@/layouts/common/sysConfigIcon.vue'
+import FullScreenIcon from '@/layouts/common/fullScreenIcon.vue'
 </script>

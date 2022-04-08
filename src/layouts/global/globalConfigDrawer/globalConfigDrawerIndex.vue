@@ -11,7 +11,24 @@
           >{{ item.value }}</n-button
         >
       </BasicConfigItemBox>
-      <!-- <BasicConfigItemBox></BasicConfigItemBox> -->
+      <BasicConfigItemBox title="系统主题">
+        <div class="flex items-center flex-wrap justify-start">
+          <div
+            class="w-[2.5rem] h-[2.5rem] rounded-[0.3rem] m-[0.6rem] cursor-pointer flex-center"
+            v-for="(item, index) in themeColorArray"
+            :key="index"
+            :style="{ 'background-color': item }"
+            @click="changeThemeColor(item)"
+          >
+            <SvgIcon
+              name="layout-checkmark"
+              color="#FFF"
+              class="w-[2rem] h-[2rem] font-bold"
+              v-show="currentThemeColor === item"
+            ></SvgIcon>
+          </div>
+        </div>
+      </BasicConfigItemBox>
     </n-drawer-content>
   </n-drawer>
 </template>
@@ -24,7 +41,11 @@ import type { DrawerPlacement } from 'naive-ui'
 import { useSysStore } from '@/store/modules/sysStore'
 
 import BasicConfigItemBox from './components/basicConfigItemBox.vue'
+import SvgIcon from '@/components/svgIcon.vue'
+
 import { layoutModeType } from '@/typings/common/sys'
+
+import { getLocalKey, setLocalKey } from '@/utils/common/handleLocalStorage'
 
 const sysStore = useSysStore()
 
@@ -78,6 +99,37 @@ const activeIndexLayoutBtn = computed(() => {
   }
   return 0
 })
+
+// https://materialui.co/colors 获取该网站的颜色600的色值
+const themeColorArray: string[] = [
+  '#18a058',
+  '#E53935',
+  '#D81B60',
+  '#8E24AA',
+  '#5E35B1',
+  '#3949AB',
+  '#1E88E5',
+  '#039BE5',
+  '#00ACC1',
+  '#00897B',
+  '#43A047',
+  '#7CB342',
+  '#C0CA33',
+  '#FDD835',
+  '#FFB300',
+  '#FB8C00',
+  '#F4511E',
+  '#6D4C41',
+  '#757575',
+  '#546E7A'
+]
+const currentThemeColor = ref(getLocalKey('themeColor') || '#18a058')
+// 修改颜色色值
+const changeThemeColor = (color: string) => {
+  currentThemeColor.value = color
+  setLocalKey('themeColor', color)
+  sysStore.setThemeColor(color)
+}
 
 defineExpose({
   openDrawer

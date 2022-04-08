@@ -11,16 +11,10 @@
     "prepare": "husky install",
     "commit": "git-cz"
   },
-  "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix",
-      "git add"
-    ]
-  },
   "dependencies": {
     "@vueuse/core": "^8.2.5",
     "axios": "^0.26.1",
+    "colord": "^2.9.2",
     "mockjs": "^1.1.0",
     "naive-ui": "^2.27.0",
     "pinia": "^2.0.12",
@@ -60,5 +54,12 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   }
 }

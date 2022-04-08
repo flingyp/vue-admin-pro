@@ -6,7 +6,7 @@ import { useSysStore } from '@/store/modules/sysStore'
 
 const themeModeTitle = 'themeMode'
 
-export function useSwitchTheme() {
+export const useSwitchTheme = () => {
   const sysStore = useSysStore()
 
   /** windicss 暗黑模式 */

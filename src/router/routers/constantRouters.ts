@@ -5,7 +5,7 @@ import Layout from '@/layouts/index.vue'
 export const constantRouters: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/layout',
+    redirect: '/test/index',
     meta: {
       isShow: false
     }

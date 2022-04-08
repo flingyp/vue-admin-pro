@@ -13,6 +13,12 @@
     <n-card title="测试WindiCSS" hoverable>
       <div class="text-[1rem] text-red-400 dark:text-green-400 dark:text-[2rem]">Vue Admin Pro</div>
     </n-card>
+
+    <n-card title="定制WindiCSS色值" hoverable>
+      <div class="text-primary">需要在windi.config.ts theme.extend.colors 中重写</div>
+      <div class="text-primary">查看windicss文档 colors 部分</div>
+      <div class="text-primary">Vue Admin Pro</div>
+    </n-card>
   </div>
 </template>
 
@@ -25,7 +31,6 @@ import { NCard, NButton } from 'naive-ui'
   display: inline-block;
   max-width: 300px;
   margin: 0px 5px;
-  /* 设置元素的垂直对齐方式 */
-  vertical-align: top;
+  vertical-align: top; /* 设置元素的垂直对齐方式 */
 }
 </style>

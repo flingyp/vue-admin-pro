@@ -1,6 +1,5 @@
 import { colord } from 'colord'
 import type { HsvColor } from 'colord'
-import { ThemeColor } from '@/typings/common/sys'
 
 const hueStep = 2
 const saturationStep = 16

@@ -3,7 +3,8 @@
     <template #header>
       <div class="h-full flex justify-between items-center">
         <div class="flex items-center h-full">
-          <LeftMenuCollapsedIcon></LeftMenuCollapsedIcon>
+          <LeftMenuCollapsedIcon class="mr-[2rem]"></LeftMenuCollapsedIcon>
+          <BreadCrumbNav></BreadCrumbNav>
         </div>
         <div class="flex items-center h-full">
           <ThemeModeIcon></ThemeModeIcon>
@@ -34,4 +35,5 @@ import GlobalMenuIndex from '@/layouts/global/globalMenu/globalMenuIndex.vue'
 import GlobalMainIndex from '@/layouts/global/globalMain/globalMainIndex.vue'
 import SysConfigIcon from '@/layouts/common/sysConfigIcon.vue'
 import FullScreenIcon from '@/layouts/common/fullScreenIcon.vue'
+import BreadCrumbNav from '@/layouts/common/breadCrumbNav.vue'
 </script>

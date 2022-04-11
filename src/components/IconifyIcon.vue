@@ -1,9 +1,8 @@
 <template>
-  <Icon :icon="iconLabel" :inline="true" :color="color" :style="{ fontSize }" class="inline-block" />
+  <Icon :icon="iconLabel" :color="color" :style="{ fontSize: fontSize }" class="inline-block" />
 </template>
 
 <script setup lang="ts">
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Icon } from '@iconify/vue'
 
 interface IconifyIconProps {
@@ -17,4 +16,8 @@ withDefaults(defineProps<IconifyIconProps>(), {
 })
 </script>
 
-<style></style>
+<style scoped>
+svg {
+  vertical-align: text-top;
+}
+</style>

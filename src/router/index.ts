@@ -10,7 +10,7 @@ import { useSysStore } from '@/store/modules/sysStore'
 import { constantRouters, redirect404Router } from './routers/constantRouters'
 import { asyncRouters } from './routers/asyncRouters'
 
-import { filterRoutes, mountRoute, createMenus } from './utils'
+import { filterRoutes, mountRoute, createMenus } from './utils/handleRoute'
 
 // 白名单路由（不需要token，定义路由name）
 const whiteRouteByName: string[] = ['Login']

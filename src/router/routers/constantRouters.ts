@@ -89,6 +89,55 @@ export const constantRouters: RouteRecordRaw[] = [
         }
       }
     ]
+  },
+  {
+    path: '/multi',
+    name: 'Multi',
+    component: Layout,
+    meta: {
+      title: '多级菜单',
+      icon: 'cib:about-me'
+    },
+    children: [
+      {
+        path: 'first',
+        name: 'MultiFirst',
+        component: import('@/views/common/multi/first.vue'),
+        meta: {
+          title: '一级菜单',
+          icon: 'cib:about-me'
+        }
+      },
+      {
+        path: 'two',
+        name: 'MultiTwo',
+        component: import('@/views/common/multi/two.vue'),
+        meta: {
+          title: '二级菜单',
+          icon: 'cib:about-me'
+        },
+        children: [
+          {
+            path: 'two1',
+            name: 'MultiTwo-One',
+            component: import('@/views/common/multi/two1.vue'),
+            meta: {
+              title: '二级菜单-1',
+              icon: 'cib:about-me'
+            }
+          },
+          {
+            path: 'two2',
+            name: 'MultiTwo-Two',
+            component: import('@/views/common/multi/two2.vue'),
+            meta: {
+              title: '二级菜单-2',
+              icon: 'cib:about-me'
+            }
+          }
+        ]
+      }
+    ]
   }
 ]
 

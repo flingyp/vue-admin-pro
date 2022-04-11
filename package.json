@@ -12,6 +12,7 @@
     "commit": "git-cz"
   },
   "dependencies": {
+    "@better-scroll/core": "^2.4.2",
     "@vueuse/core": "^8.2.5",
     "axios": "^0.26.1",
     "colord": "^2.9.2",

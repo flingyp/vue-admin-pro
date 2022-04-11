@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@better-scroll/core': ^2.4.2
   '@commitlint/cli': ^16.2.3
   '@commitlint/config-conventional': ^16.2.1
   '@iconify/vue': ^3.2.0
@@ -38,6 +39,7 @@ specifiers:
   windicss: ^3.5.1
 
 dependencies:
+  '@better-scroll/core': 2.4.2
   '@vueuse/core': 8.2.5_vue@3.2.31
   axios: 0.26.1
   colord: 2.9.2
@@ -115,6 +117,16 @@ packages:
       '@babel/helper-validator-identifier': 7.16.7
       to-fast-properties: 2.0.0
     dev: true
+
+  /@better-scroll/core/2.4.2:
+    resolution: {integrity: sha512-IqVZLnh04YpaEAy9wJDxtFK/stxVQjB9A9Wcr3Uwkj7Av1TtFpin+t/TObl53diNDG5ZJ+vck/OAthphpuugLA==}
+    dependencies:
+      '@better-scroll/shared-utils': 2.4.2
+    dev: false
+
+  /@better-scroll/shared-utils/2.4.2:
+    resolution: {integrity: sha512-Gy/Jfbpu+hq0u+PcjkTqyXGqAf+0dexTzEZ5IDXEVwJVLmd3cx8A73oTcAZ8QZgk4wSHvlMjXecSaptkhnNPEw==}
+    dev: false
 
   /@commitlint/cli/16.2.3:
     resolution: {integrity: sha512-VsJBQLvhhlOgEfxs/Z5liYuK0dXqLE5hz1VJzLBxiOxG31kL/X5Q4OvK292BmO7IGZcm1yJE3XQPWSiFaEHbWA==}

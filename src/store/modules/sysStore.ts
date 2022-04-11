@@ -1,72 +1,18 @@
 import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
 import type { MenuOption, GlobalThemeOverrides } from 'naive-ui'
-import {
-  ISysConfig,
-  layoutModeType,
-  ThemeColor,
-  ThemeColorScene,
-  ThemeColorTypes,
-  themeModeType,
-  ThemeColorName
-} from '@/typings/common/sys'
+import { ISysConfig, layoutModeType, ThemeColorTypes, themeModeType } from '@/types/sysTypes'
 
-import { getLocalKey } from '@/utils/common/handleLocalStorage'
-import { getColorPalette } from '@/utils/common/colors'
+import { getLocalKey, setLocalKey } from '@/utils/common/handleLocalStorage'
+
+import { addThemeCssVarsToHtml, getSysThemeColors } from '../utils/themeColor'
 
 interface ISysStoreState {
-  constantRoutes?: RouteRecordRaw[]
-  asyncRoutes?: RouteRecordRaw[]
-  sysMenus?: MenuOption[]
+  constantRoutes: RouteRecordRaw[]
+  asyncRoutes: RouteRecordRaw[]
+  sysMenus: MenuOption[]
   sysConfig: ISysConfig
-}
-
-interface ColorAction {
-  scene: ThemeColorScene
-  handler: (color: string) => string
-}
-
-// 其它默认场景颜色
-const otherDefaultSceneColors: [ThemeColorTypes, string][] = [
-  ['success', '#43a047'],
-  ['warning', '#e53935'],
-  ['info', '#126CDB'],
-  ['error', '#ffb300']
-]
-
-/**
- * 获取主题颜色的各种场景颜色值
- * @param colors
- * @returns
- */
-const getSysThemeColors = (colors: [ThemeColorTypes, string][]) => {
-  const colorActions: ColorAction[] = [
-    { scene: '', handler: (color) => color },
-    { scene: 'Suppl', handler: (color) => color },
-    { scene: 'Hover', handler: (color) => getColorPalette(color, 5) },
-    { scene: 'Pressed', handler: (color) => getColorPalette(color, 7) }
-  ]
-  const themeColor: ThemeColor = {}
-  colors.forEach((color) => {
-    colorActions.forEach((action) => {
-      const [colorType, colorValue] = color
-      const colorKey: ThemeColorName = `${colorType}Color${action.scene}`
-      themeColor[colorKey] = action.handler(colorValue)
-    })
-  })
-  return themeColor
-}
-
-/** 添加css vars至html */
-const addThemeCssVarsToHtml = (themeVars: ThemeColor) => {
-  const keys = Object.keys(themeVars)
-  const style: string[] = []
-  keys.forEach((key) => {
-    // @ts-ignore
-    style.push(`--${key}:${themeVars[key]}`)
-  })
-  const styleStr = style.join(';')
-  document.body.style.cssText += styleStr
+  tabMenusKey: String[]
 }
 
 export const useSysStore = defineStore('sysStore', {
@@ -80,7 +26,8 @@ export const useSysStore = defineStore('sysStore', {
         isNeedCollapsed: false,
         layoutMode: 'LEFT_MENU_MODE',
         themeColor: getLocalKey('themeColor') || '#18a058'
-      }
+      },
+      tabMenusKey: getLocalKey('tabMenu')?.split(',') || []
     }
     return sysStoreState
   },
@@ -90,7 +37,15 @@ export const useSysStore = defineStore('sysStore', {
     layoutMode: (state) => state.sysConfig.layoutMode,
     themeColor: (state) => state.sysConfig.themeColor,
     naiveUiGlobalThemeOverrides(state): GlobalThemeOverrides {
+      // 主色值
       const primaryColor: [ThemeColorTypes, string] = ['primary', state.sysConfig.themeColor]
+      // 其它默认场景颜色
+      const otherDefaultSceneColors: [ThemeColorTypes, string][] = [
+        ['success', '#43a047'],
+        ['warning', '#e53935'],
+        ['info', '#126CDB'],
+        ['error', '#ffb300']
+      ]
       const sysThemeColors = getSysThemeColors([primaryColor, ...otherDefaultSceneColors])
       addThemeCssVarsToHtml(sysThemeColors)
       return {
@@ -98,6 +53,37 @@ export const useSysStore = defineStore('sysStore', {
           ...sysThemeColors
         }
       }
+    },
+    sysAllMenus(state): MenuOption[] {
+      const menus = state.sysMenus
+      const handleSuccessMenus: MenuOption[] = []
+      const spreadAllMenus = (needHandleMenus: MenuOption[]) => {
+        needHandleMenus.forEach((item) => {
+          if (item.children) {
+            spreadAllMenus(item.children)
+          } else {
+            handleSuccessMenus.push(item)
+          }
+        })
+      }
+      // @ts-ignore
+      spreadAllMenus(menus)
+      return handleSuccessMenus
+    },
+    sysTabMenus(state): MenuOption[] {
+      const allTbaMenusKey = state.tabMenusKey
+      const allSysMenus = this.sysAllMenus
+      const sysTabMenus: MenuOption[] = []
+      allTbaMenusKey.forEach((key) => {
+        const menuIndex = allSysMenus.findIndex((menu) => {
+          return menu.key === key
+        })
+        if (menuIndex !== -1) {
+          sysTabMenus.push(allSysMenus[menuIndex])
+        }
+      })
+
+      return sysTabMenus
     }
   },
   actions: {
@@ -132,6 +118,26 @@ export const useSysStore = defineStore('sysStore', {
     },
     setThemeColor(color: string) {
       this.sysConfig.themeColor = color
+    },
+    addTabMenuKey(key: string) {
+      if (!this.tabMenusKey.includes(key)) {
+        this.tabMenusKey.push(key)
+        if (getLocalKey('tabMenu') === undefined) {
+          setLocalKey('tabMenu', key)
+        } else {
+          setLocalKey('tabMenu', `${getLocalKey('tabMenu')},${key}`)
+        }
+      }
+    },
+    deleteTabMenuKey(key: string) {
+      const menuKeyIndex = this.tabMenusKey.indexOf(key)
+      const localTabMenuKeys = getLocalKey('tabMenu')?.split(',')
+      const localMenuKeyIndex = localTabMenuKeys?.indexOf(key)
+      if (menuKeyIndex !== -1 && localMenuKeyIndex !== -1 && menuKeyIndex === localMenuKeyIndex) {
+        this.tabMenusKey.splice(menuKeyIndex, 1)
+        localTabMenuKeys?.splice(menuKeyIndex, 1)
+        setLocalKey('tabMenu', localTabMenuKeys?.join())
+      }
     }
   }
 })

@@ -33,10 +33,12 @@ watch(
 )
 
 // 菜单数据
+// @ts-ignore
 const menuOptions: MenuOption[] = sysStore.sysMenus || []
 
 // 点击菜单
 const clickMenu = (key: string) => {
   router.push({ name: key })
+  sysStore.addTabMenuKey(key)
 }
 </script>

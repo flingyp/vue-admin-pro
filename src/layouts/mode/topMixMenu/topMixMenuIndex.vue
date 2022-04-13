@@ -15,7 +15,7 @@
     </template>
 
     <template #sider>
-      <GlobalMenuIndex mode="horizontal"></GlobalMenuIndex>
+      <GlobalMenuIndex mode="vertical"></GlobalMenuIndex>
     </template>
 
     <template #main>

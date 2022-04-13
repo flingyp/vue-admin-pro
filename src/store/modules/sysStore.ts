@@ -13,6 +13,7 @@ interface ISysStoreState {
   sysMenus: MenuOption[]
   sysConfig: ISysConfig
   tabMenusKey: String[]
+  isNeedReload: boolean
 }
 
 export const useSysStore = defineStore('sysStore', {
@@ -27,7 +28,8 @@ export const useSysStore = defineStore('sysStore', {
         layoutMode: 'LEFT_MENU_MODE',
         themeColor: getLocalKey('themeColor') || '#18a058'
       },
-      tabMenusKey: getLocalKey('tabMenu')?.split(',') || []
+      tabMenusKey: getLocalKey('tabMenu')?.split(',') || [],
+      isNeedReload: false
     }
     return sysStoreState
   },
@@ -119,6 +121,7 @@ export const useSysStore = defineStore('sysStore', {
     setThemeColor(color: string) {
       this.sysConfig.themeColor = color
     },
+    // 添加一个TabMenu
     addTabMenuKey(key: string) {
       if (!this.tabMenusKey.includes(key)) {
         this.tabMenusKey.push(key)
@@ -129,6 +132,7 @@ export const useSysStore = defineStore('sysStore', {
         }
       }
     },
+    // 删除一个TabMenu
     deleteTabMenuKey(key: string) {
       const menuKeyIndex = this.tabMenusKey.indexOf(key)
       const localTabMenuKeys = getLocalKey('tabMenu')?.split(',')
@@ -138,6 +142,11 @@ export const useSysStore = defineStore('sysStore', {
         localTabMenuKeys?.splice(menuKeyIndex, 1)
         setLocalKey('tabMenu', localTabMenuKeys?.join())
       }
+    },
+    // 设置TabMenu
+    setTabMenuKeys(keys: string[]) {
+      this.tabMenusKey = keys
+      setLocalKey('tabMenu', keys.join())
     }
   }
 })

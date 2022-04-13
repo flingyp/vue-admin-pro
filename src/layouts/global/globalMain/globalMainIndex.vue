@@ -1,12 +1,12 @@
 <template>
   <GlobalTab></GlobalTab>
-  <transition name="fade-slide" mode="out-in" appear>
-    <keep-alive>
-      <router-view v-slot="{ Component, route }">
+  <router-view v-slot="{ Component, route }">
+    <transition name="fade-slide" mode="out-in" appear>
+      <keep-alive>
         <component :is="Component" :key="route.path"></component>
-      </router-view>
-    </keep-alive>
-  </transition>
+      </keep-alive>
+    </transition>
+  </router-view>
 </template>
 
 <script setup lang="ts">

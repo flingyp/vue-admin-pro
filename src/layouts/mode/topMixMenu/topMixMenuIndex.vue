@@ -15,11 +15,11 @@
     </template>
 
     <template #sider>
-      <GlobalMenu></GlobalMenu>
+      <GlobalMenuIndex mode="horizontal"></GlobalMenuIndex>
     </template>
 
     <template #main>
-      <GlobalMain></GlobalMain>
+      <globalMainIndex></globalMainIndex>
     </template>
   </BasicTopMixMenuMode>
 </template>
@@ -27,8 +27,8 @@
 <script setup lang="ts">
 import BasicTopMixMenuMode from '@/layouts/basicLayout/basicTopMixMenuMode.vue'
 
-import GlobalMenu from '@/layouts/global/globalMenu/globalMenuIndex.vue'
-import GlobalMain from '@/layouts/global/globalMain/globalMainIndex.vue'
+import GlobalMenuIndex from '@/layouts/global/globalMenu/globalMenuIndex.vue'
+import globalMainIndex from '@/layouts/global/globalMain/globalMainIndex.vue'
 import LogoTitle from '@/layouts/common/logoTitle.vue'
 import LeftMenuCollapsedIcon from '@/layouts/common/leftMenuCollapsedIcon.vue'
 import ThemeModelIcon from '@/layouts/common/themeModeIcon.vue'

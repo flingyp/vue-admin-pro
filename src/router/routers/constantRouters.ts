@@ -12,7 +12,7 @@ export const constantRouters: RouteRecordRaw[] = [
   },
   {
     path: '/layout',
-    component: import('@/layouts/testIndex.vue'),
+    component: () => import('@/layouts/testIndex.vue'),
     meta: {
       isShow: false
     }
@@ -29,7 +29,7 @@ export const constantRouters: RouteRecordRaw[] = [
       {
         path: 'index',
         name: 'TestIndex',
-        component: import('@/views/test.vue'),
+        component: () => import('@/views/test.vue'),
         meta: {
           title: '测试页面',
           icon: 'fluent:window-dev-tools-16-regular'
@@ -40,7 +40,7 @@ export const constantRouters: RouteRecordRaw[] = [
   {
     path: '/login',
     name: 'Login',
-    component: import('@/views/login/loginIndex.vue'),
+    component: () => import('@/views/login/loginIndex.vue'),
     meta: {
       isShow: false
     }
@@ -57,7 +57,7 @@ export const constantRouters: RouteRecordRaw[] = [
       {
         path: '404',
         name: 'Common-404',
-        component: import('@/views/common/notFound.vue'),
+        component: () => import('@/views/common/notFound.vue'),
         meta: {
           title: '404页面',
           icon: 'tabler:error-404'
@@ -66,7 +66,7 @@ export const constantRouters: RouteRecordRaw[] = [
       {
         path: '500',
         name: 'Common-500',
-        component: import('@/views/common/serverUnusual.vue'),
+        component: () => import('@/views/common/serverUnusual.vue'),
         meta: {
           title: '500页面',
           icon: 'la:500px'
@@ -82,7 +82,7 @@ export const constantRouters: RouteRecordRaw[] = [
       {
         path: '',
         name: 'AboutIndex',
-        component: import('@/views/about/aboutIndex.vue'),
+        component: () => import('@/views/about/aboutIndex.vue'),
         meta: {
           title: '关于',
           icon: 'cib:about-me'
@@ -102,7 +102,7 @@ export const constantRouters: RouteRecordRaw[] = [
       {
         path: 'first',
         name: 'MultiFirst',
-        component: import('@/views/common/multi/first.vue'),
+        component: () => import('@/views/common/multi/first.vue'),
         meta: {
           title: '一级菜单',
           icon: 'cib:about-me'
@@ -111,7 +111,7 @@ export const constantRouters: RouteRecordRaw[] = [
       {
         path: 'two',
         name: 'MultiTwo',
-        component: import('@/views/common/multi/two.vue'),
+        component: () => import('@/views/common/multi/two.vue'),
         meta: {
           title: '二级菜单',
           icon: 'cib:about-me'
@@ -120,7 +120,7 @@ export const constantRouters: RouteRecordRaw[] = [
           {
             path: 'two1',
             name: 'MultiTwo-One',
-            component: import('@/views/common/multi/two1.vue'),
+            component: () => import('@/views/common/multi/two1.vue'),
             meta: {
               title: '二级菜单-1',
               icon: 'cib:about-me'
@@ -129,7 +129,7 @@ export const constantRouters: RouteRecordRaw[] = [
           {
             path: 'two2',
             name: 'MultiTwo-Two',
-            component: import('@/views/common/multi/two2.vue'),
+            component: () => import('@/views/common/multi/two2.vue'),
             meta: {
               title: '二级菜单-2',
               icon: 'cib:about-me'

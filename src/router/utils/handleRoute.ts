@@ -87,6 +87,5 @@ export const createMenus = (routes: RouteRecordRaw[]): MenuOption[] => {
     }
     return menu
   })
-  console.log('newMenus', newMenus)
   return newMenus
 }

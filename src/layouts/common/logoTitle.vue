@@ -21,9 +21,9 @@ import SvgIcon from '@/components/svgIcon.vue'
 import { useSysStore } from '@/store/modules/sysStore'
 
 interface ILogoTitleProps {
-  logoName: string
-  name: string
-  isNeedCollapsed: boolean
+  logoName?: string
+  name?: string
+  isNeedCollapsed?: boolean
 }
 
 const sysStore = useSysStore()

@@ -40,7 +40,7 @@ export const constantRouters: RouteRecordRaw[] = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('@/views/login/loginIndex.vue'),
+    component: () => import('@/views/login/LoginIndex.vue'),
     meta: {
       isShow: false
     }
@@ -53,11 +53,80 @@ export const constantRouters: RouteRecordRaw[] = [
       {
         path: '',
         name: 'AboutIndex',
-        component: () => import('@/views/about/aboutIndex.vue'),
+        component: () => import('@/views/about/AboutIndex.vue'),
         meta: {
           title: '关于',
           icon: 'cib:about-me'
         }
+      }
+    ]
+  },
+  {
+    path: '/common',
+    name: 'Common',
+    component: Layout,
+    meta: {
+      title: '常用页面',
+      icon: 'entypo:creative-commons-share'
+    },
+    children: [
+      {
+        path: 'component',
+        name: 'CommonComponent',
+        component: () => import('@/views/common/uiComponents/ComponentIndex.vue'),
+        meta: {
+          title: '常用组件',
+          icon: 'bxs:component'
+        }
+      }
+    ]
+  },
+  {
+    path: '/multi',
+    name: 'Multi',
+    component: Layout,
+    meta: {
+      title: ' 多级菜单',
+      icon: 'octicon:multi-select-24'
+    },
+    children: [
+      {
+        path: 'first',
+        name: 'MultiFirst',
+        component: () => import('@/views/common/multiLevelMenu/multiFirst/MultiFirstIndex.vue'),
+        meta: {
+          title: '一级菜单',
+          icon: 'octicon:multi-select-24'
+        }
+      },
+      {
+        path: 'two',
+        name: 'MultiTwo',
+        component: () => import('@/views/common/multiLevelMenu/multiTwo/MultiTwoIndex.vue'),
+        meta: {
+          title: '二级菜单',
+          icon: 'octicon:multi-select-24'
+        },
+        children: [
+          {
+            path: 'first',
+            name: 'MultiTwo_First',
+            component: () => import('@/views/common/multiLevelMenu/multiTwo/MultiTwo_First.vue'),
+            meta: {
+              title: '子菜单1',
+              icon: 'octicon:multi-select-24'
+            }
+          },
+          {
+            path: 'two',
+            name: 'MultiTwo_Second',
+            component: () => import('@/views/common/multiLevelMenu/multiTwo/MultiTwo_Second.vue'),
+            meta: {
+              title: '子菜单2',
+              icon: 'octicon:multi-select-24'
+            }
+          }
+        ]
       }
     ]
   }

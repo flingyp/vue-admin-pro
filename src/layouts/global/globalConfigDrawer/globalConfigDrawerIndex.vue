@@ -43,7 +43,7 @@ import { useSysStore } from '@/store/modules/sysStore'
 import BasicConfigItemBox from './components/basicConfigItemBox.vue'
 import SvgIcon from '@/components/svgIcon.vue'
 
-import { layoutModeType } from '@/typings/common/sys'
+import { layoutModeType } from '@/types/sysTypes'
 
 import { getLocalKey, setLocalKey } from '@/utils/common/handleLocalStorage'
 
@@ -103,25 +103,24 @@ const activeIndexLayoutBtn = computed(() => {
 // https://materialui.co/colors 获取该网站的颜色600的色值
 const themeColorArray: string[] = [
   '#18a058',
-  '#E53935',
-  '#D81B60',
-  '#8E24AA',
-  '#5E35B1',
-  '#3949AB',
-  '#1E88E5',
-  '#039BE5',
-  '#00ACC1',
-  '#00897B',
-  '#43A047',
-  '#7CB342',
-  '#C0CA33',
-  '#FDD835',
-  '#FFB300',
-  '#FB8C00',
-  '#F4511E',
-  '#6D4C41',
-  '#757575',
-  '#546E7A'
+  '#D32F2F',
+  '#C2185B',
+  '#7B1FA2',
+  '#303F9F',
+  '#1976D2',
+  '#0288D1',
+  '#0097A7',
+  '#00796B',
+  '#388E3C',
+  '#689F38',
+  '#AFB42B',
+  '#FBC02D',
+  '#FFA000',
+  '#F57C00',
+  '#E64A19',
+  '#5D4037',
+  '#616161',
+  '#455A64'
 ]
 const currentThemeColor = ref(getLocalKey('themeColor') || '#18a058')
 // 修改颜色色值

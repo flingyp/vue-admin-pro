@@ -1,8 +1,8 @@
 import { getLocalKey } from '@/utils/common/handleLocalStorage'
-import baseAjaxConfig from '../index'
+import { ajaxRequest } from '@/utils/request'
 
 export const userLogin = async (username: string, password: string) => {
-  const loginData = await baseAjaxConfig({
+  const loginData = await ajaxRequest<UserTyping.ILoginRes>({
     url: '/sys/login',
     method: 'post',
     data: {
@@ -14,7 +14,7 @@ export const userLogin = async (username: string, password: string) => {
 }
 
 export const getUserInfoService = async () => {
-  const userInfo = await baseAjaxConfig<UserTyping.IUserInfo>({
+  const userInfo = await ajaxRequest<UserTyping.IUserInfo>({
     url: '/sys/userInfo',
     method: 'post',
     headers: {

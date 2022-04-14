@@ -1,4 +1,10 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
+
+interface IResponseData<T> {
+  code: number
+  msg: string
+  data: T
+}
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
@@ -11,7 +17,6 @@ const axiosInstance = axios.create({
  */
 axiosInstance.interceptors.request.use(
   (config) => {
-    console.log('请求拦截器', config)
     return config
   },
   (error) => {
@@ -24,7 +29,6 @@ axiosInstance.interceptors.request.use(
  */
 axiosInstance.interceptors.response.use(
   (response) => {
-    console.log('响应拦截器', response)
     return response.data
   },
   (error) => {
@@ -33,3 +37,8 @@ axiosInstance.interceptors.response.use(
 )
 
 export default axiosInstance
+
+export const ajaxRequest = async <T>(config: AxiosRequestConfig): Promise<IResponseData<T>> => {
+  const responseData = await axiosInstance.request<any, IResponseData<T>>(config)
+  return responseData
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="m-[1rem]">
+  <div class="m-[1rem] flex items-center flex-wrap">
     <n-card title="测试Naive Ui 组件" hoverable>
       <n-button>Default</n-button>
       <n-button type="tertiary"> Tertiary </n-button>
@@ -30,6 +30,7 @@ import { NCard, NButton } from 'naive-ui'
 .n-card {
   display: inline-block;
   max-width: 300px;
+  height: 200px;
   margin: 10px;
   vertical-align: top; /* 设置元素的垂直对齐方式 */
 }

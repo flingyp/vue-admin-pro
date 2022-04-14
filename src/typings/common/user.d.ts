@@ -1,4 +1,8 @@
 declare namespace UserTyping {
+  interface ILoginRes {
+    token: string
+  }
+
   interface IUserInfo {
     id?: string
     username?: string

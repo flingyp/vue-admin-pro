@@ -1,5 +1,5 @@
 <template>
-  <div class="px-[1.5rem] bg-[#FFF] dark:bg-[#18181c] shadow-md mb-[2rem] flex items-center justify-between">
+  <div class="px-[1.5rem] bg-[#FFF] dark:bg-[#18181c] shadow-md flex items-center justify-between">
     <div class="flex items-center overflow-x-auto whitespace-nowrap flex-[1]">
       <TabItem v-for="(item, index) in sysStore.sysTabMenus" :key="index" :menu="item"></TabItem>
     </div>

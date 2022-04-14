@@ -5,7 +5,7 @@ import Layout from '@/layouts/index.vue'
 export const constantRouters: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/test/index',
+    redirect: '/test',
     meta: {
       isShow: false
     }
@@ -27,7 +27,7 @@ export const constantRouters: RouteRecordRaw[] = [
     component: Layout,
     children: [
       {
-        path: 'index',
+        path: '',
         name: 'TestIndex',
         component: () => import('@/views/test.vue'),
         meta: {
@@ -46,35 +46,6 @@ export const constantRouters: RouteRecordRaw[] = [
     }
   },
   {
-    path: '/common',
-    name: 'Common',
-    component: Layout,
-    meta: {
-      title: '常用页面',
-      icon: 'emojione:page-facing-up'
-    },
-    children: [
-      {
-        path: '404',
-        name: 'Common-404',
-        component: () => import('@/views/common/notFound.vue'),
-        meta: {
-          title: '404页面',
-          icon: 'tabler:error-404'
-        }
-      },
-      {
-        path: '500',
-        name: 'Common-500',
-        component: () => import('@/views/common/serverUnusual.vue'),
-        meta: {
-          title: '500页面',
-          icon: 'la:500px'
-        }
-      }
-    ]
-  },
-  {
     path: '/about',
     name: 'About',
     component: Layout,
@@ -87,55 +58,6 @@ export const constantRouters: RouteRecordRaw[] = [
           title: '关于',
           icon: 'cib:about-me'
         }
-      }
-    ]
-  },
-  {
-    path: '/multi',
-    name: 'Multi',
-    component: Layout,
-    meta: {
-      title: '多级菜单',
-      icon: 'cib:about-me'
-    },
-    children: [
-      {
-        path: 'first',
-        name: 'MultiFirst',
-        component: () => import('@/views/common/multi/first.vue'),
-        meta: {
-          title: '一级菜单',
-          icon: 'cib:about-me'
-        }
-      },
-      {
-        path: 'two',
-        name: 'MultiTwo',
-        component: () => import('@/views/common/multi/two.vue'),
-        meta: {
-          title: '二级菜单',
-          icon: 'cib:about-me'
-        },
-        children: [
-          {
-            path: 'two1',
-            name: 'MultiTwo-One',
-            component: () => import('@/views/common/multi/two1.vue'),
-            meta: {
-              title: '二级菜单-1',
-              icon: 'cib:about-me'
-            }
-          },
-          {
-            path: 'two2',
-            name: 'MultiTwo-Two',
-            component: () => import('@/views/common/multi/two2.vue'),
-            meta: {
-              title: '二级菜单-2',
-              icon: 'cib:about-me'
-            }
-          }
-        ]
       }
     ]
   }

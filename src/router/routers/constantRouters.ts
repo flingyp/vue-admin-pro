@@ -78,6 +78,15 @@ export const constantRouters: RouteRecordRaw[] = [
           title: '常用组件',
           icon: 'bxs:component'
         }
+      },
+      {
+        path: 'icon',
+        name: 'CommonIcon',
+        component: () => import('@/views/common/icons/IconIndex.vue'),
+        meta: {
+          title: '图标',
+          icon: 'line-md:iconify1'
+        }
       }
     ]
   },

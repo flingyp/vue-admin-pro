@@ -1,3 +1,3 @@
 <template>
-  <div>子菜单1</div>
+  <div class="mt-[1rem]">子菜单1</div>
 </template>

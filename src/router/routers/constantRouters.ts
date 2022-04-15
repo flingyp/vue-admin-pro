@@ -84,8 +84,26 @@ export const constantRouters: RouteRecordRaw[] = [
         name: 'CommonIcon',
         component: () => import('@/views/common/icons/IconIndex.vue'),
         meta: {
-          title: '图标',
+          title: '图标示例',
           icon: 'line-md:iconify1'
+        }
+      },
+      {
+        path: '404',
+        name: 'Common404',
+        component: () => import('@/views/common/exceptPage/NotFound.vue'),
+        meta: {
+          title: '404页面',
+          icon: 'tabler:error-404'
+        }
+      },
+      {
+        path: '500',
+        name: 'Common500',
+        component: () => import('@/views/common/exceptPage/ServerExcept.vue'),
+        meta: {
+          title: '500页面',
+          icon: 'la:500px'
         }
       }
     ]

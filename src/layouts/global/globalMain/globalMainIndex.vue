@@ -2,9 +2,10 @@
   <GlobalTab></GlobalTab>
   <router-view v-slot="{ Component, route }" v-if="!sysStore.isNeedReload">
     <transition name="fade-slide" mode="out-in" appear>
-      <keep-alive>
-        <component :is="Component" :key="route.path"></component>
+      <keep-alive v-if="route.meta.cache == null || route.meta.cache">
+        <component :is="Component" :key="route.path"><div>11111111</div></component>
       </keep-alive>
+      <component :is="Component" :key="route.path" v-else></component>
     </transition>
   </router-view>
   <div class="w-full h-[calc(100%-6rem)] flex-center" v-else>

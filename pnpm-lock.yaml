@@ -16,6 +16,7 @@ specifiers:
   commitlint-config-cz: ^0.13.3
   cz-conventional-changelog: ^3.3.0
   cz-customizable: ^6.3.0
+  echarts: ^5.3.2
   eslint: ^8.12.0
   eslint-config-airbnb-base: ^15.0.0
   eslint-config-prettier: ^8.5.0
@@ -43,6 +44,7 @@ dependencies:
   '@vueuse/core': 8.2.5_vue@3.2.31
   axios: 0.26.1
   colord: 2.9.2
+  echarts: 5.3.2
   mockjs: 1.1.0
   naive-ui: 2.27.0_vue@3.2.31
   pinia: 2.0.12_typescript@4.6.3+vue@3.2.31
@@ -1765,6 +1767,13 @@ packages:
   /eastasianwidth/0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
+
+  /echarts/5.3.2:
+    resolution: {integrity: sha512-LWCt7ohOKdJqyiBJ0OGBmE9szLdfA9sGcsMEi+GGoc6+Xo75C+BkcT/6NNGRHAWtnQl2fNow05AQjznpap28TQ==}
+    dependencies:
+      tslib: 2.3.0
+      zrender: 5.3.1
+    dev: false
 
   /editor/1.0.0:
     resolution: {integrity: sha1-YMf4e9YrzGqJT6jM1q+3gjok90I=}
@@ -4932,6 +4941,10 @@ packages:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
 
+  /tslib/2.3.0:
+    resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==}
+    dev: false
+
   /tslib/2.3.1:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
     dev: true
@@ -5488,3 +5501,9 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zrender/5.3.1:
+    resolution: {integrity: sha512-7olqIjy0gWfznKr6vgfnGBk7y4UtdMvdwFmK92vVQsQeDPyzkHW1OlrLEKg6GHz1W5ePf0FeN1q2vkl/HFqhXw==}
+    dependencies:
+      tslib: 2.3.0
+    dev: false

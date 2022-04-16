@@ -10,5 +10,7 @@ declare module 'vue-router' {
     isShow?: boolean
     // 访问此路由需要的权限
     permission?: string[]
+    // 路由是否需要KeepAlive（默认true）
+    cache?: boolean
   }
 }

@@ -46,22 +46,6 @@ export const constantRouters: RouteRecordRaw[] = [
     }
   },
   {
-    path: '/about',
-    name: 'About',
-    component: Layout,
-    children: [
-      {
-        path: '',
-        name: 'AboutIndex',
-        component: () => import('@/views/about/AboutIndex.vue'),
-        meta: {
-          title: '关于',
-          icon: 'cib:about-me'
-        }
-      }
-    ]
-  },
-  {
     path: '/common',
     name: 'Common',
     component: Layout,
@@ -104,6 +88,27 @@ export const constantRouters: RouteRecordRaw[] = [
         meta: {
           title: '500页面',
           icon: 'la:500px'
+        }
+      }
+    ]
+  },
+  {
+    path: '/plugin',
+    name: 'Plugin',
+    component: Layout,
+    meta: {
+      title: '集成插件',
+      icon: 'clarity:plugin-outline-badged'
+    },
+    children: [
+      {
+        path: 'diagram',
+        name: 'PluginDiagram',
+        component: () => import('@/views/plugins/echarts/DiagramIndex.vue'),
+        meta: {
+          title: 'Echarts图表',
+          icon: 'carbon:diagram',
+          cache: false
         }
       }
     ]
@@ -154,6 +159,22 @@ export const constantRouters: RouteRecordRaw[] = [
             }
           }
         ]
+      }
+    ]
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'AboutIndex',
+        component: () => import('@/views/about/AboutIndex.vue'),
+        meta: {
+          title: '关于',
+          icon: 'cib:about-me'
+        }
       }
     ]
   }

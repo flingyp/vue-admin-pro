@@ -1,10 +1,10 @@
 <template>
   <!-- 左侧菜单模式 -->
-  <LeftMenuMode v-show="sysStore.layoutMode === 'LEFT_MENU_MODE'"></LeftMenuMode>
+  <LeftMenuMode v-if="sysStore.layoutMode === 'LEFT_MENU_MODE'"></LeftMenuMode>
   <!-- 顶部菜单模式 -->
-  <TopMenuMode v-show="sysStore.layoutMode === 'TOP_MENU_MODE'"></TopMenuMode>
+  <TopMenuMode v-if="sysStore.layoutMode === 'TOP_MENU_MODE'"></TopMenuMode>
   <!-- 顶部菜单混合模式 -->
-  <TopMixMenuMode v-show="sysStore.layoutMode === 'TOP_MIX_MENU_MODE'"></TopMixMenuMode>
+  <TopMixMenuMode v-if="sysStore.layoutMode === 'TOP_MIX_MENU_MODE'"></TopMixMenuMode>
 </template>
 
 <script setup lang="ts">

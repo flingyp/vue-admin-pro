@@ -6,6 +6,7 @@
       collapse-mode="width"
       :collapsed-width="64"
       :collapsed="sysStore.siderMenuCollapsed"
+      :native-scrollbar="false"
       class="fixed z-99 h-screen max-h-screen"
     >
       <slot name="sider"> 侧边栏 </slot>
@@ -16,7 +17,11 @@
         <slot name="header"> 头部部分 </slot>
       </n-layout-header>
 
-      <n-layout-content bordered class="h-[calc(100%-6.4rem)] max-h-[calc(100%-6.4rem)] bg-[#f6f9f8] dark:bg-[#101014]">
+      <n-layout-content
+        bordered
+        :native-scrollbar="false"
+        class="h-[calc(100%-6.4rem)] max-h-[calc(100%-6.4rem)] bg-[#f6f9f8] dark:bg-[#101014]"
+      >
         <slot name="main"> 内容部分 </slot>
       </n-layout-content>
     </n-layout>

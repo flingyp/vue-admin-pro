@@ -7,6 +7,7 @@
       <n-layout-sider
         bordered
         :width="264"
+        :native-scrollbar="false"
         collapse-mode="width"
         :collapsed-width="64"
         :collapsed="sysStore.siderMenuCollapsed"
@@ -14,7 +15,7 @@
       >
         <slot name="sider"> 侧边栏 </slot>
       </n-layout-sider>
-      <n-layout-content bordered class="h-full max-h-full bg-[#f6f9f8] dark:bg-[#101014]">
+      <n-layout-content bordered :native-scrollbar="false" class="h-full max-h-full bg-[#f6f9f8] dark:bg-[#101014]">
         <slot name="main"> 内容部分 </slot>
       </n-layout-content>
     </n-layout>

@@ -16,3 +16,9 @@ import TopMixMenuMode from './mode/topMixMenu/topMixMenuIndex.vue'
 
 const sysStore = useSysStore()
 </script>
+
+<style>
+.n-scrollbar-content {
+  height: 100%;
+}
+</style>

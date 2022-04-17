@@ -1,6 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 
 import Layout from '@/layouts/index.vue'
+import IframeIndexVue from '@/views/plugins/iframe/IframeIndex.vue'
 
 export const constantRouters: RouteRecordRaw[] = [
   {
@@ -159,6 +160,61 @@ export const constantRouters: RouteRecordRaw[] = [
             }
           }
         ]
+      }
+    ]
+  },
+  {
+    path: '/docs',
+    name: 'Docs',
+    component: Layout,
+    meta: {
+      title: '相关文档',
+      icon: 'iconoir:google-docs'
+    },
+    children: [
+      {
+        path: 'naive',
+        name: 'DocsNaiveUi',
+        component: IframeIndexVue,
+        meta: {
+          title: 'Naive UI 文档',
+          link: 'External_Link',
+          url: 'https://www.naiveui.com/zh-CN/os-theme',
+          icon: 'iconoir:google-docs'
+        }
+      },
+      {
+        path: 'vue',
+        name: 'DocsVueNew',
+        component: IframeIndexVue,
+        meta: {
+          title: 'Vue3 新中文文档',
+          link: 'Internal_Link',
+          url: 'https://staging-cn.vuejs.org/',
+          icon: 'iconoir:google-docs'
+        }
+      },
+      {
+        path: 'windicss',
+        name: 'DocsWindicss',
+        component: IframeIndexVue,
+        meta: {
+          title: 'WindiCSS 文档',
+          link: 'Internal_Link',
+          url: 'https://windicss.org/',
+          icon: 'iconoir:google-docs'
+        }
+      },
+      {
+        path: 'vite',
+        name: 'DocsVite',
+        component: IframeIndexVue,
+        meta: {
+          title: 'Vite 文档',
+          link: 'Internal_Link',
+          url: 'https://cn.vitejs.dev/',
+          icon: 'iconoir:google-docs'
+        }
       }
     ]
   },

@@ -37,8 +37,17 @@ watch(
 const menuOptions: MenuOption[] = sysStore.sysMenus || []
 
 // 点击菜单
-const clickMenu = (key: string) => {
-  router.push({ name: key })
-  sysStore.addTabMenuKey(key)
+const clickMenu = (key: string, menu: MenuOption) => {
+  if (menu.link === 'External_Link') {
+    // 外链
+    window.open(menu.url as string)
+  } else if (menu.link === 'Internal_Link') {
+    // 内链
+    router.push({ name: key })
+    sysStore.addTabMenuKey(key)
+  } else {
+    router.push({ name: key })
+    sysStore.addTabMenuKey(key)
+  }
 }
 </script>

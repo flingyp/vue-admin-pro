@@ -1,50 +1,19 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { App } from 'vue'
 
-import { getLocalKey } from '@/utils/common/handleLocalStorage'
+import { filterNotSysLinkRoutes } from './utils/handleRoute'
 
-import { useUserStore } from '@/store/modules/userStore'
-import { useSysStore } from '@/store/modules/sysStore'
+// 常量路由、 异步路由
+import { constantRouters } from './routers/constantRouters'
 
-// 常量路由、// 异步路由
-import { constantRouters, redirect404Router } from './routers/constantRouters'
-import { asyncRouters } from './routers/asyncRouters'
-
-import { filterRoutes, mountRoute, createMenus } from './utils/handleRoute'
-
-// 白名单路由（不需要token，定义路由name）
-const whiteRouteByName: string[] = ['Login']
-
-// 是否添加了动态路由
-let isAddAsyncRouter: boolean = false
+// 全局路由控制守卫：逻辑控制方法
+import GlobalBeforeEach from './globalBeforeEach'
 
 const routerInstance = createRouter({
   history: createWebHashHistory(),
-  routes: constantRouters
+  routes: filterNotSysLinkRoutes(constantRouters)
+  // routes: constantRouters
 })
-
-const routeMenuProcess = async (userStore: any, sysStore: any) => {
-  // 1. 获取用户信息
-  await userStore.getUserInfo()
-  // 2. 获取权限
-  const permissions = userStore.getPermissions
-  if (permissions && permissions.length !== 0) {
-    // 3. 过滤路由
-    const filterSuccessRoutes = filterRoutes(asyncRouters, permissions)
-    filterSuccessRoutes.push(redirect404Router)
-    //  4. 挂载路由
-    filterSuccessRoutes.forEach((route) => {
-      mountRoute(route, routerInstance)
-    })
-
-    // 5. 生成菜单
-    const sysMenus = createMenus([...constantRouters, ...filterSuccessRoutes])
-    // 6. 放置状态管理
-    sysStore.setConstantRoutes(constantRouters)
-    sysStore.setAsyncRoutes(asyncRouters)
-    sysStore.setSysMenus(sysMenus)
-  }
-}
 
 /**
  * 路由全局控制守卫：
@@ -58,45 +27,7 @@ const routeMenuProcess = async (userStore: any, sysStore: any) => {
  *  2. 没有Token前提 查询要跳转的页面是否是不需要Token的，如果不需要这进入该页面
  */
 routerInstance.beforeEach(async (to, from, next) => {
-  // 获取本地token
-  const localAccessToken = getLocalKey('accessToken')
-  const userStore = useUserStore()
-  const sysStore = useSysStore()
-  // 有token情况
-  if (localAccessToken && localAccessToken !== '') {
-    if (from.name === 'Login' && to.name !== 'Login') {
-      /**
-       * 通过 isAddAsyncRouter 来控制是否第一次登陆后添加了动态路由
-       * 注意：next({ path: to.path, replace: false }) 和 next()的理解
-       */
-      if (!isAddAsyncRouter) {
-        await routeMenuProcess(userStore, sysStore)
-        isAddAsyncRouter = true
-        next({ path: to.fullPath, replace: true })
-      }
-    } else if (from.name === undefined && to.name !== 'Login') {
-      // 刷新了页面的情况
-      if (!isAddAsyncRouter) {
-        await routeMenuProcess(userStore, sysStore)
-        isAddAsyncRouter = true
-        next({ path: to.fullPath, replace: true })
-      }
-    } else if (to.name === 'Login') {
-      // 有token，但是想手动跳转登录页，返回指定页面
-      next({ path: '/layout' })
-    }
-    // 放行路由
-    next()
-  } else {
-    // 没有token的情况
-    // 检查是否配置了白名单
-    const isAccess = whiteRouteByName.includes(to.name as string)
-    if (isAccess) {
-      next()
-    } else {
-      next({ name: 'Login' })
-    }
-  }
+  await GlobalBeforeEach(to, from, next, routerInstance)
 })
 
 export default routerInstance

@@ -3,7 +3,7 @@
   <router-view v-slot="{ Component, route }" v-if="!sysStore.isNeedReload">
     <transition name="fade-slide" mode="out-in" appear>
       <keep-alive v-if="route.meta.cache == null || route.meta.cache">
-        <component :is="Component" :key="route.path"><div>11111111</div></component>
+        <component :is="Component" :key="route.path"></component>
       </keep-alive>
       <component :is="Component" :key="route.path" v-else></component>
     </transition>

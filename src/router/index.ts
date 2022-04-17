@@ -12,7 +12,6 @@ import GlobalBeforeEach from './globalBeforeEach'
 const routerInstance = createRouter({
   history: createWebHashHistory(),
   routes: filterNotSysLinkRoutes(constantRouters)
-  // routes: constantRouters
 })
 
 /**

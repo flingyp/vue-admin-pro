@@ -1,6 +1,6 @@
 <template>
   <GlobalTab></GlobalTab>
-  <router-view v-slot="{ Component, route }" v-if="!sysStore.isNeedReload">
+  <router-view class="h-[calc(100vh-10.4rem)]" v-slot="{ Component, route }" v-if="!sysStore.isNeedReload">
     <transition name="fade-slide" mode="out-in" appear>
       <keep-alive v-if="route.meta.cache == null || route.meta.cache">
         <component :is="Component" :key="route.path"></component>
@@ -8,7 +8,7 @@
       <component :is="Component" :key="route.path" v-else></component>
     </transition>
   </router-view>
-  <div class="w-full h-[calc(100%-6rem)] flex-center" v-else>
+  <div class="h-[calc(100vh-10.4rem)] flex-center" v-else>
     <n-spin :show="sysStore.isNeedReload" size="medium">
       <template #description> 重新加载中... </template>
     </n-spin>

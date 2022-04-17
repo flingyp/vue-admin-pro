@@ -1,5 +1,5 @@
 <template>
-  <div class="m-[1rem] flex items-center flex-wrap">
+  <div class="m-[1rem] flex flex-wrap">
     <n-card title="测试Naive Ui 组件" hoverable>
       <n-button>Default</n-button>
       <n-button type="tertiary"> Tertiary </n-button>

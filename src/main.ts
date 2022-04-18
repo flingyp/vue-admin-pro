@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 
 import App from './App.vue'
 
-import initStyle from '@/style/InitStyle'
+import initStyle from '@/style/initStyle'
 import { initRouterInstance } from '@/router/index'
 import { initStore } from '@/store/index'
 

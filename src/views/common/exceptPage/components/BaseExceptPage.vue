@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-center flex-col h-[calc(100%-6.4rem)]">
+  <div class="flex-center flex-col h-[calc(100vh-10.4rem)]">
     <!-- SVG图标 -->
     <div class="w-[50rem] h-[50rem] text-primary">
       <component :is="TypeComponent"></component>

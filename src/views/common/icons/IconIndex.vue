@@ -91,6 +91,5 @@ const localSvgIconList = ['common-icon-404', 'common-icon-cl', 'common-icon-500'
 <style scoped>
 .n-card {
   margin-bottom: 20px;
-  border-radius: 10px;
 }
 </style>

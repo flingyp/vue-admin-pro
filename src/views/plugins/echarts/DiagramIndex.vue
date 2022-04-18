@@ -185,9 +185,3 @@ const chartThree: ECOption = {
   ]
 }
 </script>
-
-<style scoped>
-.n-card {
-  border-radius: 10px;
-}
-</style>

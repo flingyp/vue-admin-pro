@@ -1,6 +1,6 @@
 <template>
   <GlobalTab></GlobalTab>
-  <router-view class="h-[calc(100vh-10.4rem)]" v-slot="{ Component, route }" v-if="!sysStore.isNeedReload">
+  <router-view v-slot="{ Component, route }" v-if="!sysStore.isNeedReload">
     <transition name="fade-slide" mode="out-in" appear>
       <keep-alive v-if="route.meta.cache == null || route.meta.cache">
         <component :is="Component" :key="route.path"></component>

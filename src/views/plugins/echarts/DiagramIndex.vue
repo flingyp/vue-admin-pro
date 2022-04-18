@@ -20,7 +20,6 @@ import { ECOption } from '@/utils/echarts'
 import EchartCom from '@/components/echartCom.vue'
 
 const chartOne: ECOption = {
-  // backgroundColor: 'transparent',
   title: {
     text: '柱状图'
   },

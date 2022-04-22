@@ -1,53 +1,68 @@
 <template>
-  <n-card class="box-page-center w-[45rem] shadow-xl shadow-gray-300">
-    <div class="flex justify-center items-center mb-[4rem]">
-      <SvgIcon name="logo-rocket" color="rgba(59, 130, 246, 1)" class="w-[5rem] h-[5rem] mr-[1rem]" />
-      <span style="color: rgba(59, 130, 246, 1)" class="text-[2.8rem] font-bold font-serif">Vue Admin Pro</span>
+  <div class="w-screen h-screen" :style="{ backgroundImage: currentBgColor }">
+    <n-card class="box-page-center w-[100rem] p-[1rem]">
+      <div class="flex items-center mb-[5rem]">
+        <SvgIcon name="logo-rocket" class="w-[4rem] h-[4rem] mr-[1.5rem] text-primary"></SvgIcon>
+        <span class="text-primary font-mono font-bold font text-[3rem]">Vue Admin Pro</span>
+      </div>
+      <div class="flex justify-between">
+        <div class="flex-1">
+          <SvgIcon name="login-system-img" class="w-[100%] h-[35rem] text-primary"></SvgIcon>
+        </div>
+        <div class="w-[35rem] ml-[4rem]">
+          <div class="font-mono text-center text-[2rem]">Welcome Back</div>
+          <div class="mt-[4rem]">
+            <n-form ref="formRef" :model="loginFormData" :rules="loginRules">
+              <n-form-item path="username">
+                <n-input size="large" v-model:value="loginFormData.username" placeholder="请输入个人账号："></n-input>
+              </n-form-item>
+              <n-form-item path="password">
+                <n-input
+                  v-model:value="loginFormData.password"
+                  placeholder="请输入密码："
+                  type="password"
+                  size="large"
+                  show-password-on="click"
+                ></n-input>
+              </n-form-item>
+              <n-form-item>
+                <n-button type="primary" class="w-full !text-[#fff]" @click="handlerUserLogin">登录</n-button>
+              </n-form-item>
+            </n-form>
+          </div>
+        </div>
+      </div>
+    </n-card>
+
+    <div class="absolute top-[3rem] left-[3rem]">
+      <GlobalThemeSwitchIcon></GlobalThemeSwitchIcon>
     </div>
-
-    <n-form ref="formRef" :model="loginForm" label-width="auto" :rules="rules">
-      <n-form-item path="username">
-        <n-input v-model:value="loginForm.username" size="large" placeholder="请输入用户名" />
-      </n-form-item>
-      <n-form-item path="password">
-        <n-input
-          v-model:value="loginForm.password"
-          type="password"
-          size="large"
-          placeholder="请输入密码"
-          show-password-on="click"
-        />
-      </n-form-item>
-
-      <n-form-item>
-        <n-button type="primary" size="large" class="w-full" color="rgba(59, 130, 246, 1)" @click="handlerUserLogin">
-          登录
-        </n-button>
-      </n-form-item>
-    </n-form>
-  </n-card>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { computed, reactive, ref } from 'vue'
+import { colord } from 'colord'
 import { NCard, NForm, NFormItem, NInput, NButton, FormRules, FormInst, useNotification } from 'naive-ui'
-
 import { useRouter } from 'vue-router'
-
 import SvgIcon from '@/components/svgIcon.vue'
+import GlobalThemeSwitchIcon from '@/components/globalThemeSwitchIcon.vue'
 
 import { userLogin } from '@/apis/modules/user'
+
+import { useSysStore } from '@/store/modules/sysStore'
 
 import { setLocalKey } from '@/utils/common/handleLocalStorage'
 
 const router = useRouter()
+const sysStore = useSysStore()
 
-const loginForm = reactive({
+const loginFormData = reactive({
   username: 'admin',
   password: '123456'
 })
 
-const rules: FormRules = {
+const loginRules: FormRules = {
   username: [
     {
       required: true,
@@ -64,6 +79,17 @@ const rules: FormRules = {
   ]
 }
 
+const currentBgColor = computed(() => {
+  const { themeColor } = sysStore
+  const getBgColor1 = colord(themeColor).alpha(0.4).toRgbString()
+  const getBgColor2 = colord(themeColor).alpha(0.6).toRgbString()
+  const blackColor = colord('#000').alpha(0.8).toRgbString()
+  if (sysStore.themeMode === 'light') {
+    return `linear-gradient(30deg, ${getBgColor1}, ${getBgColor2})`
+  }
+  return `linear-gradient(180deg, ${blackColor}, ${getBgColor1},${getBgColor2}, ${blackColor})`
+})
+
 const formRef = ref<FormInst | null>(null)
 // 点击登录
 const notification = useNotification()
@@ -72,11 +98,18 @@ const handlerUserLogin = () => {
   formRef.value?.validate(async (errors) => {
     if (errors) return
 
-    const loginResData = await userLogin(loginForm.username, loginForm.password)
+    const loginResData = await userLogin(loginFormData.username, loginFormData.password)
 
     if (loginResData.code === 200) {
       setLocalKey('accessToken', loginResData.data)
-      router.push('/test/index')
+      notification.success({
+        content: '提示：',
+        meta: '登录成功，欢迎进入',
+        duration: 2000,
+        onAfterLeave: () => {
+          router.push('/test')
+        }
+      })
     } else {
       notification.error({
         content: '提示：',

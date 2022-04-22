@@ -10,6 +10,7 @@
           <ThemeModeIcon></ThemeModeIcon>
           <FullScreenIcon></FullScreenIcon>
           <SysConfigIcon></SysConfigIcon>
+          <UserCenter></UserCenter>
         </div>
       </div>
     </template>
@@ -36,4 +37,5 @@ import GlobalMainIndex from '@/layouts/global/globalMain/globalMainIndex.vue'
 import SysConfigIcon from '@/layouts/common/sysConfigIcon.vue'
 import FullScreenIcon from '@/layouts/common/fullScreenIcon.vue'
 import BreadCrumbNav from '@/layouts/common/breadCrumbNav.vue'
+import UserCenter from '@/layouts/common/userCenter.vue'
 </script>

@@ -6,7 +6,7 @@
     </div>
 
     <!-- 回首页的按钮 -->
-    <n-button type="primary" size="medium" class="px-[5rem] mt-[4rem]">回首页</n-button>
+    <n-button type="primary" size="medium" class="px-[10rem] mt-[4rem] !text-[#fff]">回首页</n-button>
   </div>
 </template>
 

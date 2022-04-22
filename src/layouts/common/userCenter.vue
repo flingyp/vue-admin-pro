@@ -21,8 +21,11 @@
 import { ref } from 'vue'
 import { NPopselect } from 'naive-ui'
 import { useRouter } from 'vue-router'
+
+import { useSysStore } from '@/store/modules/sysStore'
 import { removeLocalKey } from '@/utils/common/handleLocalStorage'
 
+const sysStore = useSysStore()
 const router = useRouter()
 
 const popselectOptions = [
@@ -34,10 +37,16 @@ const popselectOptions = [
 
 const popselectValue = ref(null)
 
-const clickPopselect = (value: string) => {
-  // 退出系统
+// 退出系统需要做的事情
+const exitSystemFun = async () => {
+  removeLocalKey('accessToken')
+  removeLocalKey('tabMenu')
+  sysStore.setTabMenuKeys([])
+}
+
+const clickPopselect = async (value: string) => {
   if (value === 'ExitSystem') {
-    removeLocalKey('accessToken')
+    await exitSystemFun()
     router.push({ name: 'Login' })
   }
 }

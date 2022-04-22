@@ -104,7 +104,7 @@ const handlerUserLogin = () => {
       setLocalKey('accessToken', loginResData.data)
       notification.success({
         content: '提示：',
-        meta: '登录成功，欢迎进入',
+        meta: '登录成功！ 即将进行系统，请稍等',
         duration: 2000,
         onAfterLeave: () => {
           router.push('/test')

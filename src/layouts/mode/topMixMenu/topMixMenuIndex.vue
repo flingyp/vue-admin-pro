@@ -10,6 +10,7 @@
           <ThemeModelIcon></ThemeModelIcon>
           <FullScreenIcon></FullScreenIcon>
           <SysConfigIcon></SysConfigIcon>
+          <UserCenter></UserCenter>
         </div>
       </div>
     </template>
@@ -34,4 +35,5 @@ import LeftMenuCollapsedIcon from '@/layouts/common/leftMenuCollapsedIcon.vue'
 import ThemeModelIcon from '@/layouts/common/themeModeIcon.vue'
 import SysConfigIcon from '@/layouts/common/sysConfigIcon.vue'
 import FullScreenIcon from '@/layouts/common/fullScreenIcon.vue'
+import UserCenter from '@/layouts/common/userCenter.vue'
 </script>

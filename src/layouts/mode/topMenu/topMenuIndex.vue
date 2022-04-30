@@ -11,6 +11,7 @@
           <ThemeModeIcon></ThemeModeIcon>
           <FullScreenIcon></FullScreenIcon>
           <SysConfigIcon></SysConfigIcon>
+          <UserCenter></UserCenter>
         </div>
       </div>
     </template>
@@ -30,4 +31,5 @@ import ThemeModeIcon from '@/layouts/common/themeModeIcon.vue'
 import LogoTitle from '@/layouts/common/logoTitle.vue'
 import SysConfigIcon from '@/layouts/common/sysConfigIcon.vue'
 import FullScreenIcon from '@/layouts/common/fullScreenIcon.vue'
+import UserCenter from '@/layouts/common/userCenter.vue'
 </script>

@@ -12,6 +12,8 @@
     "commit": "git-cz"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
+    "@amap/amap-jsapi-types": "^0.0.8",
     "@better-scroll/core": "^2.4.2",
     "@vueuse/core": "^8.2.5",
     "axios": "^0.26.1",

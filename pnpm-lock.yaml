@@ -1,6 +1,8 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@amap/amap-jsapi-loader': ^1.0.1
+  '@amap/amap-jsapi-types': ^0.0.8
   '@better-scroll/core': ^2.4.2
   '@commitlint/cli': ^16.2.3
   '@commitlint/config-conventional': ^16.2.1
@@ -40,6 +42,8 @@ specifiers:
   windicss: ^3.5.1
 
 dependencies:
+  '@amap/amap-jsapi-loader': 1.0.1
+  '@amap/amap-jsapi-types': 0.0.8
   '@better-scroll/core': 2.4.2
   '@vueuse/core': 8.2.5_vue@3.2.31
   axios: 0.26.1
@@ -81,6 +85,14 @@ devDependencies:
   windicss: 3.5.1
 
 packages:
+
+  /@amap/amap-jsapi-loader/1.0.1:
+    resolution: {integrity: sha512-nPyLKt7Ow/ThHLkSvn2etQlUzqxmTVgK7bIgwdBRTg2HK5668oN7xVxkaiRe3YZEzGzfV2XgH5Jmu2T73ljejw==}
+    dev: false
+
+  /@amap/amap-jsapi-types/0.0.8:
+    resolution: {integrity: sha512-q0FyZDIJcXjsMLGc3oS9rjfJsErOvt9rcp6AgzY4k14vo7bBhdq4eKwoSdVp/pYjR/rfaKBns5v10ycZOFwf/A==}
+    dev: false
 
   /@antfu/utils/0.5.0:
     resolution: {integrity: sha512-MrAQ/MrPSxbh1bBrmwJjORfJymw4IqSHFBXqvxaga3ZdDM+/zokYF8DjyJpSjY2QmpmgQrajDUBJOWrYeARfzA==}

@@ -104,6 +104,24 @@ export const constantRouters: RouteRecordRaw[] = [
           icon: 'carbon:diagram',
           cache: false
         }
+      },
+      {
+        path: 'gaodeMap',
+        name: 'GaoDeMap',
+        component: () => import('@/views/plugins/maps/GaoDeMapIndex.vue'),
+        meta: {
+          title: '高德地图',
+          icon: 'carbon:map-center'
+        }
+      },
+      {
+        path: 'tencentMap',
+        name: 'TencentMap',
+        component: () => import('@/views/plugins/maps/TencentMapIndex.vue'),
+        meta: {
+          title: '腾讯地图',
+          icon: 'ep:map-location'
+        }
       }
     ]
   },

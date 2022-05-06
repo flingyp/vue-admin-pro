@@ -1,5 +1,5 @@
 <template>
-  <GlobalTab></GlobalTab>
+  <GlobalTabVue></GlobalTabVue>
   <router-view v-slot="{ Component, route }" v-if="!sysStore.isNeedReload">
     <transition name="fade-slide" mode="out-in" appear>
       <keep-alive v-if="route.meta.cache == null || route.meta.cache">
@@ -19,7 +19,7 @@
 import { NSpin } from 'naive-ui'
 import { useSysStore } from '@/store/modules/sysStore'
 
-import GlobalTab from '../globalTab/globalTab.vue'
+import GlobalTabVue from '../globalTab/globalTab.vue'
 
 const sysStore = useSysStore()
 </script>

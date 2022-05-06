@@ -1,3 +1,7 @@
 .n-card {
   border-radius: 1rem;
 }
+
+.n-layout-scroll-container {
+  height: 100vh !important;
+}

@@ -16,6 +16,8 @@
     "@amap/amap-jsapi-types": "^0.0.8",
     "@better-scroll/core": "^2.4.2",
     "@vueuse/core": "^8.2.5",
+    "@wangeditor/editor": "^5.0.1",
+    "@wangeditor/editor-for-vue": "^5.1.11",
     "axios": "^0.26.1",
     "colord": "^2.9.2",
     "echarts": "^5.3.2",

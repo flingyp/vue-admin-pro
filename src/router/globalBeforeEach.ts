@@ -1,4 +1,4 @@
-import { NavigationGuardNext, RouteLocationNormalized, Router } from 'vue-router'
+import { NavigationGuardNext, RouteLocationNormalized, Router, RouteRecordRaw } from 'vue-router'
 
 import { getLocalKey } from '@/utils/common/handleLocalStorage'
 import { useUserStore } from '@/store/modules/userStore'
@@ -27,14 +27,14 @@ const routeMenuProcess = async (userStore: any, sysStore: any, routerInstance: R
     // const isSysRoutes = filterNotSysLinkRoutes(asyncRouters)
 
     const filterSuccessRoutes = filterRoutes(asyncRouters, permissions)
-    filterSuccessRoutes.push(redirect404Router)
+    filterSuccessRoutes.push(redirect404Router as RouteRecordRaw)
     //  4. 挂载路由
     filterSuccessRoutes.forEach((route) => {
       mountRoute(route, routerInstance)
     })
 
     // 5. 生成菜单
-    const sysMenus = createMenus([...constantRouters, ...filterSuccessRoutes])
+    const sysMenus = createMenus([...constantRouters, ...filterSuccessRoutes] as RouteRecordRaw[])
     // 6. 放置状态管理
     sysStore.setConstantRoutes(constantRouters)
     sysStore.setAsyncRoutes(asyncRouters)

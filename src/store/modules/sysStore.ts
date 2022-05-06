@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
 import type { MenuOption, GlobalThemeOverrides } from 'naive-ui'
-import { ISysConfig, layoutModeType, ThemeColorTypes, themeModeType } from '@/types/sysTypes'
+import { ISysConfig, layoutModeType, ThemeColorTypes, themeModeType } from '@/types/SysTypes'
 
 import { getLocalKey, setLocalKey } from '@/utils/common/handleLocalStorage'
 

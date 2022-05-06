@@ -1,9 +1,9 @@
-import type { RouteRecordRaw } from 'vue-router'
-
 import Layout from '@/layouts/index.vue'
 import IframeIndexVue from '@/views/plugins/iframe/IframeIndex.vue'
+import RouterViewCom from '@/components/RouterViewCom.vue'
+import { CustomRouteRecordRaw } from '@/types/RouteType'
 
-export const constantRouters: RouteRecordRaw[] = [
+export const constantRouters: CustomRouteRecordRaw[] = [
   {
     path: '/',
     redirect: '/test',
@@ -13,7 +13,7 @@ export const constantRouters: RouteRecordRaw[] = [
   },
   {
     path: '/404',
-    redirect: '/common/404'
+    component: () => import('@/views/common/exceptPage/NotFound.vue')
   },
   {
     path: '/test',
@@ -122,6 +122,35 @@ export const constantRouters: RouteRecordRaw[] = [
           title: '腾讯地图',
           icon: 'ep:map-location'
         }
+      },
+      {
+        path: 'editor',
+        name: 'Editor',
+        component: RouterViewCom,
+        meta: {
+          title: '编辑器',
+          icon: 'icon-park-outline:editor'
+        },
+        children: [
+          {
+            path: 'richText',
+            name: 'EditorRichText',
+            component: () => import('@/views/plugins/editors/RichText.vue'),
+            meta: {
+              title: '富文本编辑器',
+              icon: 'arcticons:editor'
+            }
+          },
+          {
+            path: 'markdown',
+            name: 'EditorMarkdown',
+            component: () => import('@/views/plugins/editors/EditorMarkdown.vue'),
+            meta: {
+              title: 'Markdown编辑器',
+              icon: 'bi:markdown'
+            }
+          }
+        ]
       }
     ]
   },
@@ -146,7 +175,7 @@ export const constantRouters: RouteRecordRaw[] = [
       {
         path: 'two',
         name: 'MultiTwo',
-        component: () => import('@/views/common/multiLevelMenu/multiTwo/MultiTwoIndex.vue'),
+        component: RouterViewCom,
         meta: {
           title: '二级菜单',
           icon: 'octicon:multi-select-24'
@@ -247,7 +276,7 @@ export const constantRouters: RouteRecordRaw[] = [
   }
 ]
 
-export const redirect404Router: RouteRecordRaw = {
+export const redirect404Router: CustomRouteRecordRaw = {
   path: '/:catchAll(.*)',
   redirect: '/404',
   meta: {

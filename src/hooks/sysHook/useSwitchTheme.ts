@@ -1,6 +1,6 @@
 import { getLocalKey, setLocalKey } from '@/utils/common/handleLocalStorage'
 
-import { themeModeType } from '@/types/sysTypes'
+import { themeModeType } from '@/types/SysTypes'
 
 import { useSysStore } from '@/store/modules/sysStore'
 

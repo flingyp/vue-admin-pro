@@ -12,7 +12,7 @@ import { resolve } from 'path'
  * https://juejin.cn/post/6932037172178616334#heading-3
  * https://github.com/JetBrains/svg-sprite-loader/issues/434
  */
-import svgBuilder from './src/plugins/svgBuilder'
+import svgBuilder from './src/plugins/SvgBuilder'
 
 export default ({ command }: ConfigEnv): UserConfigExport => {
   return {

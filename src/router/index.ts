@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import { App } from 'vue'
 
 import { filterNotSysLinkRoutes } from './utils/handleRoute'
@@ -11,7 +11,7 @@ import GlobalBeforeEach from './globalBeforeEach'
 
 const routerInstance = createRouter({
   history: createWebHashHistory(),
-  routes: filterNotSysLinkRoutes(constantRouters)
+  routes: filterNotSysLinkRoutes(constantRouters as RouteRecordRaw[])
 })
 
 /**

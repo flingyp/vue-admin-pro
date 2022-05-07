@@ -138,7 +138,8 @@ export const constantRouters: CustomRouteRecordRaw[] = [
             component: () => import('@/views/plugins/editors/RichText.vue'),
             meta: {
               title: '富文本编辑器',
-              icon: 'arcticons:editor'
+              icon: 'arcticons:editor',
+              cache: false
             }
           },
           {

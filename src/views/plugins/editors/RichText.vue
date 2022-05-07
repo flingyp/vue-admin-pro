@@ -1,62 +1,15 @@
 <template>
-  <div class="shadow">
-    <Toolbar style="border-bottom: 1px solid #eee" :editor="editorRef" :defaultConfig="toolbarConfig" :mode="mode" />
-    <Editor
-      class="w-full !h-[75rem]"
-      v-model="valueHtml"
-      :defaultConfig="editorConfig"
-      :mode="mode"
-      @onCreated="handleCreated"
-    />
+  <div class="h-[75rem] shadow">
+    <RichTextCom v-model:content="richTextContent"></RichTextCom>
   </div>
 </template>
 
-<script>
-import '@wangeditor/editor/dist/css/style.css' // 引入 css
+<script lang="ts" setup>
+import { ref } from 'vue'
 
-import { onBeforeUnmount, ref, shallowRef, onMounted } from 'vue'
-import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
+import RichTextCom from '@/components/RichTextCom.vue'
 
-export default {
-  components: { Editor, Toolbar },
-  setup() {
-    // 编辑器实例，必须用 shallowRef
-    const editorRef = shallowRef()
-
-    // 内容 HTML
-    const valueHtml = ref('<p>hello</p>')
-
-    // 模拟 ajax 异步获取内容
-    onMounted(() => {
-      setTimeout(() => {
-        valueHtml.value = '<p>模拟 Ajax 异步设置内容</p>'
-      }, 1500)
-    })
-
-    const toolbarConfig = {}
-    const editorConfig = { placeholder: '请输入内容...' }
-
-    // 组件销毁时，也及时销毁编辑器
-    onBeforeUnmount(() => {
-      const editor = editorRef.value
-      if (editor == null) return
-      editor.destroy()
-    })
-
-    const handleCreated = (editor) => {
-      editorRef.value = editor // 记录 editor 实例，重要！
-    }
-
-    return {
-      editorRef,
-      valueHtml,
-      mode: 'default', // 或 'simple'
-      toolbarConfig,
-      editorConfig,
-      handleCreated
-    }
-  }
-}
+const richTextContent = ref('')
 </script>
 
 <style scoped></style>

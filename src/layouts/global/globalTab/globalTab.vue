@@ -1,10 +1,10 @@
 <template>
-  <div class="px-[0.5rem] bg-[#FFF] dark:bg-[#18181c] shadow-md flex items-center justify-between">
+  <div class="px-[0.5rem] pt-[0.6rem] bg-[#FFF] dark:bg-[#18181c] shadow flex items-center justify-between">
     <div class="flex items-center overflow-x-auto whitespace-nowrap flex-[1]">
       <TabItem v-for="(item, index) in sysStore.sysTabMenus" :key="index" :menu="item"></TabItem>
     </div>
 
-    <div class="h-full">
+    <div class="h-full pb-[0.6rem]">
       <n-dropdown trigger="click" :options="tabMenuSettingOptions" @select="selectTabSetting">
         <div class="cursor-pointer header-item-base-style">
           <IconifyIcon iconLabel="gg:menu-cheese" :fontSize="20"></IconifyIcon>
@@ -87,7 +87,7 @@ onMounted(() => {
 <style scoped>
 /*设置宽度,轨道颜色*/
 ::-webkit-scrollbar {
-  height: 8px;
+  height: 6px;
   background: transparent;
   border-radius: 10px;
 }

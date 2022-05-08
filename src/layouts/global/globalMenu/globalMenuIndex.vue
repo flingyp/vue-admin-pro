@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import type { MenuOption } from 'naive-ui'
 import { NMenu } from 'naive-ui'
@@ -25,13 +25,13 @@ const sysStore = useSysStore()
 
 // 监听路由的变化，更改菜单当前选中值
 const routeKey = ref(route.name as string)
-watch(
-  () => route.name,
-  (name) => {
-    // TODO: 当发现路由跳转了，及时修改页面标题的Title
-    routeKey.value = name as string
-  }
-)
+watchEffect(() => {
+  //  当发现路由跳转了，及时修改页面标题的Title
+  const pageTitle = route.meta.title || 'Vue Admin Pro'
+  document.getElementsByTagName('title')[0].innerHTML = `${pageTitle}`
+
+  routeKey.value = route.name as string
+})
 
 // 菜单数据
 // @ts-ignore

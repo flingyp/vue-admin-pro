@@ -1,6 +1,9 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import { App } from 'vue'
 
+// NProgress
+import NProgress from 'nprogress'
+
 import { filterNotSysLinkRoutes } from './utils/handleRoute'
 
 // 常量路由、 异步路由
@@ -14,6 +17,8 @@ const routerInstance = createRouter({
   routes: filterNotSysLinkRoutes(constantRouters as RouteRecordRaw[])
 })
 
+NProgress.configure({ easing: 'ease', speed: 500 })
+
 /**
  * 路由全局控制守卫：
  * 有Token的情况
@@ -26,7 +31,12 @@ const routerInstance = createRouter({
  *  2. 没有Token前提 查询要跳转的页面是否是不需要Token的，如果不需要这进入该页面
  */
 routerInstance.beforeEach(async (to, from, next) => {
+  NProgress.start() // 进度条开始
   await GlobalBeforeEach(to, from, next, routerInstance)
+})
+
+routerInstance.afterEach(async () => {
+  NProgress.done() // 进度条结束
 })
 
 export default routerInstance

@@ -42,8 +42,6 @@ const routeMenuProcess = async (userStore: any, sysStore: any, routerInstance: R
   }
 }
 
-// TODO: nprogress
-
 /**
  * 路由全局控制守卫：
  * 有Token的情况
@@ -75,6 +73,7 @@ export default async (
       if (!isAddAsyncRouter) {
         await routeMenuProcess(userStore, sysStore, routerInstance)
         isAddAsyncRouter = true
+
         next({ path: to.fullPath, replace: true })
       }
     } else if (from.name === undefined && to.name !== 'Login') {

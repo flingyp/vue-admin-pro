@@ -1,4 +1,4 @@
 {
-  "cSpell.words": ["echart", "echarts", "iconify", "pinia", "pnpm", "sider", "vditor", "vite"],
+  "cSpell.words": ["echart", "echarts", "iconify", "nprogress", "pinia", "pnpm", "sider", "vditor", "vite"],
   "typescript.tsdk": "node_modules/typescript/lib"
 }

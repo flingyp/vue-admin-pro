@@ -37,7 +37,7 @@ const isDisabled = computed(() => {
 
 const tabMenuSettingOptions: DropdownOption[] = reactive([
   {
-    label: '重新加载',
+    label: '重新加载页面',
     key: 'reload'
   },
   {

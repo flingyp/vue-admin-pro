@@ -129,7 +129,8 @@ export const constantRouters: CustomRouteRecordRaw[] = [
         component: RouterViewCom,
         meta: {
           title: '编辑器',
-          icon: 'icon-park-outline:editor'
+          icon: 'icon-park-outline:editor',
+          cache: false
         },
         children: [
           {
@@ -138,8 +139,7 @@ export const constantRouters: CustomRouteRecordRaw[] = [
             component: () => import('@/views/plugins/editors/RichText.vue'),
             meta: {
               title: '富文本编辑器',
-              icon: 'arcticons:editor',
-              cache: false
+              icon: 'arcticons:editor'
             }
           },
           {

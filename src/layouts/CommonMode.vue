@@ -15,9 +15,7 @@
     </template>
 
     <template #main>
-      <KeepAlive>
-        <Component :is="GlobalMainIndexVue"></Component>
-      </KeepAlive>
+      <Component :is="GlobalMainIndexVue"></Component>
     </template>
   </BasicMenuModeVue>
 </template>

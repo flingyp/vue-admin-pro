@@ -35,6 +35,7 @@ specifiers:
   prettier: ^2.6.1
   svg-sprite-loader: ^6.0.11
   typescript: ^4.4.4
+  vditor: ^3.8.13
   vite: ^2.7.2
   vite-plugin-mock: ^2.9.6
   vite-plugin-windicss: ^1.8.3
@@ -56,6 +57,7 @@ dependencies:
   mockjs: 1.1.0
   naive-ui: 2.27.0_vue@3.2.31
   pinia: 2.0.12_typescript@4.6.3+vue@3.2.31
+  vditor: 3.8.13
   vue: 3.2.31
   vue-router: 4.0.14_vue@3.2.31
 
@@ -1933,6 +1935,10 @@ packages:
     resolution: {integrity: sha512-oSyFlqaTHCItVRGK5RmrmjB+CmaMOW7IaNA/kdxqhoa6d17j/5ce9O9eWXmV/KEdRwqpQA+Vqe8a8Bsybu4YnA==}
     engines: {node: '>=8'}
     dev: true
+
+  /diff-match-patch/1.0.5:
+    resolution: {integrity: sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==}
+    dev: false
 
   /diff-sequences/27.5.1:
     resolution: {integrity: sha512-k1gCAXAsNgLwEL+Y8Wvl+M6oEFj5bgazfZULpS5CneoPPXRaCCW7dm+q21Ky2VEE5X+VeRDBVg1Pcvvsr4TtNQ==}
@@ -5541,6 +5547,12 @@ packages:
     dependencies:
       evtd: 0.2.3
       vue: 3.2.31
+    dev: false
+
+  /vditor/3.8.13:
+    resolution: {integrity: sha512-vp6OF1n9wIduKtLvvTYtn+7Gr1Az6MqDIEBpLzik+PTQ208YjrcQ+Ba4AHXMMvJgDtbYP3PdY8OixWKecFzo2A==}
+    dependencies:
+      diff-match-patch: 1.0.5
     dev: false
 
   /vfonts/0.0.3:

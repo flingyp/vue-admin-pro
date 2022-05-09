@@ -1,5 +1,7 @@
 import { NavigationGuardNext, RouteLocationNormalized, Router, RouteRecordRaw } from 'vue-router'
 
+import lodashUtil from 'lodash'
+
 import { getLocalKey } from '@/utils/common/handleLocalStorage'
 import { useUserStore } from '@/store/modules/userStore'
 import { useSysStore } from '@/store/modules/sysStore'
@@ -10,24 +12,22 @@ import { filterRoutes, mountRoute, createMenus } from './utils/handleRoute'
 import { constantRouters, redirect404Router } from './routers/constantRouters'
 import { asyncRouters } from './routers/asyncRouters'
 
-// 是否添加了动态路由
-let isAddAsyncRouter: boolean = false
+// 是否挂载了404通用路由
+let isMounted404Router: boolean = false
 
 // 白名单路由（不需要token，定义路由name）
 const whiteRouteByName: string[] = ['Login']
 
 const routeMenuProcess = async (userStore: any, sysStore: any, routerInstance: Router) => {
-  // 1. 获取用户信息
-  await userStore.getUserInfo()
+  // 深拷贝异步路由
+  const deepAsyncRouters = lodashUtil.cloneDeep(asyncRouters)
+
   // 2. 获取权限
   const permissions = userStore.getPermissions
   if (permissions && permissions.length !== 0) {
     // 3. 过滤路由
-    // 过滤外链和内链路由，不需要挂载到VueRouter中，自行处理：TODO
-    // const isSysRoutes = filterNotSysLinkRoutes(asyncRouters)
+    const filterSuccessRoutes = filterRoutes(deepAsyncRouters as RouteRecordRaw[], permissions)
 
-    const filterSuccessRoutes = filterRoutes(asyncRouters, permissions)
-    filterSuccessRoutes.push(redirect404Router as RouteRecordRaw)
     //  4. 挂载路由
     filterSuccessRoutes.forEach((route) => {
       mountRoute(route, routerInstance)
@@ -37,7 +37,7 @@ const routeMenuProcess = async (userStore: any, sysStore: any, routerInstance: R
     const sysMenus = createMenus([...constantRouters, ...filterSuccessRoutes] as RouteRecordRaw[])
     // 6. 放置状态管理
     sysStore.setConstantRoutes(constantRouters)
-    sysStore.setAsyncRoutes(asyncRouters)
+    sysStore.setAsyncRoutes(filterSuccessRoutes)
     sysStore.setSysMenus(sysMenus)
   }
 }
@@ -63,30 +63,41 @@ export default async (
   const localAccessToken = getLocalKey('accessToken')
   const userStore = useUserStore()
   const sysStore = useSysStore()
+
   // 有token情况
   if (localAccessToken && localAccessToken !== '') {
+    // 1. 获取用户信息
+    await userStore.getUserInfo()
     if (from.name === 'Login' && to.name !== 'Login') {
       /**
        * 通过 isAddAsyncRouter 来控制是否第一次登陆后添加了动态路由
        * 注意：next({ path: to.path, replace: false }) 和 next()的理解
        */
-      if (!isAddAsyncRouter) {
-        await routeMenuProcess(userStore, sysStore, routerInstance)
-        isAddAsyncRouter = true
 
+      if (!sysStore.isAddAsyncRouter) {
+        await routeMenuProcess(userStore, sysStore, routerInstance)
+        sysStore.isAddAsyncRouter = true
         next({ path: to.fullPath, replace: true })
       }
     } else if (from.name === undefined && to.name !== 'Login') {
       // 刷新了页面的情况
-      if (!isAddAsyncRouter) {
+
+      if (!sysStore.isAddAsyncRouter) {
         await routeMenuProcess(userStore, sysStore, routerInstance)
-        isAddAsyncRouter = true
+        sysStore.isAddAsyncRouter = true
         next({ path: to.fullPath, replace: true })
       }
     } else if (to.name === 'Login') {
       // 有token，但是想手动跳转登录页，返回指定页面
       next({ path: '/layout' })
     }
+
+    // 挂载404通用路由 只在系统第一次进行挂载即可
+    if (!isMounted404Router) {
+      mountRoute(redirect404Router as RouteRecordRaw, routerInstance)
+      isMounted404Router = true
+    }
+
     // 放行路由
     next()
   } else {

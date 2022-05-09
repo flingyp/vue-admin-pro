@@ -18,7 +18,6 @@ const routerInstance = createRouter({
 })
 
 NProgress.configure({ easing: 'ease', speed: 500 })
-
 /**
  * 路由全局控制守卫：
  * 有Token的情况

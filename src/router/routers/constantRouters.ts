@@ -83,6 +83,15 @@ export const constantRouters: CustomRouteRecordRaw[] = [
           title: '500页面',
           icon: 'la:500px'
         }
+      },
+      {
+        path: 'curd',
+        name: 'CURD',
+        component: () => import('@/views/common/curd/CurdForm.vue'),
+        meta: {
+          title: '基础列表页',
+          icon: 'fluent:form-new-20-regular'
+        }
       }
     ]
   },

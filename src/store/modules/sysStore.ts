@@ -7,13 +7,17 @@ import { getLocalKey, setLocalKey } from '@/utils/common/handleLocalStorage'
 
 import { addThemeCssVarsToHtml, getSysThemeColors } from '../utils/themeColor'
 
+import { asyncRouters } from '@/router/routers/asyncRouters'
+
 interface ISysStoreState {
   constantRoutes: RouteRecordRaw[]
   asyncRoutes: RouteRecordRaw[]
+  // allAsyncRoutes: RouteRecordRaw[]
   sysMenus: MenuOption[]
   sysConfig: ISysConfig
   tabMenusKey: String[]
   isNeedReload: boolean
+  isAddAsyncRouter: boolean
 }
 
 export const useSysStore = defineStore('sysStore', {
@@ -21,6 +25,7 @@ export const useSysStore = defineStore('sysStore', {
     const sysStoreState: ISysStoreState = {
       constantRoutes: [],
       asyncRoutes: [],
+      // allAsyncRoutes: asyncRouters as RouteRecordRaw[],
       sysMenus: [],
       sysConfig: {
         themeMode: (getLocalKey('themeMode') as themeModeType) || 'light',
@@ -29,7 +34,8 @@ export const useSysStore = defineStore('sysStore', {
         themeColor: getLocalKey('themeColor') || '#18a058'
       },
       tabMenusKey: getLocalKey('tabMenu')?.split(',') || [],
-      isNeedReload: false
+      isNeedReload: false,
+      isAddAsyncRouter: false // 是否添加了动态路由
     }
     return sysStoreState
   },

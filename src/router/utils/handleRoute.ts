@@ -11,10 +11,27 @@ const handleOperation = (handleRoutes: RouteRecordRaw[], handlePermissions: stri
     if (item.children && item.children.length !== 0) {
       item.children = handleOperation(item.children, handlePermissions)
     }
+
+    /**
+     * 用户是否有权限根据 *:*:* 结构去判断
+     * (* 代表任何权限， 一般第一个代表系统，第二个代表系统模块，第三个代表具体的模块业务)
+     * 例如：sys:user:update： 解读为用户模块更新权限）
+     */
     let isHavePermission = false
     if (item.meta?.permission) {
       isHavePermission = item.meta.permission.some((_per) => {
-        return handlePermissions.includes(_per)
+        const permissionArr = _per.split(':')
+        return handlePermissions.some((person) => {
+          const personPermissionArr = person.split(':')
+          if (
+            (permissionArr[0] === personPermissionArr[0] || personPermissionArr[0] === '*') &&
+            (permissionArr[1] === personPermissionArr[1] || personPermissionArr[1] === '*') &&
+            (permissionArr[2] === personPermissionArr[2] || personPermissionArr[2] === '*')
+          ) {
+            return true
+          }
+          return false
+        })
       })
     }
     if (isHavePermission) {
@@ -106,6 +123,15 @@ const handleNotSysLinkOperation = (routes: RouteRecordRaw[]) => {
  */
 export const mountRoute = (route: RouteRecordRaw, routerInstance: Router) => {
   routerInstance.addRoute(route)
+}
+
+/**
+ * 移除路由
+ * @param route
+ * @param routerInstance
+ */
+export const removeRoute = (route: RouteRecordRaw, routerInstance: Router) => {
+  routerInstance.removeRoute(route.name!)
 }
 
 /**

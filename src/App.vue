@@ -2,6 +2,7 @@
   <n-config-provider
     :theme="sysStore.themeMode === 'light' ? undefined : darkTheme"
     :theme-overrides="sysStore.naiveUiGlobalThemeOverrides"
+    :locale="locale"
   >
     <n-notification-provider>
       <!-- <suspense> 处理在setup语法糖直接使用await导致页面空白问题 -->
@@ -14,9 +15,12 @@
 </template>
 
 <script setup lang="ts">
-import { NConfigProvider, NNotificationProvider, darkTheme } from 'naive-ui'
+import { ref } from 'vue'
+import { NConfigProvider, NNotificationProvider, darkTheme, zhCN } from 'naive-ui'
+import type { NLocale } from 'naive-ui'
 
 import { useSysStore } from '@/store/modules/sysStore'
 
 const sysStore = useSysStore()
+const locale = ref<NLocale | null>(zhCN)
 </script>

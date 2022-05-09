@@ -15,6 +15,9 @@ const SysUserLogin = (username: string, password: string) => {
   if (username === 'admin' && password === '123456') {
     return successData('admin-token')
   }
+  if (username === 'user' && password === '123456') {
+    return successData('user-token')
+  }
   return failData('用户名或密码错误')
 }
 
@@ -27,7 +30,17 @@ const SysUserInfo = (token: string) => {
       nickname: '超级管理员',
       birthday: MockRandom.date(),
       roles: ['admin'],
-      permissions: ['sys:user:*', 'sys:test:*']
+      permissions: ['sys:root:*']
+    })
+  }
+  if (token === 'user-token') {
+    return successData({
+      id: MockRandom.id(),
+      username: 'user',
+      nickname: '普通用户',
+      birthday: MockRandom.date(),
+      roles: ['user'],
+      permissions: ['sys:user:*']
     })
   }
   return failData('token错误')

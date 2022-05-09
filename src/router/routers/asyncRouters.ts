@@ -51,6 +51,16 @@ export const asyncRouters: CustomRouteRecordRaw[] = [
           icon: 'icon-park-outline:permissions',
           permission: ['sys:root:*', 'sys:user:*']
         }
+      },
+      {
+        path: 'button',
+        name: 'ButtonPermission',
+        component: () => import('@/views/permissions/ButtonPermission.vue'),
+        meta: {
+          title: '按钮权限控制',
+          icon: 'icon-park-outline:permissions',
+          permission: ['sys:root:*', 'sys:user:*']
+        }
       }
     ]
   }

@@ -19,6 +19,9 @@ let isMounted404Router: boolean = false
 const whiteRouteByName: string[] = ['Login']
 
 const routeMenuProcess = async (userStore: any, sysStore: any, routerInstance: Router) => {
+  // 1. 获取用户信息
+  await userStore.getUserInfo()
+
   // 深拷贝异步路由
   const deepAsyncRouters = lodashUtil.cloneDeep(asyncRouters)
 
@@ -35,7 +38,8 @@ const routeMenuProcess = async (userStore: any, sysStore: any, routerInstance: R
 
     // 5. 生成菜单
     const sysMenus = createMenus([...constantRouters, ...filterSuccessRoutes] as RouteRecordRaw[])
-    // 6. 放置状态管理
+
+    // 6. 初始化状态管理
     sysStore.setConstantRoutes(constantRouters)
     sysStore.setAsyncRoutes(filterSuccessRoutes)
     sysStore.setSysMenus(sysMenus)
@@ -66,8 +70,6 @@ export default async (
 
   // 有token情况
   if (localAccessToken && localAccessToken !== '') {
-    // 1. 获取用户信息
-    await userStore.getUserInfo()
     if (from.name === 'Login' && to.name !== 'Login') {
       /**
        * 通过 isAddAsyncRouter 来控制是否第一次登陆后添加了动态路由

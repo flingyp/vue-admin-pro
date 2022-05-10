@@ -40,8 +40,9 @@ const popselectValue = ref(null)
 const exitSystemFun = async () => {
   removeLocalKey('accessToken')
   removeLocalKey('tabMenu')
-  sysStore.isAddAsyncRouter = false
-  sysStore.setTabMenuKeys([])
+  // reset stores
+  userStore.$reset()
+  sysStore.$reset()
 }
 
 const clickPopselect = async (value: string) => {

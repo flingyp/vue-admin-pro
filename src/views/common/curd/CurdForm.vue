@@ -42,7 +42,7 @@
 
 <script setup lang="ts">
 import { h, ref, reactive } from 'vue'
-import { NDataTable, NButton, NInput } from 'naive-ui'
+import { NDataTable, NButton, NInput, PaginationProps } from 'naive-ui'
 import type { DataTableColumn } from 'naive-ui'
 
 import IconifyIconVue from '@/components/IconifyIcon.vue'
@@ -139,12 +139,6 @@ const TablePagination = reactive({
   page: 1,
   pageSize: 5,
   pageSizes: [5, 10],
-  // pageSizes: [
-  //   { label: '5 / 页', value: 5 },
-  //   { label: '10 / 页', value: 10 },
-  //   { label: '15 / 页', value: 15 },
-  //   { label: '20 / 页', value: 20 }
-  // ],
   showSizePicker: true,
   onChange: (page: number) => {
     TablePagination.page = page

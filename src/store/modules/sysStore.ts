@@ -12,7 +12,6 @@ import { asyncRouters } from '@/router/routers/asyncRouters'
 interface ISysStoreState {
   constantRoutes: RouteRecordRaw[]
   asyncRoutes: RouteRecordRaw[]
-  // allAsyncRoutes: RouteRecordRaw[]
   sysMenus: MenuOption[]
   sysConfig: ISysConfig
   tabMenusKey: String[]

@@ -13,7 +13,10 @@ export const constantRouters: CustomRouteRecordRaw[] = [
   },
   {
     path: '/404',
-    component: () => import('@/views/common/exceptPage/NotFound.vue')
+    component: () => import('@/views/common/exceptPage/NotFound.vue'),
+    meta: {
+      isShow: false
+    }
   },
   {
     path: '/test',
@@ -26,7 +29,8 @@ export const constantRouters: CustomRouteRecordRaw[] = [
         component: () => import('@/views/test.vue'),
         meta: {
           title: '测试页面',
-          icon: 'fluent:window-dev-tools-16-regular'
+          icon: 'fluent:window-dev-tools-16-regular',
+          sort: 100
         }
       }
     ]
@@ -279,7 +283,8 @@ export const constantRouters: CustomRouteRecordRaw[] = [
         component: () => import('@/views/about/AboutIndex.vue'),
         meta: {
           title: '关于',
-          icon: 'cib:about-me'
+          icon: 'cib:about-me',
+          sort: -99
         }
       }
     ]

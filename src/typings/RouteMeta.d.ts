@@ -14,6 +14,8 @@ declare module 'vue-router' {
     cache?: boolean
     // 路由菜单地址： 系统链接 | 内链链接 | 外链链接
     link?: 'SYS_Link' | 'Internal_Link' | 'External_Link'
+    // 菜单排序（默认是0）
+    sort?: number
 
     [key: string]: any
   }

@@ -1,6 +1,8 @@
 import type { MenuOption } from 'naive-ui'
 import type { Router, RouteRecordRaw } from 'vue-router'
 
+import lodashUtil from 'lodash'
+
 import iconifyRender from '@/utils/iconifyIconRender'
 
 // 过滤路由方法
@@ -55,8 +57,11 @@ const handleCreateMenu = (routes: RouteRecordRaw[]): MenuOption[] => {
       if (route.children) {
         menu.children = handleCreateMenu(route.children)
       }
+
       menu.label = route.meta?.title
       menu.key = route.name as string
+      menu.sort = route.meta?.sort || 0
+
       if (route.meta?.icon) {
         menu.icon = iconifyRender(route.meta?.icon)
       }
@@ -70,6 +75,7 @@ const handleCreateMenu = (routes: RouteRecordRaw[]): MenuOption[] => {
         menu.link = route.meta.link
         menu.url = route.meta.url
       }
+
       if (JSON.stringify(menu) !== '{}') {
         menus.push(menu)
       }
@@ -157,13 +163,18 @@ export const filterRoutes = (routes: RouteRecordRaw[], permissions: string[]): R
  */
 export const createMenus = (routes: RouteRecordRaw[]): MenuOption[] => {
   const menus = handleCreateMenu(routes)
+
   const newMenus = menus.map((menu) => {
     if (menu.children && menu.children.length === 1) {
       return menu.children[0]
     }
     return menu
   })
-  return newMenus
+
+  // 按照 sort 字段降序排列
+  const sortMenus = lodashUtil.orderBy(newMenus, ['sort'], ['desc'])
+
+  return sortMenus
 }
 
 /**

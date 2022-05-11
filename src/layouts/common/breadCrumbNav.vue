@@ -46,10 +46,10 @@ const judgeMenuByRouteName: (routeName: string, menu: MenuOption) => boolean = (
  * @param bigMenu
  * @param routeName
  */
-const getBreadCrumbMenu = function (bigMenu: MenuOption, routeName: string): MenuOption[] {
+const getBreadCrumbMenu = (bigMenu: MenuOption, routeName: string): MenuOption[] => {
   const breadcrumbMenu: MenuOption[] = []
   breadcrumbMenu.push(bigMenu)
-  const getTheseMenuByKey = function (menu: MenuOption) {
+  const getTheseMenuByKey = (menu: MenuOption) => {
     if (menu.children) {
       menu.children.forEach((item) => {
         if (judgeMenuByRouteName(routeName, item)) {

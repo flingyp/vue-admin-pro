@@ -43,6 +43,7 @@ specifiers:
   vite-plugin-mock: ^2.9.6
   vite-plugin-windicss: ^1.8.3
   vue: ^3.2.25
+  vue-animate-number: ^0.4.2
   vue-router: ^4.0.12
   vue-tsc: ^0.29.8
   windicss: ^3.5.1
@@ -64,6 +65,7 @@ dependencies:
   pinia: 2.0.12_typescript@4.6.3+vue@3.2.31
   vditor: 3.8.13
   vue: 3.2.31
+  vue-animate-number: 0.4.2
   vue-router: 4.0.14_vue@3.2.31
 
 devDependencies:
@@ -2906,7 +2908,6 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /function-bind/1.1.1:
@@ -4872,6 +4873,12 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /shifty/2.17.1:
+    resolution: {integrity: sha512-ime0aar6UX4OHG8WjC84ThqLU6PWf/6UdSLCMJFvWmeYx1PmuxvRNwiJom4py7GVLv10xRfDKt0MssotIxkYhQ==}
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: false
+
   /side-channel/1.0.4:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
     dependencies:
@@ -5766,6 +5773,12 @@ packages:
       vscode-pug-languageservice: 0.29.8
       vscode-typescript-languageservice: 0.29.8
     dev: true
+
+  /vue-animate-number/0.4.2:
+    resolution: {integrity: sha1-+okB3kx1j6hEoEQv9y2+Mp3sxHE=}
+    dependencies:
+      shifty: 2.17.1
+    dev: false
 
   /vue-demi/0.12.5_vue@3.2.31:
     resolution: {integrity: sha512-BREuTgTYlUr0zw0EZn3hnhC3I6gPWv+Kwh4MCih6QcAeaTlaIX0DwOVN0wHej7hSvDPecz4jygy/idsgKfW58Q==}

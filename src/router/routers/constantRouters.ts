@@ -6,7 +6,7 @@ import { CustomRouteRecordRaw } from '@/types/RouteType'
 export const constantRouters: CustomRouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/test',
+    redirect: '/common/component',
     meta: {
       isShow: false
     }
@@ -30,7 +30,7 @@ export const constantRouters: CustomRouteRecordRaw[] = [
         meta: {
           title: '测试页面',
           icon: 'fluent:window-dev-tools-16-regular',
-          sort: 100
+          sort: -98
         }
       }
     ]

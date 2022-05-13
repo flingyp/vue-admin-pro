@@ -1,5 +1,5 @@
 <template>
-  <div class="px-[0.5rem] pt-[0.6rem] bg-[#FFF] dark:bg-[#18181c] shadow flex items-center justify-between">
+  <div class="px-[0.5rem] pt-[0.2rem] bg-[#FFF] shadow flex items-center justify-between dark:bg-[#18181c]">
     <div class="flex items-center overflow-x-auto whitespace-nowrap flex-[1]">
       <TabItem v-for="(item, index) in sysStore.sysTabMenus" :key="index" :menu="item"></TabItem>
     </div>
@@ -87,23 +87,23 @@ onMounted(() => {
 <style scoped>
 /*设置宽度,轨道颜色*/
 ::-webkit-scrollbar {
-  height: 6px;
+  height: 5px;
   background: transparent;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 /*设置宽度,轨道颜色*/
 :hover::-webkit-scrollbar-track {
   background: #eee;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 /*滚动条*/
 ::-webkit-scrollbar-thumb {
   background: transparent;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 /*滚动条*/
 :hover::-webkit-scrollbar-thumb {
   background: var(--primaryColor);
-  border-radius: 10px;
+  border-radius: 5px;
 }
 </style>

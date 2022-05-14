@@ -51,6 +51,14 @@
           <span>顶部栏反转色</span>
           <n-switch v-model:value="topIsInverted" @update:value="changeTopIsInverted"></n-switch>
         </div>
+        <div class="w-full flex justify-between items-center my-[1rem]">
+          <span>侧边栏宽度</span>
+          <n-input-number v-model:value="LeftExtendWidth" @update:value="changeLeftExtendWidth" class="w-[10rem]" />
+        </div>
+        <div class="w-full flex justify-between items-center my-[1rem]">
+          <span>侧边栏收缩宽度</span>
+          <n-input-number v-model:value="LeftShrinkWidth" @update:value="changeLeftShrinkWidth" class="w-[10rem]" />
+        </div>
       </BasicConfigItemBox>
     </n-drawer-content>
   </n-drawer>
@@ -58,7 +66,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { NDrawer, NDrawerContent, NButton, NSwitch } from 'naive-ui'
+import { NDrawer, NDrawerContent, NButton, NSwitch, NInputNumber } from 'naive-ui'
 import type { DrawerPlacement } from 'naive-ui'
 
 import { useSysStore } from '@/store/modules/sysStore'
@@ -177,6 +185,18 @@ const changeLeftIsInverted = (value: boolean) => {
 const topIsInverted = ref(sysStore.topIsInverted)
 const changeTopIsInverted = (value: boolean) => {
   sysStore.setTopIsInverted(value)
+}
+
+// 侧边栏宽度
+const LeftExtendWidth = ref(sysStore.leftExtendWidth)
+const changeLeftExtendWidth = () => {
+  sysStore.setLeftExtendWidth(LeftExtendWidth.value)
+}
+
+// 侧边栏收缩宽度
+const LeftShrinkWidth = ref(sysStore.leftShrinkWidth)
+const changeLeftShrinkWidth = () => {
+  sysStore.setLeftShrinkWidth(LeftShrinkWidth.value)
 }
 
 defineExpose({

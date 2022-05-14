@@ -17,4 +17,6 @@ export interface ISysConfig {
   themeColor: string // 主题颜色
   leftIsInverted: boolean // 左侧侧边栏是否显示反转色
   topIsInverted: boolean // 顶部是否显示反转色
+  leftExtendWidth: number // 侧边栏宽度
+  leftShrinkWidth: number //  侧边栏收缩宽度
 }

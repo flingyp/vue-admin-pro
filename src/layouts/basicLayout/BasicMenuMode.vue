@@ -4,10 +4,10 @@
     <n-layout-sider
       v-show="isNeedSider"
       bordered
-      :width="264"
+      :width="sysStore.leftExtendWidth"
+      :collapsed-width="sysStore.leftShrinkWidth"
       :native-scrollbar="false"
       collapse-mode="width"
-      :collapsed-width="64"
       :collapsed="sysStore.siderMenuCollapsed"
       class="h-full max-h-full"
       :inverted="sysStore.leftIsInverted"

@@ -29,7 +29,9 @@ export const useSysStore = defineStore('sysStore', {
         layoutMode: 'LEFT_MENU_MODE',
         themeColor: getLocalKey('themeColor') || '#18a058',
         leftIsInverted: false,
-        topIsInverted: false
+        topIsInverted: false,
+        leftExtendWidth: 264,
+        leftShrinkWidth: 50
       },
       tabMenusKey: getLocalKey('tabMenu')?.split(',') || [],
       isNeedReload: false,
@@ -44,6 +46,8 @@ export const useSysStore = defineStore('sysStore', {
     themeColor: (state) => state.sysConfig.themeColor,
     leftIsInverted: (state) => state.sysConfig.leftIsInverted,
     topIsInverted: (state) => state.sysConfig.topIsInverted,
+    leftExtendWidth: (state) => state.sysConfig.leftExtendWidth,
+    leftShrinkWidth: (state) => state.sysConfig.leftShrinkWidth,
     naiveUiGlobalThemeOverrides(state): GlobalThemeOverrides {
       // 主色值
       const primaryColor: [ThemeColorTypes, string] = ['primary', state.sysConfig.themeColor]
@@ -161,6 +165,14 @@ export const useSysStore = defineStore('sysStore', {
     // 设置左侧侧边栏是否为反转色
     setTopIsInverted(value: boolean) {
       this.sysConfig.topIsInverted = value
+    },
+    // 设置侧边栏宽度
+    setLeftExtendWidth(value: number) {
+      this.sysConfig.leftExtendWidth = value
+    },
+    // 设置侧边栏收缩的宽度
+    setLeftShrinkWidth(value: number) {
+      this.sysConfig.leftShrinkWidth = value
     }
   }
 })

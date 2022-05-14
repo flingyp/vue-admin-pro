@@ -10,12 +10,13 @@
       :collapsed-width="64"
       :collapsed="sysStore.siderMenuCollapsed"
       class="h-full max-h-full"
+      :inverted="sysStore.leftIsInverted"
     >
       <slot name="sider"> 侧边栏 </slot>
     </n-layout-sider>
 
     <n-layout>
-      <n-layout-header bordered class="h-[6.4rem]">
+      <n-layout-header bordered class="h-[6.4rem]" :inverted="sysStore.topIsInverted">
         <slot name="header"> 头部部分 </slot>
       </n-layout-header>
 

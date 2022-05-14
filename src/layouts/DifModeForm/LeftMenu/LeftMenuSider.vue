@@ -1,10 +1,10 @@
 <template>
   <!-- 左侧菜单模式-侧边 -->
   <LogoTitle></LogoTitle>
-  <GlobalMenuIndex mode="vertical"></GlobalMenuIndex>
+  <GlobalMenu mode="vertical"></GlobalMenu>
 </template>
 
 <script setup lang="ts">
-import LogoTitle from '@/layouts/common/logoTitle.vue'
-import GlobalMenuIndex from '@/layouts/global/globalMenu/globalMenuIndex.vue'
+import LogoTitle from '@/layouts/common/LogoTitle.vue'
+import GlobalMenu from '@/layouts/global/globalMenu/GlobalMenu.vue'
 </script>

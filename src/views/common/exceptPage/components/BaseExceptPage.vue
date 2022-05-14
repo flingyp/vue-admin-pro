@@ -6,7 +6,9 @@
     </div>
 
     <!-- 回首页的按钮 -->
-    <n-button type="primary" size="medium" class="px-[10rem] mt-[4rem] !text-[#fff]">回首页</n-button>
+    <n-button type="primary" size="medium" class="px-[10rem] mt-[4rem] !text-[#fff]" @click="GoBackAbout"
+      >回关于</n-button
+    >
   </div>
 </template>
 
@@ -14,9 +16,12 @@
 import { computed } from 'vue'
 import type { Component } from 'vue'
 import { NButton } from 'naive-ui'
+import { useRouter } from 'vue-router'
 
 import SvgNotFound from './SvgNotFound.vue'
 import SvgServerExcept from './SvgServerExcept.vue'
+
+const router = useRouter()
 
 type ExceptPageType = '404' | '500'
 
@@ -36,4 +41,8 @@ const TypeComponent = computed<Component | undefined>(() => {
   }
   return undefined
 })
+
+const GoBackAbout = () => {
+  router.push({ name: 'AboutIndex' })
+}
 </script>

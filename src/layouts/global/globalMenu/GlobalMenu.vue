@@ -1,9 +1,9 @@
 <template>
-  <n-menu :value="routeKey" :mode="mode" :options="menuOptions" @update:value="clickMenu" />
+  <n-menu :inverted="isInverted" :value="routeKey" :mode="mode" :options="menuOptions" @update:value="clickMenu" />
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import type { MenuOption } from 'naive-ui'
 import { NMenu } from 'naive-ui'
@@ -51,4 +51,12 @@ const clickMenu = (key: string, menu: MenuOption) => {
     sysStore.addTabMenuKey(key)
   }
 }
+
+const isInverted = computed(() => {
+  const currentLayoutMode = sysStore.layoutMode
+  if (currentLayoutMode === 'TOP_MENU_MODE') {
+    return sysStore.topIsInverted
+  }
+  return sysStore.leftIsInverted
+})
 </script>

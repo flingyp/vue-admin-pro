@@ -1,6 +1,18 @@
 <template>
   <n-drawer v-model:show="active" :width="400" :placement="placement" display-directive="show">
     <n-drawer-content title="系统设置">
+      <BasicConfigItemBox title="主题模式">
+        <div class="w-full text-center">
+          <n-switch v-model:value="ThemeModeActive" size="medium" @update:value="changeThemeMode">
+            <template #checked>
+              <IconifyIconVue icon-label="bi:moon-stars" :fontSize="12" />
+            </template>
+            <template #unchecked>
+              <IconifyIconVue icon-label="bi:cloud-sun" :fontSize="12" />
+            </template>
+          </n-switch>
+        </div>
+      </BasicConfigItemBox>
       <BasicConfigItemBox title="布局模式">
         <n-button
           v-for="(item, index) in layoutItemsArray"
@@ -29,25 +41,40 @@
           </div>
         </div>
       </BasicConfigItemBox>
+
+      <BasicConfigItemBox title="界面功能">
+        <div class="w-full flex justify-between items-center my-[1rem]">
+          <span>侧边栏反转色</span>
+          <n-switch v-model:value="leftIsInverted" @update:value="changeLeftIsInverted"></n-switch>
+        </div>
+        <div class="w-full flex justify-between items-center my-[1rem]">
+          <span>顶部栏反转色</span>
+          <n-switch v-model:value="topIsInverted" @update:value="changeTopIsInverted"></n-switch>
+        </div>
+      </BasicConfigItemBox>
     </n-drawer-content>
   </n-drawer>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { NDrawer, NDrawerContent, NButton } from 'naive-ui'
+import { NDrawer, NDrawerContent, NButton, NSwitch } from 'naive-ui'
 import type { DrawerPlacement } from 'naive-ui'
 
 import { useSysStore } from '@/store/modules/sysStore'
-
-import BasicConfigItemBox from './components/basicConfigItemBox.vue'
-import SvgIcon from '@/components/svgIcon.vue'
-
-import { layoutModeType } from '@/types/sysTypes'
-
 import { getLocalKey, setLocalKey } from '@/utils/common/handleLocalStorage'
 
+import SvgIcon from '@/components/svgIcon.vue'
+import IconifyIconVue from '@/components/iconifyIcon.vue'
+import BasicConfigItemBox from './components/BasicConfigItemBox.vue'
+
+import type { layoutModeType } from '@/types/sysTypes'
+
+import { useSwitchTheme } from '@/hooks/sysHook/useSwitchTheme'
+
 const sysStore = useSysStore()
+
+const switchTheme = useSwitchTheme()
 
 const active = ref(false)
 const placement = ref<DrawerPlacement>('right')
@@ -128,6 +155,28 @@ const changeThemeColor = (color: string) => {
   currentThemeColor.value = color
   setLocalKey('themeColor', color)
   sysStore.setThemeColor(color)
+}
+
+// 主题模式的开关
+const ThemeModeActive = ref(switchTheme.currentThemeMode() === 'dark')
+const changeThemeMode = (value: boolean) => {
+  if (value) {
+    switchTheme.switchTheme('dark')
+  } else {
+    switchTheme.switchTheme('light')
+  }
+}
+
+// 侧边栏反转色
+const leftIsInverted = ref(sysStore.leftIsInverted)
+const changeLeftIsInverted = (value: boolean) => {
+  sysStore.setLeftIsInverted(value)
+}
+
+// 顶部反转色
+const topIsInverted = ref(sysStore.topIsInverted)
+const changeTopIsInverted = (value: boolean) => {
+  sysStore.setTopIsInverted(value)
 }
 
 defineExpose({

@@ -27,7 +27,9 @@ export const useSysStore = defineStore('sysStore', {
         themeMode: (getLocalKey('themeMode') as themeModeType) || 'light',
         isNeedCollapsed: false,
         layoutMode: 'LEFT_MENU_MODE',
-        themeColor: getLocalKey('themeColor') || '#18a058'
+        themeColor: getLocalKey('themeColor') || '#18a058',
+        leftIsInverted: false,
+        topIsInverted: false
       },
       tabMenusKey: getLocalKey('tabMenu')?.split(',') || [],
       isNeedReload: false,
@@ -40,6 +42,8 @@ export const useSysStore = defineStore('sysStore', {
     siderMenuCollapsed: (state) => state.sysConfig.isNeedCollapsed,
     layoutMode: (state) => state.sysConfig.layoutMode,
     themeColor: (state) => state.sysConfig.themeColor,
+    leftIsInverted: (state) => state.sysConfig.leftIsInverted,
+    topIsInverted: (state) => state.sysConfig.topIsInverted,
     naiveUiGlobalThemeOverrides(state): GlobalThemeOverrides {
       // 主色值
       const primaryColor: [ThemeColorTypes, string] = ['primary', state.sysConfig.themeColor]
@@ -149,6 +153,14 @@ export const useSysStore = defineStore('sysStore', {
     setTabMenuKeys(keys: string[]) {
       this.tabMenusKey = keys
       setLocalKey('tabMenu', keys.join())
+    },
+    // 设置左侧侧边栏是否为反转色
+    setLeftIsInverted(value: boolean) {
+      this.sysConfig.leftIsInverted = value
+    },
+    // 设置左侧侧边栏是否为反转色
+    setTopIsInverted(value: boolean) {
+      this.sysConfig.topIsInverted = value
     }
   }
 })

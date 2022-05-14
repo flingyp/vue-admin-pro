@@ -21,7 +21,7 @@ import { NDropdown } from 'naive-ui'
 import type { DropdownOption, MenuOption } from 'naive-ui'
 import { useSysStore } from '@/store/modules/sysStore'
 
-import TabItem from '@/layouts/common/tabItem.vue'
+import TabItem from '@/layouts/common/TabItem.vue'
 import IconifyIcon from '@/components/iconifyIcon.vue'
 
 const route = useRoute()

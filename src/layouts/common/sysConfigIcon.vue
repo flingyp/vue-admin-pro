@@ -3,14 +3,14 @@
     <IconifyIconVue iconLabel="ep:setting"></IconifyIconVue>
   </div>
 
-  <GlobalConfigDrawerIndex ref="sysConfig"></GlobalConfigDrawerIndex>
+  <GlobalConfigDrawer ref="sysConfig"></GlobalConfigDrawer>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 
 import IconifyIconVue from '@/components/iconifyIcon.vue'
-import GlobalConfigDrawerIndex from '@/layouts/global/globalConfigDrawer/globalConfigDrawerIndex.vue'
+import GlobalConfigDrawer from '@/layouts/global/globalConfigDrawer/GlobalConfigDrawer.vue'
 
 const sysConfig = ref<any>(null)
 

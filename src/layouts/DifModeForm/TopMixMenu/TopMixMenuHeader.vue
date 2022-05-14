@@ -14,9 +14,9 @@
 </template>
 
 <script setup lang="ts">
-import LogoTitle from '@/layouts/common/logoTitle.vue'
-import LeftMenuCollapsedIcon from '@/layouts/common/leftMenuCollapsedIcon.vue'
-import SysConfigIcon from '@/layouts/common/sysConfigIcon.vue'
-import FullScreenIcon from '@/layouts/common/fullScreenIcon.vue'
-import UserCenter from '@/layouts/common/userCenter.vue'
+import LogoTitle from '@/layouts/common/LogoTitle.vue'
+import LeftMenuCollapsedIcon from '@/layouts/common/LeftMenuCollapsedIcon.vue'
+import SysConfigIcon from '@/layouts/common/SysConfigIcon.vue'
+import FullScreenIcon from '@/layouts/common/FullScreenIcon.vue'
+import UserCenter from '@/layouts/common/UserCenter.vue'
 </script>

@@ -15,4 +15,6 @@ export interface ISysConfig {
   isNeedCollapsed: boolean // 侧边栏（是否折叠）
   layoutMode: layoutModeType // 布局模式
   themeColor: string // 主题颜色
+  leftIsInverted: boolean // 左侧侧边栏是否显示反转色
+  topIsInverted: boolean // 顶部是否显示反转色
 }

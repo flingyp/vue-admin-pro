@@ -1,8 +1,8 @@
 <template>
   <!-- 顶部菜单混合模式-侧边 -->
-  <GlobalMenuIndex mode="vertical"></GlobalMenuIndex>
+  <GlobalMenu mode="vertical"></GlobalMenu>
 </template>
 
 <script setup lang="ts">
-import GlobalMenuIndex from '@/layouts/global/globalMenu/globalMenuIndex.vue'
+import GlobalMenu from '@/layouts/global/globalMenu/GlobalMenu.vue'
 </script>

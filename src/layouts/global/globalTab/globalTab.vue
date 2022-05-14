@@ -53,10 +53,13 @@ const tabMenuSettingOptions: DropdownOption[] = reactive([
 ])
 
 const findCurrentMenu = (menus: MenuOption[]): string => {
-  const menuIndex = menus.findIndex((item) => {
-    return item.key === route.name
-  })
-  return menus[menuIndex].key as string
+  if (menus.length > 0) {
+    const menuIndex = menus.findIndex((item) => {
+      return item.key === route.name
+    })
+    return menus[menuIndex].key as string
+  }
+  return ''
 }
 
 const selectTabSetting = (key: string) => {

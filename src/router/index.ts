@@ -4,7 +4,7 @@ import { App } from 'vue'
 // NProgress
 import NProgress from 'nprogress'
 
-import { filterNotSysLinkRoutes } from './utils/handleRoute'
+import { filterNotSysLinkRoutes } from './utils/handleRouteOnWeb'
 
 // 常量路由、 异步路由
 import { constantRouters } from './routers/constantRouters'

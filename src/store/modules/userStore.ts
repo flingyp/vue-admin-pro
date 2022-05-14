@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 import { getLocalKey } from '@/utils/common/handleLocalStorage'
-import { getUserInfoService } from '@/apis/modules/user'
+import { getUserInfoService } from '@/apis/user'
 
 interface IUserStoreState {
   token: string

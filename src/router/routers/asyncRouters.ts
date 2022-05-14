@@ -1,5 +1,5 @@
 import Layout from '@/layouts/index.vue'
-import { CustomRouteRecordRaw } from '@/types/RouteType'
+import { SysTyping } from '@/typings/Sys'
 
 /**
  * 异步路由：用来定义一些需要对应权限的路由，如果不需要权限的路由在常量路由中定义即可
@@ -11,7 +11,7 @@ import { CustomRouteRecordRaw } from '@/types/RouteType'
  * (* 代表任何权限， 一般第一个代表系统，第二个代表系统模块，第三个代表具体的模块业务)
  * 例如：sys:user:update： 解读为用户模块更新权限）
  */
-export const asyncRouters: CustomRouteRecordRaw[] = [
+export const asyncRouters: SysTyping.RouteStruct[] = [
   {
     path: '/permission',
     name: 'Permission',

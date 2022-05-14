@@ -24,7 +24,6 @@
 
 <script setup lang="ts">
 import { NCard, NButton } from 'naive-ui'
-import NumberScrollComVue from '@/components/NumberScrollCom.vue'
 </script>
 
 <style scoped>

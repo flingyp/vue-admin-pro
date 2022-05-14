@@ -48,7 +48,7 @@ import { useRouter } from 'vue-router'
 import SvgIcon from '@/components/svgIcon.vue'
 import GlobalThemeSwitchIcon from '@/components/globalThemeSwitchIcon.vue'
 
-import { userLogin } from '@/apis/modules/user'
+import { userLogin } from '@/apis/user'
 
 import { useSysStore } from '@/store/modules/sysStore'
 

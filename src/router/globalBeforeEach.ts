@@ -6,11 +6,16 @@ import { getLocalKey } from '@/utils/common/handleLocalStorage'
 import { useUserStore } from '@/store/modules/userStore'
 import { useSysStore } from '@/store/modules/sysStore'
 
-import { filterRoutes, mountRoute, createMenus } from './utils/handleRoute'
+import { filterRoutes, mountRoute, createMenus } from './utils/handleRouteOnWeb'
+import { handleServeRouteToSysRoute } from './utils/handleRouteOnServe'
 
 // 常量路由、 异步路由
 import { constantRouters, redirect404Router } from './routers/constantRouters'
 import { asyncRouters } from './routers/asyncRouters'
+
+import { RouteHandleConfig } from '@/globalConfig'
+
+import { getSysRouters } from '@/apis/sys'
 
 // 是否挂载了404通用路由
 let isMounted404Router: boolean = false
@@ -18,32 +23,44 @@ let isMounted404Router: boolean = false
 // 白名单路由（不需要token，定义路由name）
 const whiteRouteByName: string[] = ['Login']
 
+// 路由菜单处理函数
 const routeMenuProcess = async (userStore: any, sysStore: any, routerInstance: Router) => {
   // 1. 获取用户信息
   await userStore.getUserInfo()
 
-  // 深拷贝异步路由
-  const deepAsyncRouters = lodashUtil.cloneDeep(asyncRouters)
+  let handleSuccessAsyncRouters: RouteRecordRaw[] = []
 
-  // 2. 获取权限
-  const permissions = userStore.getPermissions
-  if (permissions && permissions.length !== 0) {
+  // 2. 判断当前系统配置是前端控制路由还是后端控制路由
+  if (RouteHandleConfig === 'Web') {
+    // 1. 深拷贝异步路由
+    const deepAsyncRouters = lodashUtil.cloneDeep(asyncRouters)
+
+    // 2. 获取权限
+    const permissions = userStore.getPermissions
+
     // 3. 过滤路由
-    const filterSuccessRoutes = filterRoutes(deepAsyncRouters as RouteRecordRaw[], permissions)
-
-    //  4. 挂载路由
-    filterSuccessRoutes.forEach((route) => {
-      mountRoute(route, routerInstance)
-    })
-
-    // 5. 生成菜单
-    const sysMenus = createMenus([...constantRouters, ...filterSuccessRoutes] as RouteRecordRaw[])
-
-    // 6. 初始化状态管理
-    sysStore.setConstantRoutes(constantRouters)
-    sysStore.setAsyncRoutes(filterSuccessRoutes)
-    sysStore.setSysMenus(sysMenus)
+    if (permissions && permissions.length !== 0) {
+      handleSuccessAsyncRouters = filterRoutes(deepAsyncRouters as RouteRecordRaw[], permissions)
+    }
+  } else {
+    // 1. 接口中获取异步路由
+    const { data } = await getSysRouters()
+    // 2. handleServeRouteToSysRoute() 处理JSON路由结构
+    handleSuccessAsyncRouters = handleServeRouteToSysRoute(data) as RouteRecordRaw[]
   }
+
+  //  4. 挂载路由
+  handleSuccessAsyncRouters.forEach((route) => {
+    mountRoute(route, routerInstance)
+  })
+
+  // 5. 生成菜单
+  const sysMenus = createMenus([...constantRouters, ...handleSuccessAsyncRouters] as RouteRecordRaw[])
+
+  // 6. 初始化状态管理
+  sysStore.setConstantRoutes(constantRouters)
+  sysStore.setAsyncRoutes(handleSuccessAsyncRouters)
+  sysStore.setSysMenus(sysMenus)
 }
 
 /**

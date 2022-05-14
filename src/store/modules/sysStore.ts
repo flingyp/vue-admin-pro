@@ -7,8 +7,6 @@ import { getLocalKey, setLocalKey } from '@/utils/common/handleLocalStorage'
 
 import { addThemeCssVarsToHtml, getSysThemeColors } from '../utils/themeColor'
 
-import { asyncRouters } from '@/router/routers/asyncRouters'
-
 interface ISysStoreState {
   constantRoutes: RouteRecordRaw[]
   asyncRoutes: RouteRecordRaw[]
@@ -24,7 +22,6 @@ export const useSysStore = defineStore('sysStore', {
     const sysStoreState: ISysStoreState = {
       constantRoutes: [],
       asyncRoutes: [],
-      // allAsyncRoutes: asyncRouters as RouteRecordRaw[],
       sysMenus: [],
       sysConfig: {
         themeMode: (getLocalKey('themeMode') as themeModeType) || 'light',

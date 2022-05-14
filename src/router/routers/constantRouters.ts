@@ -2,8 +2,9 @@ import Layout from '@/layouts/index.vue'
 import IframeIndexVue from '@/views/plugins/iframe/IframeIndex.vue'
 import RouterViewCom from '@/components/RouterViewCom.vue'
 import { CustomRouteRecordRaw } from '@/types/RouteType'
+import { SysTyping } from '@/typings/Sys'
 
-export const constantRouters: CustomRouteRecordRaw[] = [
+export const constantRouters: SysTyping.RouteStruct[] = [
   {
     path: '/',
     redirect: '/common/component',

@@ -94,30 +94,6 @@ const handleNotSysLinkOperation = (routes: RouteRecordRaw[]) => {
     }
 
     needHandleRoutes.push(route)
-
-    // if (!route.meta || !route.meta.link || (route.meta.link && route.meta.link === 'SYS_Link')) {
-    //   needHandleRoutes.push(route)
-    // } else {
-    //   let shapeExternalRoute: RouteRecordRaw = { path: '', redirect: '' }
-    //   if (route.meta.link === 'External_Link') {
-    //     shapeExternalRoute = {
-    //       path: `/ShapeRoute${String(route.name)}`,
-    //       name: route.name,
-    //       redirect: String(route.redirect),
-    //       meta: route.meta
-    //     }
-    //   } else if (route.meta.link === 'Internal_Link') {
-    //     route.meta.url = route.redirect
-    //     shapeExternalRoute = {
-    //       path: `/ShapeRoute${String(route.name)}`,
-    //       name: route.name,
-    //       redirect: '/iframe',
-    //       meta: route.meta
-    //     }
-    //     console.log('shapeExternalRoute：内链', shapeExternalRoute)
-    //   }
-    //   needHandleRoutes.push(shapeExternalRoute)
-    // }
   })
   return needHandleRoutes
 }

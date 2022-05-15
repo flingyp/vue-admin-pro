@@ -31,7 +31,8 @@ export const useSysStore = defineStore('sysStore', {
         leftIsInverted: false,
         topIsInverted: false,
         leftExtendWidth: 264,
-        leftShrinkWidth: 50
+        leftShrinkWidth: 50,
+        headerHeight: 70
       },
       tabMenusKey: getLocalKey('tabMenu')?.split(',') || [],
       isNeedReload: false,
@@ -48,6 +49,7 @@ export const useSysStore = defineStore('sysStore', {
     topIsInverted: (state) => state.sysConfig.topIsInverted,
     leftExtendWidth: (state) => state.sysConfig.leftExtendWidth,
     leftShrinkWidth: (state) => state.sysConfig.leftShrinkWidth,
+    headerHeight: (state) => state.sysConfig.headerHeight,
     naiveUiGlobalThemeOverrides(state): GlobalThemeOverrides {
       // 主色值
       const primaryColor: [ThemeColorTypes, string] = ['primary', state.sysConfig.themeColor]
@@ -173,6 +175,10 @@ export const useSysStore = defineStore('sysStore', {
     // 设置侧边栏收缩的宽度
     setLeftShrinkWidth(value: number) {
       this.sysConfig.leftShrinkWidth = value
+    },
+    // 设置头部高度
+    setHeaderHeight(value: number) {
+      this.sysConfig.headerHeight = value
     }
   }
 })

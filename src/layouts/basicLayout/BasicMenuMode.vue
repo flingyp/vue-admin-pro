@@ -16,14 +16,15 @@
     </n-layout-sider>
 
     <n-layout>
-      <n-layout-header bordered class="h-[6.4rem]" :inverted="sysStore.topIsInverted">
+      <n-layout-header bordered :inverted="sysStore.topIsInverted" :style="{ height: TopHeaderHeight + 'px' }">
         <slot name="header"> 头部部分 </slot>
       </n-layout-header>
 
       <n-layout-content
         bordered
         :native-scrollbar="false"
-        class="h-[calc(100vh-6.4rem)] bg-[#f6f9f8] dark:bg-[#101014]"
+        :style="{ height: ContentHeight }"
+        class="bg-[#f6f9f8] dark:bg-[#101014]"
       >
         <slot name="main"> 内容部分 </slot>
       </n-layout-content>
@@ -45,6 +46,13 @@ const isNeedSider = computed(() => {
     return true
   }
   return false
+})
+
+const TopHeaderHeight = computed(() => {
+  return sysStore.headerHeight
+})
+const ContentHeight = computed(() => {
+  return `calc(100vh - ${TopHeaderHeight.value}px)`
 })
 </script>
 

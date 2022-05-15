@@ -14,17 +14,19 @@
         </div>
       </BasicConfigItemBox>
       <BasicConfigItemBox title="布局模式">
-        <n-button
-          v-for="(item, index) in layoutItemsArray"
-          :key="item.key"
-          :type="activeIndexLayoutBtn === index ? 'primary' : 'tertiary'"
-          class="mr-[1.7rem] mb-[2rem] w-[10rem] text-[1rem]"
-          @click="changeLayoutMode(item.key)"
-          >{{ item.value }}</n-button
-        >
+        <div class="grid grid-cols-3 gap-5">
+          <n-button
+            class="overflow-hidden"
+            v-for="(item, index) in layoutItemsArray"
+            :key="item.key"
+            :type="activeIndexLayoutBtn === index ? 'primary' : 'tertiary'"
+            @click="changeLayoutMode(item.key)"
+            >{{ item.value }}</n-button
+          >
+        </div>
       </BasicConfigItemBox>
       <BasicConfigItemBox title="系统主题">
-        <div class="flex items-center flex-wrap justify-start">
+        <div class="grid grid-cols-10 gap-2">
           <div
             class="w-[2.5rem] h-[2.5rem] rounded-[0.3rem] m-[0.6rem] cursor-pointer flex-center"
             v-for="(item, index) in themeColorArray"
@@ -58,6 +60,10 @@
         <div class="w-full flex justify-between items-center my-[1rem]">
           <span>侧边栏收缩宽度</span>
           <n-input-number v-model:value="LeftShrinkWidth" @update:value="changeLeftShrinkWidth" class="w-[10rem]" />
+        </div>
+        <div class="w-full flex justify-between items-center my-[1rem]">
+          <span>顶部栏高度</span>
+          <n-input-number v-model:value="TopHeaderHeight" @update:value="changeTopHeaderHeight" class="w-[10rem]" />
         </div>
       </BasicConfigItemBox>
     </n-drawer-content>
@@ -197,6 +203,12 @@ const changeLeftExtendWidth = () => {
 const LeftShrinkWidth = ref(sysStore.leftShrinkWidth)
 const changeLeftShrinkWidth = () => {
   sysStore.setLeftShrinkWidth(LeftShrinkWidth.value)
+}
+
+// 顶部栏高度
+const TopHeaderHeight = ref(sysStore.headerHeight)
+const changeTopHeaderHeight = () => {
+  sysStore.setHeaderHeight(TopHeaderHeight.value)
 }
 
 defineExpose({

@@ -19,4 +19,5 @@ export interface ISysConfig {
   topIsInverted: boolean // 顶部是否显示反转色
   leftExtendWidth: number // 侧边栏宽度
   leftShrinkWidth: number //  侧边栏收缩宽度
+  headerHeight: number // 顶部栏高度
 }

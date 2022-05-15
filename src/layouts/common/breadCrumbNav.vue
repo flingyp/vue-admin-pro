@@ -86,6 +86,7 @@ watchEffect(() => {
 })
 
 const clickBreadCrumbItem = (key: string) => {
+  sysStore.addTabMenuKey(key)
   router.push({ name: key })
 }
 </script>

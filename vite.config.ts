@@ -26,6 +26,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
   }
 
   return {
+    base: './',
     // 配置别名
     resolve: {
       alias: {

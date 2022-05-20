@@ -1,7 +1,7 @@
 <template>
   <n-drawer v-model:show="active" :width="400" :placement="placement" display-directive="show">
     <n-drawer-content title="系统设置">
-      <BasicConfigItemBox title="主题模式">
+      <BasicConfigBox title="主题模式">
         <div class="w-full text-center">
           <n-switch v-model:value="ThemeModeActive" size="medium" @update:value="changeThemeMode">
             <template #checked>
@@ -12,8 +12,8 @@
             </template>
           </n-switch>
         </div>
-      </BasicConfigItemBox>
-      <BasicConfigItemBox title="布局模式">
+      </BasicConfigBox>
+      <BasicConfigBox title="布局模式">
         <div class="grid grid-cols-3 gap-5">
           <n-button
             class="overflow-hidden"
@@ -24,8 +24,8 @@
             >{{ item.value }}</n-button
           >
         </div>
-      </BasicConfigItemBox>
-      <BasicConfigItemBox title="系统主题">
+      </BasicConfigBox>
+      <BasicConfigBox title="系统主题">
         <div class="grid grid-cols-10 gap-2">
           <div
             class="w-[2.5rem] h-[2.5rem] rounded-[0.3rem] m-[0.6rem] cursor-pointer flex-center"
@@ -42,9 +42,9 @@
             ></SvgIcon>
           </div>
         </div>
-      </BasicConfigItemBox>
+      </BasicConfigBox>
 
-      <BasicConfigItemBox title="界面功能">
+      <BasicConfigBox title="界面功能">
         <div class="w-full flex justify-between items-center my-[1rem]">
           <span>侧边栏反转色</span>
           <n-switch v-model:value="leftIsInverted" @update:value="changeLeftIsInverted"></n-switch>
@@ -65,7 +65,7 @@
           <span>顶部栏高度</span>
           <n-input-number v-model:value="TopHeaderHeight" @update:value="changeTopHeaderHeight" class="w-[10rem]" />
         </div>
-      </BasicConfigItemBox>
+      </BasicConfigBox>
     </n-drawer-content>
   </n-drawer>
 </template>
@@ -80,7 +80,8 @@ import { getLocalKey, setLocalKey } from '@/utils/common/handleLocalStorage'
 
 import SvgIcon from '@/components/SvgIcon.vue'
 import IconifyIconVue from '@/components/IconifyIcon.vue'
-import BasicConfigItemBox from './components/BasicConfigItemBox.vue'
+
+import BasicConfigBox from './BasicConfigBox.vue'
 
 import type { layoutModeType } from '@/types/sysTypes'
 

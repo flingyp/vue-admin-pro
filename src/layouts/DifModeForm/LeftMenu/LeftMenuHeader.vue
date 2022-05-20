@@ -14,7 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import LeftMenuCollapsedIcon from '@/layouts/common/LeftMenuCollapsedIcon.vue'
+// import LeftMenuCollapsedIcon from '@/layouts/common/LeftMenuCollapsedIcon.vue'
+import LeftMenuCollapsedIcon from '../../common/LeftMenuCollapsedIcon.vue'
 import ThemeModeIcon from '@/layouts/common/ThemeModeIcon.vue'
 import SysIconConfig from '@/layouts/common/SysIconConfig.vue'
 import FullScreenIcon from '@/layouts/common/FullScreenIcon.vue'

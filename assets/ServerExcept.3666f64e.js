@@ -1,1 +1,0 @@
-import{_ as e,d as r,o as a,aF as o,aG as t}from"./index.d109b3f4.js";const c=r({name:"ServerExcept",setup(p){return(n,s)=>(a(),o(t,{type:"500"}))}});var m=e(c,[["__file","/home/runner/work/vue-admin-pro/vue-admin-pro/src/views/common/exceptPage/ServerExcept.vue"]]);export{m as default};

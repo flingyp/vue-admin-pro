@@ -45,8 +45,8 @@ import { computed, reactive, ref } from 'vue'
 import { colord } from 'colord'
 import { NCard, NForm, NFormItem, NInput, NButton, FormRules, FormInst, useNotification } from 'naive-ui'
 import { useRouter } from 'vue-router'
-import SvgIcon from '@/components/svgIcon.vue'
-import GlobalThemeSwitchIcon from '@/components/globalThemeSwitchIcon.vue'
+import SvgIcon from '@/components/SvgIcon.vue'
+import GlobalThemeSwitchIcon from '@/components/GlobalThemeSwitchIcon.vue'
 
 import { userLogin } from '@/apis/user'
 

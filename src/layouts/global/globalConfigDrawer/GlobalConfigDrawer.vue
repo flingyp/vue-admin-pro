@@ -78,8 +78,8 @@ import type { DrawerPlacement } from 'naive-ui'
 import { useSysStore } from '@/store/modules/sysStore'
 import { getLocalKey, setLocalKey } from '@/utils/common/handleLocalStorage'
 
-import SvgIcon from '@/components/svgIcon.vue'
-import IconifyIconVue from '@/components/iconifyIcon.vue'
+import SvgIcon from '@/components/SvgIcon.vue'
+import IconifyIconVue from '@/components/IconifyIcon.vue'
 import BasicConfigItemBox from './components/BasicConfigItemBox.vue'
 
 import type { layoutModeType } from '@/types/sysTypes'

@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import SvgIcon from '@/components/svgIcon.vue'
+import SvgIcon from '@/components/SvgIcon.vue'
 
 import { useSysStore } from '@/store/modules/sysStore'
 

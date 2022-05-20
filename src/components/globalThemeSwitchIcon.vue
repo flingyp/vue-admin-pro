@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import { useSysStore } from '@/store/modules/sysStore'
 
-import IconifyIconVue from '@/components/iconifyIcon.vue'
+import IconifyIconVue from '@/components/IconifyIcon.vue'
 
 import { useSwitchTheme } from '@/hooks/sysHook/useSwitchTheme'
 

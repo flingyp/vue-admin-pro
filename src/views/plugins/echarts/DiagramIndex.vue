@@ -17,7 +17,7 @@ import { NCard } from 'naive-ui'
 
 import { ECOption } from '@/utils/echarts'
 
-import EchartCom from '@/components/echartCom.vue'
+import EchartCom from '@/components/EchartCom.vue'
 
 const chartOne: ECOption = {
   title: {

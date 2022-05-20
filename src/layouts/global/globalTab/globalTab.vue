@@ -22,7 +22,7 @@ import type { DropdownOption, MenuOption } from 'naive-ui'
 import { useSysStore } from '@/store/modules/sysStore'
 
 import TabItem from '@/layouts/common/TabItem.vue'
-import IconifyIcon from '@/components/iconifyIcon.vue'
+import IconifyIcon from '@/components/IconifyIcon.vue'
 
 const route = useRoute()
 const router = useRouter()

@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { useSysStore } from '@/store/modules/sysStore'
 
-import IconifyIconVue from '@/components/iconifyIcon.vue'
+import IconifyIconVue from '@/components/IconifyIcon.vue'
 
 const sysStore = useSysStore()
 

@@ -3,7 +3,7 @@ import type { Router, RouteRecordRaw } from 'vue-router'
 
 import lodashUtil from 'lodash'
 
-import iconifyRender from '@/utils/iconifyIconRender'
+import iconifyRender from '@/utils/IconifyIconRender'
 
 // 过滤路由方法
 const handleOperation = (handleRoutes: RouteRecordRaw[], handlePermissions: string[]) => {

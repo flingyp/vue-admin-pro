@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import { useFullscreen } from '@vueuse/core'
 
-import IconifyIconVue from '@/components/iconifyIcon.vue'
+import IconifyIconVue from '@/components/IconifyIcon.vue'
 
 const { isFullscreen, toggle } = useFullscreen()
 </script>

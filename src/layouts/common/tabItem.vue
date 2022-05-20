@@ -15,7 +15,7 @@ import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSysStore } from '@/store/modules/sysStore'
 
-import IconifyIcon from '@/components/iconifyIcon.vue'
+import IconifyIcon from '@/components/IconifyIcon.vue'
 
 const props = defineProps<{
   menu: MenuOption

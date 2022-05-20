@@ -45,8 +45,8 @@
 <script setup lang="ts">
 import { NCard } from 'naive-ui'
 
-import IconifyIcon from '@/components/iconifyIcon.vue'
-import SvgIcon from '@/components/svgIcon.vue'
+import IconifyIcon from '@/components/IconifyIcon.vue'
+import SvgIcon from '@/components/SvgIcon.vue'
 
 const iconifyIconList = [
   'ion:accessibility',

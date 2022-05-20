@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import IconifyIconVue from '@/components/iconifyIcon.vue'
+import IconifyIconVue from '@/components/IconifyIcon.vue'
 import GlobalConfigDrawer from '@/layouts/global/globalConfigDrawer/GlobalConfigDrawer.vue'
 
 const sysConfig = ref<any>(null)

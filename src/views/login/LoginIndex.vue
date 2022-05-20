@@ -35,7 +35,7 @@
     </n-card>
 
     <div class="absolute top-[3rem] left-[3rem]">
-      <GlobalThemeSwitchIcon></GlobalThemeSwitchIcon>
+      <ThemeSwitchIcon></ThemeSwitchIcon>
     </div>
   </div>
 </template>
@@ -46,7 +46,7 @@ import { colord } from 'colord'
 import { NCard, NForm, NFormItem, NInput, NButton, FormRules, FormInst, useNotification } from 'naive-ui'
 import { useRouter } from 'vue-router'
 import SvgIcon from '@/components/SvgIcon.vue'
-import GlobalThemeSwitchIcon from '@/components/GlobalThemeSwitchIcon.vue'
+import ThemeSwitchIcon from '@/components/ThemeSwitchIcon.vue'
 
 import { userLogin } from '@/apis/user'
 

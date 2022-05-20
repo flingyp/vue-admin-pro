@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { Ref, ref, watchEffect } from 'vue'
+import { ref, watchEffect } from 'vue'
 
 import { echartInstance, ECOption } from '@/utils/echarts'
 

@@ -107,7 +107,7 @@ const handlerUserLogin = () => {
         meta: '登录成功！ 即将进行系统，请稍等',
         duration: 2000,
         onAfterLeave: () => {
-          router.push('/test')
+          router.push({ name: 'AboutIndex' })
         }
       })
     } else {

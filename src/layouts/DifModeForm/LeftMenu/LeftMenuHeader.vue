@@ -1,7 +1,7 @@
 <template>
   <header class="h-full flex justify-between items-center">
     <div class="flex items-center h-full">
-      <!-- <LeftMenuCollapsedIcon class="mr-[2rem]"></LeftMenuCollapsedIcon> -->
+      <LeftMenuCollapsedIcon class="mr-[2rem]"></LeftMenuCollapsedIcon>
       <BreadCrumbNav></BreadCrumbNav>
     </div>
     <div class="flex items-center h-full">
@@ -14,11 +14,10 @@
 </template>
 
 <script setup lang="ts">
-// import LeftMenuCollapsedIcon from '@/layouts/common/LeftMenuCollapsedIcon.vue'
-// import LeftMenuCollapsedIcon from '../../common/LeftMenuCollapsedIcon.vue'
-import ThemeModeIcon from '@/layouts/common/ThemeModeIcon.vue'
-import SysIconConfig from '@/layouts/common/SysIconConfig.vue'
-import FullScreenIcon from '@/layouts/common/FullScreenIcon.vue'
-import BreadCrumbNav from '@/layouts/common/BreadCrumbNav.vue'
-import UserCenter from '@/layouts/common/UserCenter.vue'
+import LeftMenuCollapsedIcon from '@/layouts/ComComponent/LeftMenuCollapsedIcon.vue'
+import ThemeModeIcon from '@/layouts/ComComponent/ThemeModeIcon.vue'
+import SysIconConfig from '@/layouts/ComComponent/SysIconConfig.vue'
+import FullScreenIcon from '@/layouts/ComComponent/FullScreenIcon.vue'
+import BreadCrumbNav from '@/layouts/ComComponent/BreadCrumbNav.vue'
+import UserCenter from '@/layouts/ComComponent/UserCenter.vue'
 </script>

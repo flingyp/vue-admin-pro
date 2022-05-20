@@ -26,7 +26,7 @@ export const constantRouters: SysTyping.RouteStruct[] = [
       {
         path: '',
         name: 'TestIndex',
-        component: () => import('@/views/test.vue'),
+        component: () => import('@/views/Test.vue'),
         meta: {
           title: '测试页面',
           icon: 'fluent:window-dev-tools-16-regular',
@@ -283,7 +283,7 @@ export const constantRouters: SysTyping.RouteStruct[] = [
       {
         path: '',
         name: 'AboutIndex',
-        component: () => import('@/views/about/AboutIndex.vue'),
+        component: () => import('@/views/about/About.vue'),
         meta: {
           title: '关于',
           icon: 'cib:about-me',

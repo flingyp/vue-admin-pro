@@ -7,7 +7,7 @@
     <div class="flex items-center h-full">
       <ThemeModeIcon></ThemeModeIcon>
       <FullScreenIcon></FullScreenIcon>
-      <SysConfigIcon></SysConfigIcon>
+      <SysIconConfig></SysIconConfig>
       <UserCenter></UserCenter>
     </div>
   </header>
@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import LeftMenuCollapsedIcon from '@/layouts/common/LeftMenuCollapsedIcon.vue'
 import ThemeModeIcon from '@/layouts/common/ThemeModeIcon.vue'
-import SysConfigIcon from '@/layouts/common/SysConfigIcon.vue'
+import SysIconConfig from '@/layouts/common/SysIconConfig.vue'
 import FullScreenIcon from '@/layouts/common/FullScreenIcon.vue'
 import BreadCrumbNav from '@/layouts/common/BreadCrumbNav.vue'
 import UserCenter from '@/layouts/common/UserCenter.vue'

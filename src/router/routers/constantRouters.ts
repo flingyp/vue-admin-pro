@@ -87,15 +87,6 @@ export const constantRouters: SysTyping.RouteStruct[] = [
           title: '500页面',
           icon: 'la:500px'
         }
-      },
-      {
-        path: 'curd',
-        name: 'CURD',
-        component: () => import('@/views/common/curd/CurdForm.vue'),
-        meta: {
-          title: '基础列表页',
-          icon: 'fluent:form-new-20-regular'
-        }
       }
     ]
   },
@@ -119,22 +110,34 @@ export const constantRouters: SysTyping.RouteStruct[] = [
         }
       },
       {
-        path: 'gaodeMap',
-        name: 'GaoDeMap',
-        component: () => import('@/views/plugins/maps/GaoDeMapIndex.vue'),
+        path: 'map',
+        name: 'Map',
+        component: RouterViewCom,
         meta: {
-          title: '高德地图',
-          icon: 'carbon:map-center'
-        }
-      },
-      {
-        path: 'tencentMap',
-        name: 'TencentMap',
-        component: () => import('@/views/plugins/maps/TencentMapIndex.vue'),
-        meta: {
-          title: '腾讯地图',
-          icon: 'ep:map-location'
-        }
+          title: '地图',
+          icon: 'akar-icons:map',
+          cache: false
+        },
+        children: [
+          {
+            path: 'gaodeMap',
+            name: 'GaoDeMap',
+            component: () => import('@/views/plugins/maps/GaoDeMapIndex.vue'),
+            meta: {
+              title: '高德地图',
+              icon: 'carbon:map-center'
+            }
+          },
+          {
+            path: 'tencentMap',
+            name: 'TencentMap',
+            component: () => import('@/views/plugins/maps/TencentMapIndex.vue'),
+            meta: {
+              title: '腾讯地图',
+              icon: 'ep:map-location'
+            }
+          }
+        ]
       },
       {
         path: 'editor',

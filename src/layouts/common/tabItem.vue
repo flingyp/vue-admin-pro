@@ -1,7 +1,11 @@
 <template>
   <div class="text-sm px-[1rem] py-[0.8rem] rounded-md mx-[0.5rem] flex items-center" :class="tabClass">
-    <span class="mr-[0.5rem] cursor-pointer" @click="clickNavRoute(menu.key)">{{ menu.label }}</span>
-    <IconifyIcon iconLabel="carbon:close" @click="deleteTabRoute(menu.key)" class="cursor-pointer"></IconifyIcon>
+    <span class="mr-[0.5rem] cursor-pointer" @click="clickNavRoute(menu.key as string)">{{ menu.label }}</span>
+    <IconifyIcon
+      iconLabel="carbon:close"
+      @click="deleteTabRoute(menu.key as string)"
+      class="cursor-pointer"
+    ></IconifyIcon>
   </div>
 </template>
 

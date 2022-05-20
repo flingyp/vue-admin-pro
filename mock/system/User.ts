@@ -188,21 +188,21 @@ export default [
   {
     url: '/dev/sys/login',
     method: 'post',
-    response: ({ body }) => {
+    response: ({ body }: any) => {
       return SysUserLogin(body.username, body.password)
     }
   },
   {
     url: '/dev/sys/userInfo',
     method: 'post',
-    response: ({ headers }) => {
+    response: ({ headers }: any) => {
       return SysUserInfo(headers.accesstoken)
     }
   },
   {
     url: '/dev/sys/getRouters',
     method: 'post',
-    response: ({ headers }) => {
+    response: ({ headers }: any) => {
       return SysUserRouters(headers.accesstoken)
     }
   }

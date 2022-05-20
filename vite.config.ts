@@ -14,7 +14,17 @@ import { resolve } from 'path'
  */
 import svgBuilder from './src/plugins/SvgBuilder'
 
-export default ({ command }: ConfigEnv): UserConfigExport => {
+export default ({ mode }: ConfigEnv): UserConfigExport => {
+  const judgeLocalIsEnabledMock = () => {
+    if (mode === 'dev:mock') return true
+    return false
+  }
+
+  const judgeProdIsEnabledMock = () => {
+    if (mode === 'prod:mock') return true
+    return false
+  }
+
   return {
     // 配置别名
     resolve: {
@@ -40,7 +50,12 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       svgBuilder('./src/assets/svg/'),
       viteMockServe({
         mockPath: 'mock',
-        localEnabled: command === 'serve',
+        localEnabled: judgeLocalIsEnabledMock(),
+        prodEnabled: judgeProdIsEnabledMock(),
+        injectCode: `
+          import { setupProdMockServer } from './mockProdServer';
+          setupProdMockServer();
+        `,
         watchFiles: true,
         logger: true
       })

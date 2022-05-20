@@ -1,13 +1,18 @@
 <template>
   <div
-    :ref="(el) => (chartRef = el)"
+    :ref="
+      (el) => {
+        // @ts-ignore
+        chartRef = el
+      }
+    "
     class="inline-block m-[1rem]"
     :style="{ width: width + 'px', height: height + 'px' }"
   ></div>
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { Ref, ref, watchEffect } from 'vue'
 
 import { echartInstance, ECOption } from '@/utils/echarts'
 
@@ -19,7 +24,7 @@ const { width, height, echartOption } = defineProps<{
   height: number
 }>()
 
-const chartRef = ref<HTMLElement>()
+const chartRef = ref<Element>()
 
 let chartInstance: echartInstance.ECharts | null = null
 

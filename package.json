@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite --mode dev",
-    "build": "vite build --mode prod",
     "dev:mock": "vite --mode dev:mock",
+    "build": "vite build --mode prod",
     "build:mock": "vite build --mode prod:mock",
     "preview": "vite preview",
     "preview:mock": "vite preview --mode prod:mock",

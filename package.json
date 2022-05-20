@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite --mode dev",
-    "build": "vue-tsc --noEmit && vite build --mode prod",
+    "build": "vite build --mode prod",
     "dev:mock": "vite --mode dev:mock",
     "build:mock": "vite build --mode prod:mock",
     "preview": "vite preview",

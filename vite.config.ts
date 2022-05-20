@@ -26,7 +26,6 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
   }
 
   return {
-    base: '/vue-admin-pro/',
     // 配置别名
     resolve: {
       alias: {

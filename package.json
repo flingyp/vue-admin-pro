@@ -2,7 +2,6 @@
   "name": "vue-admin-pro",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vite --mode dev",
     "dev:mock": "vite --mode dev:mock",
     "build": "vite build --mode prod",
     "build:mock": "vite build --mode prod:mock",

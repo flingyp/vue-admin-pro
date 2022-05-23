@@ -272,6 +272,17 @@ export const constantRouters: SysTyping.RouteStruct[] = [
           url: 'https://cn.vitejs.dev/',
           icon: 'vscode-icons:file-type-vite'
         }
+      },
+      {
+        path: 'docs',
+        name: 'VueAdminProDocs',
+        component: IframeIndexVue,
+        meta: {
+          title: 'Vue Admin Pro',
+          link: 'Internal_Link',
+          url: 'http://yyblog.top/vue-admin-pro-docs',
+          icon: 'material-symbols:docs-add-on'
+        }
       }
     ]
   },

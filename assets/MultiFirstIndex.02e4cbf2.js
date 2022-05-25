@@ -1,1 +1,0 @@
-import{_ as e,o as r,c as t}from"./index.3d6c96bd.js";const n={},o={class:"m-[2rem]"};function s(c,i){return r(),t("div",o,"\u591A\u7EA7\u83DC\u5355\uFF1A \u4E00\u7EA7\u83DC\u5355")}var _=e(n,[["render",s],["__file","/home/runner/work/vue-admin-pro/vue-admin-pro/src/views/common/multiLevelMenu/multiFirst/MultiFirstIndex.vue"]]);export{_ as default};

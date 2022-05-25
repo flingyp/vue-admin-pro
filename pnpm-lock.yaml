@@ -31,6 +31,7 @@ specifiers:
   husky: ^7.0.4
   lint-staged: ^12.3.7
   lodash: ^4.17.21
+  md-editor-v3: ^2.0.0
   mockjs: ^1.1.0
   naive-ui: ^2.27.0
   nprogress: ^0.2.0
@@ -58,6 +59,7 @@ dependencies:
   colord: 2.9.2
   echarts: 5.3.2
   lodash: 4.17.21
+  md-editor-v3: 2.0.0
   mockjs: 1.1.0
   naive-ui: 2.27.0_vue@3.2.31
   nprogress: 0.2.0
@@ -505,6 +507,10 @@ packages:
 
   /@types/lodash/4.14.181:
     resolution: {integrity: sha512-n3tyKthHJbkiWhDZs3DkhkCzt2MexYHXlX0td5iMplyfwketaOeKboEVBqzceH7juqvEg3q5oUoBFxSLu7zFag==}
+    dev: false
+
+  /@types/marked/4.0.3:
+    resolution: {integrity: sha512-HnMWQkLJEf/PnxZIfbm0yGJRRZYYMhb++O9M36UCTA9z53uPvVoSlAwJr3XOpDEryb7Hwl1qAx/MV6YIW1RXxg==}
     dev: false
 
   /@types/minimist/1.2.2:
@@ -3866,6 +3872,13 @@ packages:
     dependencies:
       object-visit: 1.0.1
     dev: true
+
+  /md-editor-v3/2.0.0:
+    resolution: {integrity: sha512-WViU7UnyVVtBB1XzVFIbGqP/Dsuzn5XhDVPWT6RXCIYQD1ECTAIZpvNKY9H/GEaEH7EwNXoNUaMNvsf1ukqqxA==}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      '@types/marked': 4.0.3
+    dev: false
 
   /meow/8.1.2:
     resolution: {integrity: sha512-r85E3NdZ+mpYk1C6RjPFEMSE+s1iZMuHtsHAqY0DT3jZczl0diWUZ8g6oU7h0M9cD2EL+PzaYghhCLzR0ZNn5Q==}

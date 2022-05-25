@@ -1,5 +1,5 @@
 <template>
-  <div class="h-[75rem] shadow">
+  <div class="w-full h-[75rem] p-[3rem]">
     <RichTextCom v-model:content="richTextContent"></RichTextCom>
   </div>
 </template>

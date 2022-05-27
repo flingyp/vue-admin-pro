@@ -48,7 +48,7 @@ import { useRouter } from 'vue-router'
 import SvgIconCom from '@/components/SvgIconCom.vue'
 import ThemeSwitchIconCom from '@/components/ThemeSwitchIconCom.vue'
 
-import { userLogin } from '@/apis/user'
+import { userLogin } from '@/apis/UserApi'
 
 import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 

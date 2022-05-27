@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from 'vue-router'
 import type { MenuOption, GlobalThemeOverrides } from 'naive-ui'
 import { ISysConfig, layoutModeType, ThemeColorTypes, themeModeType } from '@/types/SysType'
 
-import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorage'
+import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
 import { addThemeCssVarsToHtml, getSysThemeColors } from '../utils/ThemeColors'
 

@@ -14,10 +14,10 @@
 </template>
 
 <script setup lang="ts">
-import ThemeModelIcon from '@/layouts/comComponent/ThemeModeIcon.vue'
-import LogoTitle from '@/layouts/comComponent/LogoTitle.vue'
-import LeftMenuCollapsedIcon from '@/layouts/comComponent/LeftMenuCollapsedIcon.vue'
-import SysIconConfig from '@/layouts/comComponent/SysIconConfig.vue'
-import FullScreenIcon from '@/layouts/comComponent/FullScreenIcon.vue'
-import UserCenter from '@/layouts/comComponent/UserCenter.vue'
+import ThemeModelIcon from '@/layouts/layoutComComponent/ThemeModeIcon.vue'
+import LogoTitle from '@/layouts/layoutComComponent/LogoTitle.vue'
+import LeftMenuCollapsedIcon from '@/layouts/layoutComComponent/LeftMenuCollapsedIcon.vue'
+import SysIconConfig from '@/layouts/layoutComComponent/SysIconConfig.vue'
+import FullScreenIcon from '@/layouts/layoutComComponent/FullScreenIcon.vue'
+import UserCenter from '@/layouts/layoutComComponent/UserCenter.vue'
 </script>

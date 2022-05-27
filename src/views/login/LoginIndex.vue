@@ -52,7 +52,7 @@ import { userLogin } from '@/apis/user'
 
 import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 
-import { setLocalKey } from '@/utils/common/HandleLocalStorage'
+import { setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
 const router = useRouter()
 const SysStoreModule = useSysStoreModule()

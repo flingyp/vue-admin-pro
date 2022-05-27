@@ -76,7 +76,7 @@ import { NDrawer, NDrawerContent, NButton, NSwitch, NInputNumber } from 'naive-u
 import type { DrawerPlacement } from 'naive-ui'
 
 import { useSysStoreModule } from '@/store/modules/SysStoreModule'
-import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorage'
+import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
 import SvgIconCom from '@/components/SvgIconCom.vue'
 import IconifyIconCom from '@/components/IconifyIconCom.vue'

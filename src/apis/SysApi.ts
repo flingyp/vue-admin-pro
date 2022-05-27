@@ -1,6 +1,6 @@
 import { SysTyping } from '@/typings/Sys'
-import { getLocalKey } from '@/utils/common/HandleLocalStorage'
-import { ajaxRequest } from '@/utils/Request'
+import { getLocalKey } from '@/utils/common/HandleLocalStorageUtil'
+import { ajaxRequest } from '@/utils/RequestUtil'
 
 /**
  * 获取该用户路由

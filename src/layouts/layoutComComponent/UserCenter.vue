@@ -21,7 +21,7 @@ import { useRouter } from 'vue-router'
 
 import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 import { useUserStoreModule } from '@/store/modules/UserStoreModule'
-import { removeLocalKey } from '@/utils/common/HandleLocalStorage'
+import { removeLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
 const SysStoreModule = useSysStoreModule()
 const UserStoreModule = useUserStoreModule()

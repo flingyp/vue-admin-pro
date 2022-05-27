@@ -32,13 +32,13 @@ import BasicMenuModeVue from '@/layouts/basicLayout/BasicMenuMode.vue'
 import GlobalMainIndexVue from '@/layouts/global/globalMain/globalMainIndex.vue'
 
 // 布局头部组件
-import LeftMenuHeaderVue from './difModeForm/leftMenu/LeftMenuHeader.vue'
-import TopMenuHeaderVue from './difModeForm/topMenu/TopMenuHeader.vue'
-import TopMixMenuHeaderVue from './difModeForm/topMixMenu/TopMixMenuHeader.vue'
+import LeftMenuHeaderVue from './difLayoutModeForm/leftMenu/LeftMenuHeader.vue'
+import TopMenuHeaderVue from './difLayoutModeForm/topMenu/TopMenuHeader.vue'
+import TopMixMenuHeaderVue from './difLayoutModeForm/topMixMenu/TopMixMenuHeader.vue'
 
 // 布局侧边栏组件
-import LeftMenuSiderVue from './difModeForm/leftMenu/LeftMenuSider.vue'
-import TopMixMenuSiderVue from './difModeForm/topMixMenu/TopMixMenuSider.vue'
+import LeftMenuSiderVue from './difLayoutModeForm/leftMenu/LeftMenuSider.vue'
+import TopMixMenuSiderVue from './difLayoutModeForm/topMixMenu/TopMixMenuSider.vue'
 
 const SysStoreModule = useSysStoreModule()
 

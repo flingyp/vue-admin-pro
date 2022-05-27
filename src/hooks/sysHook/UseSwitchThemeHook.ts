@@ -1,4 +1,4 @@
-import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorage'
+import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
 import { themeModeType } from '@/types/SysType'
 

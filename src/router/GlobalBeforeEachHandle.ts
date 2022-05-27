@@ -2,7 +2,7 @@ import { NavigationGuardNext, RouteLocationNormalized, Router, RouteRecordRaw } 
 
 import lodashUtil from 'lodash'
 
-import { getLocalKey } from '@/utils/common/HandleLocalStorage'
+import { getLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 import { useUserStoreModule } from '@/store/modules/UserStoreModule'
 import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 

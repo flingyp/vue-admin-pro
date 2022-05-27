@@ -5,6 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import LogoTitle from '@/layouts/comComponent/LogoTitle.vue'
+import LogoTitle from '@/layouts/layoutComComponent/LogoTitle.vue'
 import GlobalMenu from '@/layouts/global/globalMenu/GlobalMenu.vue'
 </script>

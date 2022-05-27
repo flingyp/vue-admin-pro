@@ -1,13 +1,13 @@
 import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorage'
 
-import { themeModeType } from '@/types/SysTypes'
+import { themeModeType } from '@/types/SysType'
 
-import { useSysStore } from '@/store/modules/SysStore'
+import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 
 const themeModeTitle = 'themeMode'
 
-export const useSwitchTheme = () => {
-  const sysStore = useSysStore()
+export const UseSwitchThemeHook = () => {
+  const SysStoreModule = useSysStoreModule()
 
   /** windicss 暗黑模式 */
   function handleWindicssDarkMode() {
@@ -50,7 +50,7 @@ export const useSwitchTheme = () => {
     } else {
       addDarkClass()
     }
-    sysStore.setThemeMode(mode)
+    SysStoreModule.setThemeMode(mode)
   }
 
   return {

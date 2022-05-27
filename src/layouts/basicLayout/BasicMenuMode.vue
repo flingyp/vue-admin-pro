@@ -4,19 +4,19 @@
     <n-layout-sider
       v-show="isNeedSider"
       bordered
-      :width="sysStore.leftExtendWidth"
-      :collapsed-width="sysStore.leftShrinkWidth"
+      :width="SysStoreModule.leftExtendWidth"
+      :collapsed-width="SysStoreModule.leftShrinkWidth"
       :native-scrollbar="false"
       collapse-mode="width"
-      :collapsed="sysStore.siderMenuCollapsed"
+      :collapsed="SysStoreModule.siderMenuCollapsed"
       class="h-full max-h-full"
-      :inverted="sysStore.leftIsInverted"
+      :inverted="SysStoreModule.leftIsInverted"
     >
       <slot name="sider"> 侧边栏 </slot>
     </n-layout-sider>
 
     <n-layout>
-      <n-layout-header bordered :inverted="sysStore.topIsInverted" :style="{ height: TopHeaderHeight + 'px' }">
+      <n-layout-header bordered :inverted="SysStoreModule.topIsInverted" :style="{ height: TopHeaderHeight + 'px' }">
         <slot name="header"> 头部部分 </slot>
       </n-layout-header>
 
@@ -36,12 +36,12 @@
 import { NLayout, NLayoutHeader, NLayoutContent, NLayoutSider } from 'naive-ui'
 
 import { computed } from 'vue'
-import { useSysStore } from '@/store/modules/SysStore'
+import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 
-const sysStore = useSysStore()
+const SysStoreModule = useSysStoreModule()
 
 const isNeedSider = computed(() => {
-  const { layoutMode } = sysStore
+  const { layoutMode } = SysStoreModule
   if (layoutMode === 'LEFT_MENU_MODE' || layoutMode === 'LEFT_MENU_MIX_MODE' || layoutMode === 'TOP_MIX_MENU_MODE') {
     return true
   }
@@ -49,7 +49,7 @@ const isNeedSider = computed(() => {
 })
 
 const TopHeaderHeight = computed(() => {
-  return sysStore.headerHeight
+  return SysStoreModule.headerHeight
 })
 const ContentHeight = computed(() => {
   return `calc(100vh - ${TopHeaderHeight.value}px)`

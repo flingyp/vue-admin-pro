@@ -3,8 +3,8 @@ import { NavigationGuardNext, RouteLocationNormalized, Router, RouteRecordRaw } 
 import lodashUtil from 'lodash'
 
 import { getLocalKey } from '@/utils/common/HandleLocalStorage'
-import { useUserStore } from '@/store/modules/UserStore'
-import { useSysStore } from '@/store/modules/SysStore'
+import { useUserStoreModule } from '@/store/modules/UserStoreModule'
+import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 
 import { filterRoutes, mountRoute, createMenus } from './utils/HandleRouteWeb'
 import { handleServeRouteToSysRoute } from './utils/HandleRouteServe'
@@ -15,7 +15,7 @@ import { asyncRouters } from './routers/AasyncRoutes'
 
 import { RouteHandleConfig } from '@/globalConfig'
 
-import { getSysRouters } from '@/apis/sys'
+import { getSysRouters } from '@/apis/SysApi'
 
 // 是否挂载了404通用路由
 let isMounted404Router: boolean = false
@@ -24,9 +24,9 @@ let isMounted404Router: boolean = false
 const whiteRouteByName: string[] = ['Login']
 
 // 路由菜单处理函数
-const routeMenuProcess = async (userStore: any, sysStore: any, routerInstance: Router) => {
+const routeMenuProcess = async (UserStoreModule: any, SysStoreModule: any, routerInstance: Router) => {
   // 1. 获取用户信息
-  await userStore.getUserInfo()
+  await UserStoreModule.getUserInfo()
 
   let handleSuccessAsyncRouters: RouteRecordRaw[] = []
 
@@ -36,7 +36,7 @@ const routeMenuProcess = async (userStore: any, sysStore: any, routerInstance: R
     const deepAsyncRouters = lodashUtil.cloneDeep(asyncRouters)
 
     // 2. 获取权限
-    const permissions = userStore.getPermissions
+    const permissions = UserStoreModule.getPermissions
 
     // 3. 过滤路由
     if (permissions && permissions.length !== 0) {
@@ -58,9 +58,9 @@ const routeMenuProcess = async (userStore: any, sysStore: any, routerInstance: R
   const sysMenus = createMenus([...constantRouters, ...handleSuccessAsyncRouters] as RouteRecordRaw[])
 
   // 6. 初始化状态管理
-  sysStore.setConstantRoutes(constantRouters)
-  sysStore.setAsyncRoutes(handleSuccessAsyncRouters)
-  sysStore.setSysMenus(sysMenus)
+  SysStoreModule.setConstantRoutes(constantRouters)
+  SysStoreModule.setAsyncRoutes(handleSuccessAsyncRouters)
+  SysStoreModule.setSysMenus(sysMenus)
 }
 
 /**
@@ -82,8 +82,8 @@ export default async (
 ) => {
   // 获取本地token
   const localAccessToken = getLocalKey('accessToken')
-  const userStore = useUserStore()
-  const sysStore = useSysStore()
+  const UserStoreModule = useUserStoreModule()
+  const SysStoreModule = useSysStoreModule()
 
   // 有token情况
   if (localAccessToken && localAccessToken !== '') {
@@ -93,17 +93,17 @@ export default async (
        * 注意：next({ path: to.path, replace: false }) 和 next()的理解
        */
 
-      if (!sysStore.isAddAsyncRouter) {
-        await routeMenuProcess(userStore, sysStore, routerInstance)
-        sysStore.isAddAsyncRouter = true
+      if (!SysStoreModule.isAddAsyncRouter) {
+        await routeMenuProcess(UserStoreModule, SysStoreModule, routerInstance)
+        SysStoreModule.isAddAsyncRouter = true
         next({ path: to.fullPath, replace: true })
       }
     } else if (from.name === undefined && to.name !== 'Login') {
       // 刷新了页面的情况
 
-      if (!sysStore.isAddAsyncRouter) {
-        await routeMenuProcess(userStore, sysStore, routerInstance)
-        sysStore.isAddAsyncRouter = true
+      if (!SysStoreModule.isAddAsyncRouter) {
+        await routeMenuProcess(UserStoreModule, SysStoreModule, routerInstance)
+        SysStoreModule.isAddAsyncRouter = true
         next({ path: to.fullPath, replace: true })
       }
     } else if (to.name === 'Login') {

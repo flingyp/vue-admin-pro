@@ -1,20 +1,20 @@
 import { defineStore } from 'pinia'
 
 import { getLocalKey } from '@/utils/common/HandleLocalStorage'
-import { getUserInfoService } from '@/apis/user'
+import { getUserInfoService } from '@/apis/UserApi'
 
-interface IUserStoreState {
+interface IUserStoreModuleState {
   token: string
   userInfo: UserTyping.IUserInfo
 }
 
-export const useUserStore = defineStore('userStore', {
+export const useUserStoreModule = defineStore('UserStoreModule', {
   state: () => {
-    const userStoreState: IUserStoreState = {
+    const UserStoreModuleState: IUserStoreModuleState = {
       token: getLocalKey('accessToken') || '',
       userInfo: {}
     }
-    return userStoreState
+    return UserStoreModuleState
   },
   getters: {
     getPermissions: (state) => state.userInfo.permissions

@@ -1,12 +1,12 @@
 <template>
-  <MdEditor v-model="showMdText" :theme="sysStore.themeMode" style="width: 100%; height: 100%"></MdEditor>
+  <MdEditor v-model="showMdText" :theme="SysStoreModule.themeMode" style="width: 100%; height: 100%"></MdEditor>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import MdEditor from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
-import { useSysStore } from '@/store/modules/SysStore'
+import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 
 interface MdEditorV3Props {
   text: string
@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<MdEditorV3Props>(), {
 
 const emits = defineEmits<MdEditorV3Emits>()
 
-const sysStore = useSysStore()
+const SysStoreModule = useSysStoreModule()
 
 /**
  * 这里传递的是一个计算属性 <MdEditor v-model="showMdText"></MdEditor>

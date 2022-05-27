@@ -1,7 +1,7 @@
 <template>
   <n-config-provider
-    :theme="sysStore.themeMode === 'light' ? undefined : darkTheme"
-    :theme-overrides="sysStore.naiveUiGlobalThemeOverrides"
+    :theme="SysStoreModule.themeMode === 'light' ? undefined : darkTheme"
+    :theme-overrides="SysStoreModule.naiveUiGlobalThemeOverrides"
     :locale="locale"
   >
     <n-notification-provider>
@@ -19,8 +19,8 @@ import { ref } from 'vue'
 import { NConfigProvider, NNotificationProvider, darkTheme, zhCN } from 'naive-ui'
 import type { NLocale } from 'naive-ui'
 
-import { useSysStore } from '@/store/modules/SysStore'
+import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 
-const sysStore = useSysStore()
+const SysStoreModule = useSysStoreModule()
 const locale = ref<NLocale | null>(zhCN)
 </script>

@@ -13,7 +13,7 @@
 import { MenuOption } from 'naive-ui'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useSysStore } from '@/store/modules/SysStore'
+import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 
 import IconifyIconCom from '@/components/IconifyIconCom.vue'
 
@@ -21,7 +21,7 @@ const props = defineProps<{
   menu: MenuOption
 }>()
 
-const sysStore = useSysStore()
+const SysStoreModule = useSysStoreModule()
 const route = useRoute()
 const router = useRouter()
 
@@ -37,18 +37,18 @@ const clickNavRoute = (name: string) => {
 }
 const deleteTabRoute = (name: string) => {
   // 判断下tabMenusKey是不是就一个
-  if (sysStore.tabMenusKey.length === 1) {
+  if (SysStoreModule.tabMenusKey.length === 1) {
     return
   }
 
   // 判断删除的是不是当前所在路由，如果是则需要去另外跳转其它的页面
   if (route.name === name) {
-    const tabMenuIndex = sysStore.tabMenusKey.indexOf(name)
+    const tabMenuIndex = SysStoreModule.tabMenusKey.indexOf(name)
     // 需要跳转的路由名称
-    const navRouteName = sysStore.tabMenusKey[tabMenuIndex === 0 ? 1 : tabMenuIndex - 1]
+    const navRouteName = SysStoreModule.tabMenusKey[tabMenuIndex === 0 ? 1 : tabMenuIndex - 1]
     router.push({ name: navRouteName as string })
   }
-  sysStore.deleteTabMenuKey(name)
+  SysStoreModule.deleteTabMenuKey(name)
 }
 </script>
 

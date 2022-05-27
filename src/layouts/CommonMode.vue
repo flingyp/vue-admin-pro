@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-import { useSysStore } from '@/store/modules/SysStore'
+import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 
 // 基础布局组件
 import BasicMenuModeVue from '@/layouts/basicLayout/BasicMenuMode.vue'
@@ -40,25 +40,25 @@ import TopMixMenuHeaderVue from './difModeForm/topMixMenu/TopMixMenuHeader.vue'
 import LeftMenuSiderVue from './difModeForm/leftMenu/LeftMenuSider.vue'
 import TopMixMenuSiderVue from './difModeForm/topMixMenu/TopMixMenuSider.vue'
 
-const sysStore = useSysStore()
+const SysStoreModule = useSysStoreModule()
 
 const CurrentLayoutModeHeader = computed(() => {
-  if (sysStore.layoutMode === 'LEFT_MENU_MODE' || sysStore.layoutMode === 'LEFT_MENU_MIX_MODE') {
+  if (SysStoreModule.layoutMode === 'LEFT_MENU_MODE' || SysStoreModule.layoutMode === 'LEFT_MENU_MIX_MODE') {
     return LeftMenuHeaderVue
   }
-  if (sysStore.layoutMode === 'TOP_MENU_MODE') {
+  if (SysStoreModule.layoutMode === 'TOP_MENU_MODE') {
     return TopMenuHeaderVue
   }
-  if (sysStore.layoutMode === 'TOP_MIX_MENU_MODE') {
+  if (SysStoreModule.layoutMode === 'TOP_MIX_MENU_MODE') {
     return TopMixMenuHeaderVue
   }
   return LeftMenuHeaderVue
 })
 const CurrentLayoutModeSider = computed(() => {
-  if (sysStore.layoutMode === 'LEFT_MENU_MODE' || sysStore.layoutMode === 'LEFT_MENU_MIX_MODE') {
+  if (SysStoreModule.layoutMode === 'LEFT_MENU_MODE' || SysStoreModule.layoutMode === 'LEFT_MENU_MIX_MODE') {
     return LeftMenuSiderVue
   }
-  if (sysStore.layoutMode === 'TOP_MIX_MENU_MODE') {
+  if (SysStoreModule.layoutMode === 'TOP_MIX_MENU_MODE') {
     return TopMixMenuSiderVue
   }
   return null

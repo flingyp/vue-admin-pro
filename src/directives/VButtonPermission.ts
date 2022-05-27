@@ -1,16 +1,16 @@
 import { App } from 'vue'
 
-import { useUserStore } from '@/store/modules/UserStore'
+import { useUserStoreModule } from '@/store/modules/UserStoreModule'
 
 /**
  * v-button-permission="[permission]"
  * 按钮权限控制指令
  */
 export default (app: App<Element>) => {
-  const userStore = useUserStore()
+  const UserStoreModule = useUserStoreModule()
 
   app.directive('button-permission', (el: HTMLButtonElement, binding) => {
-    const permissions = userStore.getPermissions
+    const permissions = UserStoreModule.getPermissions
     const btnPermissions: string[] = binding.value
 
     const isHaveBtnPermission = btnPermissions.some((btn) => {

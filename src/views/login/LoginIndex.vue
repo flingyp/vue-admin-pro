@@ -50,12 +50,12 @@ import ThemeSwitchIconCom from '@/components/ThemeSwitchIconCom.vue'
 
 import { userLogin } from '@/apis/user'
 
-import { useSysStore } from '@/store/modules/SysStore'
+import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 
 import { setLocalKey } from '@/utils/common/HandleLocalStorage'
 
 const router = useRouter()
-const sysStore = useSysStore()
+const SysStoreModule = useSysStoreModule()
 
 const loginFormData = reactive({
   username: 'admin',
@@ -80,11 +80,11 @@ const loginRules: FormRules = {
 }
 
 const currentBgColor = computed(() => {
-  const { themeColor } = sysStore
+  const { themeColor } = SysStoreModule
   const getBgColor1 = colord(themeColor).alpha(0.4).toRgbString()
   const getBgColor2 = colord(themeColor).alpha(0.6).toRgbString()
   const blackColor = colord('#000').alpha(0.8).toRgbString()
-  if (sysStore.themeMode === 'light') {
+  if (SysStoreModule.themeMode === 'light') {
     return `linear-gradient(30deg, ${getBgColor1}, ${getBgColor2})`
   }
   return `linear-gradient(180deg, ${blackColor}, ${getBgColor1},${getBgColor2}, ${blackColor})`

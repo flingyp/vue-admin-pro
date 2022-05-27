@@ -8,7 +8,7 @@
     >
       <div class="cursor-pointer header-item-base-style">
         <img src="@/assets/img/user-logo.png" class="w-[3rem] h-[3rem] rounded-[50%] mr-[1rem]" />
-        <div class="align-baseline">{{ userStore.userInfo.nickname || '昵称' }}</div>
+        <div class="align-baseline">{{ UserStoreModule.userInfo.nickname || '昵称' }}</div>
       </div>
     </n-popselect>
   </div>
@@ -19,12 +19,12 @@ import { ref } from 'vue'
 import { NPopselect } from 'naive-ui'
 import { useRouter } from 'vue-router'
 
-import { useSysStore } from '@/store/modules/SysStore'
-import { useUserStore } from '@/store/modules/UserStore'
+import { useSysStoreModule } from '@/store/modules/SysStoreModule'
+import { useUserStoreModule } from '@/store/modules/UserStoreModule'
 import { removeLocalKey } from '@/utils/common/HandleLocalStorage'
 
-const sysStore = useSysStore()
-const userStore = useUserStore()
+const SysStoreModule = useSysStoreModule()
+const UserStoreModule = useUserStoreModule()
 const router = useRouter()
 
 const popselectOptions = [
@@ -41,8 +41,8 @@ const exitSystemFun = async () => {
   removeLocalKey('accessToken')
   removeLocalKey('tabMenu')
   // reset stores
-  userStore.$reset()
-  sysStore.$reset()
+  UserStoreModule.$reset()
+  SysStoreModule.$reset()
 }
 
 const clickPopselect = async (value: string) => {

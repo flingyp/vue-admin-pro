@@ -1,4 +1,4 @@
-import { ThemeColor, ThemeColorName, ThemeColorScene, ThemeColorTypes } from '@/types/SysTypes'
+import { ThemeColor, ThemeColorName, ThemeColorScene, ThemeColorTypes } from '@/types/SysType'
 
 import { getColorPalette } from '@/utils/common/Colors'
 

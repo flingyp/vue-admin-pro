@@ -75,7 +75,7 @@ import { ref, computed } from 'vue'
 import { NDrawer, NDrawerContent, NButton, NSwitch, NInputNumber } from 'naive-ui'
 import type { DrawerPlacement } from 'naive-ui'
 
-import { useSysStore } from '@/store/modules/SysStore'
+import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorage'
 
 import SvgIconCom from '@/components/SvgIconCom.vue'
@@ -83,13 +83,13 @@ import IconifyIconCom from '@/components/IconifyIconCom.vue'
 
 import BasicConfigBox from './BasicConfigBox.vue'
 
-import type { layoutModeType } from '@/types/SysTypes'
+import type { layoutModeType } from '@/types/SysType'
 
-import { useSwitchTheme } from '@/hooks/sysHook/useSwitchTheme'
+import { UseSwitchThemeHook } from '@/hooks/sysHook/UseSwitchThemeHook'
 
-const sysStore = useSysStore()
+const SysStoreModule = useSysStoreModule()
 
-const switchTheme = useSwitchTheme()
+const switchTheme = UseSwitchThemeHook()
 
 const active = ref(false)
 const placement = ref<DrawerPlacement>('right')
@@ -120,12 +120,12 @@ const layoutItemsArray: {
   }
 ]
 const changeLayoutMode = (mode: layoutModeType) => {
-  sysStore.setLayoutMode(mode)
+  SysStoreModule.setLayoutMode(mode)
 }
 
 const activeIndexLayoutBtn = computed(() => {
-  const currentMode = sysStore.layoutMode
-  const isCollapsed = sysStore.siderMenuCollapsed
+  const currentMode = SysStoreModule.layoutMode
+  const isCollapsed = SysStoreModule.siderMenuCollapsed
 
   if (currentMode === 'LEFT_MENU_MODE' && !isCollapsed) {
     return 0
@@ -169,7 +169,7 @@ const currentThemeColor = ref(getLocalKey('themeColor') || '#18a058')
 const changeThemeColor = (color: string) => {
   currentThemeColor.value = color
   setLocalKey('themeColor', color)
-  sysStore.setThemeColor(color)
+  SysStoreModule.setThemeColor(color)
 }
 
 // 主题模式的开关
@@ -183,33 +183,33 @@ const changeThemeMode = (value: boolean) => {
 }
 
 // 侧边栏反转色
-const leftIsInverted = ref(sysStore.leftIsInverted)
+const leftIsInverted = ref(SysStoreModule.leftIsInverted)
 const changeLeftIsInverted = (value: boolean) => {
-  sysStore.setLeftIsInverted(value)
+  SysStoreModule.setLeftIsInverted(value)
 }
 
 // 顶部反转色
-const topIsInverted = ref(sysStore.topIsInverted)
+const topIsInverted = ref(SysStoreModule.topIsInverted)
 const changeTopIsInverted = (value: boolean) => {
-  sysStore.setTopIsInverted(value)
+  SysStoreModule.setTopIsInverted(value)
 }
 
 // 侧边栏宽度
-const LeftExtendWidth = ref(sysStore.leftExtendWidth)
+const LeftExtendWidth = ref(SysStoreModule.leftExtendWidth)
 const changeLeftExtendWidth = () => {
-  sysStore.setLeftExtendWidth(LeftExtendWidth.value)
+  SysStoreModule.setLeftExtendWidth(LeftExtendWidth.value)
 }
 
 // 侧边栏收缩宽度
-const LeftShrinkWidth = ref(sysStore.leftShrinkWidth)
+const LeftShrinkWidth = ref(SysStoreModule.leftShrinkWidth)
 const changeLeftShrinkWidth = () => {
-  sysStore.setLeftShrinkWidth(LeftShrinkWidth.value)
+  SysStoreModule.setLeftShrinkWidth(LeftShrinkWidth.value)
 }
 
 // 顶部栏高度
-const TopHeaderHeight = ref(sysStore.headerHeight)
+const TopHeaderHeight = ref(SysStoreModule.headerHeight)
 const changeTopHeaderHeight = () => {
-  sysStore.setHeaderHeight(TopHeaderHeight.value)
+  SysStoreModule.setHeaderHeight(TopHeaderHeight.value)
 }
 
 defineExpose({

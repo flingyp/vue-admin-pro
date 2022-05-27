@@ -1,5 +1,5 @@
 <template>
-  <div v-if="sysStore.siderMenuCollapsed" @click="clickIsCollapsedSider(false)" class="header-item-base-style">
+  <div v-if="SysStoreModule.siderMenuCollapsed" @click="clickIsCollapsedSider(false)" class="header-item-base-style">
     <IconifyIconCom icon-label="mdi-light:format-indent-increase" :fontSize="20" />
   </div>
 
@@ -9,14 +9,14 @@
 </template>
 
 <script setup lang="ts">
-import { useSysStore } from '@/store/modules/SysStore'
+import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 
 import IconifyIconCom from '@/components/IconifyIconCom.vue'
 
-const sysStore = useSysStore()
+const SysStoreModule = useSysStoreModule()
 
 const clickIsCollapsedSider = (collapsed: boolean) => {
-  sysStore.setIsCollapsed(collapsed)
+  SysStoreModule.setIsCollapsed(collapsed)
 }
 </script>
 

@@ -8,7 +8,7 @@ import { useRoute, useRouter } from 'vue-router'
 import type { MenuOption } from 'naive-ui'
 import { NMenu } from 'naive-ui'
 
-import { useSysStore } from '@/store/modules/SysStore'
+import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 
 interface IGlobalMenuProps {
   mode: 'vertical' | 'horizontal'
@@ -21,7 +21,7 @@ withDefaults(defineProps<IGlobalMenuProps>(), {
 const route = useRoute()
 const router = useRouter()
 
-const sysStore = useSysStore()
+const SysStoreModule = useSysStoreModule()
 
 // 监听路由的变化，更改菜单当前选中值
 const routeKey = ref(route.name as string)
@@ -35,7 +35,7 @@ watchEffect(() => {
 
 // 菜单数据
 // @ts-ignore
-const menuOptions: MenuOption[] = sysStore.sysMenus || []
+const menuOptions: MenuOption[] = SysStoreModule.sysMenus || []
 
 // 点击菜单
 const clickMenu = (key: string, menu: MenuOption) => {
@@ -45,18 +45,18 @@ const clickMenu = (key: string, menu: MenuOption) => {
   } else if (menu.link === 'Internal_Link') {
     // 内链
     router.push({ name: key })
-    sysStore.addTabMenuKey(key)
+    SysStoreModule.addTabMenuKey(key)
   } else {
     router.push({ name: key })
-    sysStore.addTabMenuKey(key)
+    SysStoreModule.addTabMenuKey(key)
   }
 }
 
 const isInverted = computed(() => {
-  const currentLayoutMode = sysStore.layoutMode
+  const currentLayoutMode = SysStoreModule.layoutMode
   if (currentLayoutMode === 'TOP_MENU_MODE') {
-    return sysStore.topIsInverted
+    return SysStoreModule.topIsInverted
   }
-  return sysStore.leftIsInverted
+  return SysStoreModule.leftIsInverted
 })
 </script>

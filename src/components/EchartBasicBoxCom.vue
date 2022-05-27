@@ -16,7 +16,7 @@ import { ref, watchEffect } from 'vue'
 
 import { echartInstance, ECOption } from '@/utils/echarts/EchartsUtil'
 
-import { useSysStore } from '@/store/modules/SysStore'
+import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 
 const { width, height, echartOption } = defineProps<{
   echartOption: ECOption
@@ -28,7 +28,7 @@ const chartRef = ref<Element>()
 
 let chartInstance: echartInstance.ECharts | null = null
 
-const sysStore = useSysStore()
+const SysStoreModule = useSysStoreModule()
 
 function initChart(theme = 'default') {
   return echartInstance.init(chartRef.value as HTMLElement, theme === 'light' ? 'default' : 'dark')
@@ -39,7 +39,7 @@ function mountedChart() {
     chartInstance.dispose()
   }
 
-  chartInstance = initChart(sysStore.themeMode)
+  chartInstance = initChart(SysStoreModule.themeMode)
 
   // 修改图表背景色统一为透明（深色模式的默认背景色与系统的背景色不搭）
   const chartOption = echartOption

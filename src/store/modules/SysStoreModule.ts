@@ -1,13 +1,13 @@
 import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
 import type { MenuOption, GlobalThemeOverrides } from 'naive-ui'
-import { ISysConfig, layoutModeType, ThemeColorTypes, themeModeType } from '@/types/SysTypes'
+import { ISysConfig, layoutModeType, ThemeColorTypes, themeModeType } from '@/types/SysType'
 
 import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorage'
 
-import { addThemeCssVarsToHtml, getSysThemeColors } from '../utils/ThemeColor'
+import { addThemeCssVarsToHtml, getSysThemeColors } from '../utils/ThemeColors'
 
-interface ISysStoreState {
+interface ISysStoreModuleState {
   constantRoutes: RouteRecordRaw[]
   asyncRoutes: RouteRecordRaw[]
   sysMenus: MenuOption[]
@@ -17,9 +17,9 @@ interface ISysStoreState {
   isAddAsyncRouter: boolean
 }
 
-export const useSysStore = defineStore('sysStore', {
+export const useSysStoreModule = defineStore('SysStoreModule', {
   state: () => {
-    const sysStoreState: ISysStoreState = {
+    const SysStoreModuleState: ISysStoreModuleState = {
       constantRoutes: [],
       asyncRoutes: [],
       sysMenus: [],
@@ -38,7 +38,7 @@ export const useSysStore = defineStore('sysStore', {
       isNeedReload: false,
       isAddAsyncRouter: false // 是否添加了动态路由
     }
-    return sysStoreState
+    return SysStoreModuleState
   },
   getters: {
     themeMode: (state) => state.sysConfig.themeMode,

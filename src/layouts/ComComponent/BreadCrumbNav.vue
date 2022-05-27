@@ -14,14 +14,14 @@ import { useRoute, useRouter } from 'vue-router'
 import { NBreadcrumb, NBreadcrumbItem, NDropdown } from 'naive-ui'
 import type { MenuOption } from 'naive-ui'
 
-import { useSysStore } from '@/store/modules/SysStore'
+import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 
 const router = useRouter()
 const route = useRoute()
 
-const sysStore = useSysStore()
+const SysStoreModule = useSysStoreModule()
 
-const menus = sysStore.sysMenus || []
+const menus = SysStoreModule.sysMenus || []
 
 /**
  * 判断当前菜单以及children中是否包含 routeName 的菜单
@@ -86,7 +86,7 @@ watchEffect(() => {
 })
 
 const clickBreadCrumbItem = (key: string) => {
-  sysStore.addTabMenuKey(key)
+  SysStoreModule.addTabMenuKey(key)
   router.push({ name: key })
 }
 </script>

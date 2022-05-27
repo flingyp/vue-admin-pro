@@ -6,12 +6,12 @@ import { getLocalKey } from '@/utils/common/HandleLocalStorage'
 import { useUserStore } from '@/store/modules/UserStore'
 import { useSysStore } from '@/store/modules/SysStore'
 
-import { filterRoutes, mountRoute, createMenus } from './utils/HandleRouteOnWeb'
-import { handleServeRouteToSysRoute } from './utils/HandleRouteOnServe'
+import { filterRoutes, mountRoute, createMenus } from './utils/HandleRouteWeb'
+import { handleServeRouteToSysRoute } from './utils/HandleRouteServe'
 
 // 常量路由、 异步路由
-import { constantRouters, redirect404Router } from './routers/ConstantRouters'
-import { asyncRouters } from './routers/AsyncRouters'
+import { constantRouters, redirect404Router } from './routers/ConstantRoutes'
+import { asyncRouters } from './routers/AasyncRoutes'
 
 import { RouteHandleConfig } from '@/globalConfig'
 

@@ -4,13 +4,13 @@ import { App } from 'vue'
 // NProgress
 import NProgress from 'nprogress'
 
-import { filterNotSysLinkRoutes } from './utils/HandleRouteOnWeb'
+import { filterNotSysLinkRoutes } from './utils/HandleRouteWeb'
 
 // 常量路由、 异步路由
-import { constantRouters } from './routers/ConstantRouters'
+import { constantRouters } from './routers/ConstantRoutes'
 
 // 全局路由控制守卫：逻辑控制方法
-import GlobalBeforeEach from './GlobalBeforeEach'
+import GlobalBeforeEach from './GlobalBeforeEachHandle'
 
 const routerInstance = createRouter({
   history: createWebHashHistory(),

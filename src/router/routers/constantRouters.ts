@@ -1,5 +1,5 @@
-import Layout from '@/layouts/index.vue'
-import IframeIndexVue from '@/views/plugins/iframe/IframeIndex.vue'
+import Layout from '@/layouts/LayoutIndex.vue'
+import IframeIndex from '@/views/plugins/iframe/IframeIndex.vue'
 import RouterViewCom from '@/components/RouterViewCom.vue'
 import { SysTyping } from '@/typings/Sys'
 
@@ -13,7 +13,7 @@ export const constantRouters: SysTyping.RouteStruct[] = [
   },
   {
     path: '/404',
-    component: () => import('@/views/common/exceptPage/NotFound.vue'),
+    component: () => import('@/views/common/exceptPage/NotFoundIndex.vue'),
     meta: {
       isShow: false
     }
@@ -26,7 +26,7 @@ export const constantRouters: SysTyping.RouteStruct[] = [
       {
         path: '',
         name: 'TestIndex',
-        component: () => import('@/views/Test.vue'),
+        component: () => import('@/views/TestIndex.vue'),
         meta: {
           title: '测试页面',
           icon: 'fluent:window-dev-tools-16-regular',
@@ -73,7 +73,7 @@ export const constantRouters: SysTyping.RouteStruct[] = [
       {
         path: '404',
         name: 'Common404',
-        component: () => import('@/views/common/exceptPage/NotFound.vue'),
+        component: () => import('@/views/common/exceptPage/NotFoundIndex.vue'),
         meta: {
           title: '404页面',
           icon: 'tabler:error-404'
@@ -82,7 +82,7 @@ export const constantRouters: SysTyping.RouteStruct[] = [
       {
         path: '500',
         name: 'Common500',
-        component: () => import('@/views/common/exceptPage/ServerExcept.vue'),
+        component: () => import('@/views/common/exceptPage/ServerExceptIndex.vue'),
         meta: {
           title: '500页面',
           icon: 'la:500px'
@@ -152,7 +152,7 @@ export const constantRouters: SysTyping.RouteStruct[] = [
           {
             path: 'richText',
             name: 'EditorRichText',
-            component: () => import('@/views/plugins/editors/RichText.vue'),
+            component: () => import('@/views/plugins/editors/RichTextIndex.vue'),
             meta: {
               title: '富文本编辑器',
               icon: 'arcticons:editor'
@@ -161,7 +161,7 @@ export const constantRouters: SysTyping.RouteStruct[] = [
           {
             path: 'markdown',
             name: 'EditorMarkdown',
-            component: () => import('@/views/plugins/editors/EditorMarkdown.vue'),
+            component: () => import('@/views/plugins/editors/EditorMarkdownIndex.vue'),
             meta: {
               title: 'Markdown编辑器',
               icon: 'bi:markdown'
@@ -232,7 +232,7 @@ export const constantRouters: SysTyping.RouteStruct[] = [
       {
         path: 'naive',
         name: 'DocsNaiveUi',
-        component: IframeIndexVue,
+        component: IframeIndex,
         meta: {
           title: 'Naive UI 文档',
           link: 'External_Link',
@@ -243,7 +243,7 @@ export const constantRouters: SysTyping.RouteStruct[] = [
       {
         path: 'vue',
         name: 'DocsVueNew',
-        component: IframeIndexVue,
+        component: IframeIndex,
         meta: {
           title: 'Vue3 新中文文档',
           link: 'Internal_Link',
@@ -254,7 +254,7 @@ export const constantRouters: SysTyping.RouteStruct[] = [
       {
         path: 'windicss',
         name: 'DocsWindicss',
-        component: IframeIndexVue,
+        component: IframeIndex,
         meta: {
           title: 'WindiCSS 文档',
           link: 'Internal_Link',
@@ -265,7 +265,7 @@ export const constantRouters: SysTyping.RouteStruct[] = [
       {
         path: 'vite',
         name: 'DocsVite',
-        component: IframeIndexVue,
+        component: IframeIndex,
         meta: {
           title: 'Vite 文档',
           link: 'Internal_Link',
@@ -276,7 +276,7 @@ export const constantRouters: SysTyping.RouteStruct[] = [
       {
         path: 'docs',
         name: 'VueAdminProDocs',
-        component: IframeIndexVue,
+        component: IframeIndex,
         meta: {
           title: 'Vue Admin Pro',
           link: 'Internal_Link',
@@ -294,7 +294,7 @@ export const constantRouters: SysTyping.RouteStruct[] = [
       {
         path: '',
         name: 'AboutIndex',
-        component: () => import('@/views/about/About.vue'),
+        component: () => import('@/views/about/AboutIndex.vue'),
         meta: {
           title: '关于',
           icon: 'cib:about-me',

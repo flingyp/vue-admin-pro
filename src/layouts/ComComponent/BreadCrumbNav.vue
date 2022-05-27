@@ -14,7 +14,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { NBreadcrumb, NBreadcrumbItem, NDropdown } from 'naive-ui'
 import type { MenuOption } from 'naive-ui'
 
-import { useSysStore } from '@/store/modules/sysStore'
+import { useSysStore } from '@/store/modules/SysStore'
 
 const router = useRouter()
 const route = useRoute()

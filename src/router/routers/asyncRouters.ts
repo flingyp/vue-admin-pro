@@ -1,4 +1,4 @@
-import Layout from '@/layouts/index.vue'
+import Layout from '@/layouts/LayoutIndex.vue'
 import { SysTyping } from '@/typings/Sys'
 
 /**
@@ -25,7 +25,7 @@ export const asyncRouters: SysTyping.RouteStruct[] = [
       {
         path: 'root',
         name: 'RootPermission',
-        component: () => import('@/views/permissions/RootPermission.vue'),
+        component: () => import('@/views/permissions/RootPermissionIndex.vue'),
         meta: {
           title: '超级管理员可见',
           icon: 'icon-park-outline:permissions',
@@ -35,7 +35,7 @@ export const asyncRouters: SysTyping.RouteStruct[] = [
       {
         path: 'user',
         name: 'UserPermission',
-        component: () => import('@/views/permissions/UserPermission.vue'),
+        component: () => import('@/views/permissions/UserPermissionIndex.vue'),
         meta: {
           title: '普通用户可见',
           icon: 'icon-park-outline:permissions',
@@ -45,7 +45,7 @@ export const asyncRouters: SysTyping.RouteStruct[] = [
       {
         path: 'com',
         name: 'ComPermission',
-        component: () => import('@/views/permissions/ComPermission.vue'),
+        component: () => import('@/views/permissions/ComPermissionIndex.vue'),
         meta: {
           title: '超级管理员、普通用户可见',
           icon: 'icon-park-outline:permissions',
@@ -55,7 +55,7 @@ export const asyncRouters: SysTyping.RouteStruct[] = [
       {
         path: 'button',
         name: 'ButtonPermission',
-        component: () => import('@/views/permissions/ButtonPermission.vue'),
+        component: () => import('@/views/permissions/ButtonPermissionIndex.vue'),
         meta: {
           title: '按钮权限控制',
           icon: 'icon-park-outline:permissions',

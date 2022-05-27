@@ -1,8 +1,8 @@
-import { getLocalKey, setLocalKey } from '@/utils/common/handleLocalStorage'
+import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorage'
 
 import { themeModeType } from '@/types/SysTypes'
 
-import { useSysStore } from '@/store/modules/sysStore'
+import { useSysStore } from '@/store/modules/SysStore'
 
 const themeModeTitle = 'themeMode'
 

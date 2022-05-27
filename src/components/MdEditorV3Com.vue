@@ -6,7 +6,7 @@
 import { computed, ref } from 'vue'
 import MdEditor from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
-import { useSysStore } from '@/store/modules/sysStore'
+import { useSysStore } from '@/store/modules/SysStore'
 
 interface MdEditorV3Props {
   text: string

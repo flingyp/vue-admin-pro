@@ -5,5 +5,5 @@
 </template>
 
 <script setup lang="ts">
-import AMap from '@/components/GaodeMap.vue'
+import AMap from '@/components/GaodeMapCom.vue'
 </script>

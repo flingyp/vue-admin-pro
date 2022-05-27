@@ -1,6 +1,6 @@
 import { ThemeColor, ThemeColorName, ThemeColorScene, ThemeColorTypes } from '@/types/SysTypes'
 
-import { getColorPalette } from '@/utils/common/colors'
+import { getColorPalette } from '@/utils/common/Colors'
 
 interface ColorAction {
   scene: ThemeColorScene

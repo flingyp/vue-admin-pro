@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-import { useSysStore } from '@/store/modules/sysStore'
+import { useSysStore } from '@/store/modules/SysStore'
 
 // 基础布局组件
 import BasicMenuModeVue from '@/layouts/basicLayout/BasicMenuMode.vue'
@@ -32,13 +32,13 @@ import BasicMenuModeVue from '@/layouts/basicLayout/BasicMenuMode.vue'
 import GlobalMainIndexVue from '@/layouts/global/globalMain/globalMainIndex.vue'
 
 // 布局头部组件
-import LeftMenuHeaderVue from './DifModeForm/LeftMenu/LeftMenuHeader.vue'
-import TopMenuHeaderVue from './DifModeForm/TopMenu/TopMenuHeader.vue'
-import TopMixMenuHeaderVue from './DifModeForm/TopMixMenu/TopMixMenuHeader.vue'
+import LeftMenuHeaderVue from './difModeForm/leftMenu/LeftMenuHeader.vue'
+import TopMenuHeaderVue from './difModeForm/topMenu/TopMenuHeader.vue'
+import TopMixMenuHeaderVue from './difModeForm/topMixMenu/TopMixMenuHeader.vue'
 
 // 布局侧边栏组件
-import LeftMenuSiderVue from './DifModeForm/LeftMenu/LeftMenuSider.vue'
-import TopMixMenuSiderVue from './DifModeForm/TopMixMenu/TopMixMenuSider.vue'
+import LeftMenuSiderVue from './difModeForm/leftMenu/LeftMenuSider.vue'
+import TopMixMenuSiderVue from './difModeForm/topMixMenu/TopMixMenuSider.vue'
 
 const sysStore = useSysStore()
 

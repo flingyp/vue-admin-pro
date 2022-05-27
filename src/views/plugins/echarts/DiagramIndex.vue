@@ -2,11 +2,11 @@
   <div class="m-[2rem]">
     <n-card title="Echarts 图表">
       <div class="flex justify-around items-center">
-        <EchartBasicBox :echartOption="chartOne" :width="500" :height="400"></EchartBasicBox>
-        <EchartBasicBox :echartOption="chartTwo" :width="500" :height="400"></EchartBasicBox>
+        <EchartBasicBoxCom :echartOption="chartOne" :width="500" :height="400"></EchartBasicBoxCom>
+        <EchartBasicBoxCom :echartOption="chartTwo" :width="500" :height="400"></EchartBasicBoxCom>
       </div>
       <div class="flex justify-around items-center">
-        <EchartBasicBox :echartOption="chartThree" :width="500" :height="400"></EchartBasicBox>
+        <EchartBasicBoxCom :echartOption="chartThree" :width="500" :height="400"></EchartBasicBoxCom>
       </div>
     </n-card>
   </div>
@@ -15,9 +15,9 @@
 <script setup lang="ts">
 import { NCard } from 'naive-ui'
 
-import { ECOption } from '@/utils/echarts'
+import { ECOption } from '@/utils/echarts/EchartsUtil'
 
-import EchartBasicBox from '@/components/EchartBasicBox.vue'
+import EchartBasicBoxCom from '@/components/EchartBasicBoxCom.vue'
 
 const chartOne: ECOption = {
   title: {

@@ -2,12 +2,12 @@
   <div class="w-screen h-screen" :style="{ backgroundImage: currentBgColor }">
     <n-card class="box-page-center w-[100rem] p-[1rem]">
       <div class="flex items-center mb-[5rem]">
-        <SvgIcon name="logo-rocket" class="w-[4rem] h-[4rem] mr-[1.5rem] text-primary"></SvgIcon>
+        <SvgIconCom name="logo-rocket" class="w-[4rem] h-[4rem] mr-[1.5rem] text-primary"></SvgIconCom>
         <span class="text-primary font-mono font-bold font text-[3rem]">Vue Admin Pro</span>
       </div>
       <div class="flex justify-between">
         <div class="flex-1">
-          <SvgIcon name="login-system-img" class="w-[100%] h-[35rem] text-primary"></SvgIcon>
+          <SvgIconCom name="login-system-img" class="w-[100%] h-[35rem] text-primary"></SvgIconCom>
         </div>
         <div class="w-[35rem] ml-[4rem]">
           <div class="font-mono text-center text-[2rem]">Welcome Back</div>
@@ -35,7 +35,7 @@
     </n-card>
 
     <div class="absolute top-[3rem] left-[3rem]">
-      <ThemeSwitchIcon></ThemeSwitchIcon>
+      <ThemeSwitchIconCom></ThemeSwitchIconCom>
     </div>
   </div>
 </template>
@@ -45,14 +45,14 @@ import { computed, reactive, ref } from 'vue'
 import { colord } from 'colord'
 import { NCard, NForm, NFormItem, NInput, NButton, FormRules, FormInst, useNotification } from 'naive-ui'
 import { useRouter } from 'vue-router'
-import SvgIcon from '@/components/SvgIcon.vue'
-import ThemeSwitchIcon from '@/components/ThemeSwitchIcon.vue'
+import SvgIconCom from '@/components/SvgIconCom.vue'
+import ThemeSwitchIconCom from '@/components/ThemeSwitchIconCom.vue'
 
 import { userLogin } from '@/apis/user'
 
-import { useSysStore } from '@/store/modules/sysStore'
+import { useSysStore } from '@/store/modules/SysStore'
 
-import { setLocalKey } from '@/utils/common/handleLocalStorage'
+import { setLocalKey } from '@/utils/common/HandleLocalStorage'
 
 const router = useRouter()
 const sysStore = useSysStore()

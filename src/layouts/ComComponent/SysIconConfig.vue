@@ -1,6 +1,6 @@
 <template>
   <div class="header-item-base-style" @click="openSysConfigDrawer">
-    <IconifyIconVue iconLabel="ep:setting"></IconifyIconVue>
+    <IconifyIconCom iconLabel="ep:setting"></IconifyIconCom>
   </div>
 
   <GlobalConfigDrawer ref="sysConfig"></GlobalConfigDrawer>
@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import IconifyIconVue from '@/components/IconifyIcon.vue'
+import IconifyIconCom from '@/components/IconifyIconCom.vue'
 import GlobalConfigDrawer from '@/layouts/global/globalConfigDrawer/GlobalConfigDrawer.vue'
 
 const sysConfig = ref<any>(null)

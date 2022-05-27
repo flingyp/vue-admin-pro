@@ -8,7 +8,7 @@ import { useRoute, useRouter } from 'vue-router'
 import type { MenuOption } from 'naive-ui'
 import { NMenu } from 'naive-ui'
 
-import { useSysStore } from '@/store/modules/sysStore'
+import { useSysStore } from '@/store/modules/SysStore'
 
 interface IGlobalMenuProps {
   mode: 'vertical' | 'horizontal'

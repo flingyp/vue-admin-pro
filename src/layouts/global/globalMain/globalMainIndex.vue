@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import { NSpin } from 'naive-ui'
 
-import { useSysStore } from '@/store/modules/sysStore'
+import { useSysStore } from '@/store/modules/SysStore'
 
 import GlobalTabVue from '../globalTab/globalTab.vue'
 

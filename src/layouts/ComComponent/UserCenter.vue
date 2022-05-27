@@ -19,9 +19,9 @@ import { ref } from 'vue'
 import { NPopselect } from 'naive-ui'
 import { useRouter } from 'vue-router'
 
-import { useSysStore } from '@/store/modules/sysStore'
-import { useUserStore } from '@/store/modules/userStore'
-import { removeLocalKey } from '@/utils/common/handleLocalStorage'
+import { useSysStore } from '@/store/modules/SysStore'
+import { useUserStore } from '@/store/modules/UserStore'
+import { removeLocalKey } from '@/utils/common/HandleLocalStorage'
 
 const sysStore = useSysStore()
 const userStore = useUserStore()

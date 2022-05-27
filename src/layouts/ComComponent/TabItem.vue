@@ -1,21 +1,21 @@
 <template>
   <div class="text-sm px-[1rem] py-[0.8rem] rounded-md mx-[0.5rem] flex items-center" :class="tabClass">
     <span class="mr-[0.5rem] cursor-pointer" @click="clickNavRoute(menu.key as string)">{{ menu.label }}</span>
-    <IconifyIcon
+    <IconifyIconCom
       iconLabel="carbon:close"
       @click="deleteTabRoute(menu.key as string)"
       class="cursor-pointer"
-    ></IconifyIcon>
+    ></IconifyIconCom>
   </div>
 </template>
 
 <script setup lang="ts">
 import { MenuOption } from 'naive-ui'
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useSysStore } from '@/store/modules/sysStore'
+import { useSysStore } from '@/store/modules/SysStore'
 
-import IconifyIcon from '@/components/IconifyIcon.vue'
+import IconifyIconCom from '@/components/IconifyIconCom.vue'
 
 const props = defineProps<{
   menu: MenuOption

@@ -14,9 +14,9 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
 
-import { echartInstance, ECOption } from '@/utils/echarts'
+import { echartInstance, ECOption } from '@/utils/echarts/EchartsUtil'
 
-import { useSysStore } from '@/store/modules/sysStore'
+import { useSysStore } from '@/store/modules/SysStore'
 
 const { width, height, echartOption } = defineProps<{
   echartOption: ECOption

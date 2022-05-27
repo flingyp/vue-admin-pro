@@ -7,7 +7,7 @@
     <div class="h-full pb-[0.6rem]">
       <n-dropdown trigger="click" :options="tabMenuSettingOptions" @select="selectTabSetting">
         <div class="cursor-pointer header-item-base-style">
-          <IconifyIcon iconLabel="gg:menu-cheese" :fontSize="20"></IconifyIcon>
+          <IconifyIconCom iconLabel="gg:menu-cheese" :fontSize="20"></IconifyIconCom>
         </div>
       </n-dropdown>
     </div>
@@ -19,10 +19,10 @@ import { reactive, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { NDropdown } from 'naive-ui'
 import type { DropdownOption, MenuOption } from 'naive-ui'
-import { useSysStore } from '@/store/modules/sysStore'
+import { useSysStore } from '@/store/modules/SysStore'
 
-import TabItem from '@/layouts/ComComponent/TabItem.vue'
-import IconifyIcon from '@/components/IconifyIcon.vue'
+import TabItem from '@/layouts/comComponent/TabItem.vue'
+import IconifyIconCom from '@/components/IconifyIconCom.vue'
 
 const route = useRoute()
 const router = useRouter()

@@ -1,13 +1,13 @@
 <template>
   <div class="m-[2rem]">
     <n-card title="Iconify图标示例">
-      <IconifyIcon
-        v-for="(item, index) in iconifyIconList"
+      <IconifyIconCom
+        v-for="(item, index) in IconifyIconComList"
         :key="index"
         :iconLabel="item"
         :fontSize="40"
         class="m-[3rem]"
-      ></IconifyIcon>
+      ></IconifyIconCom>
 
       <div class="mt-[2rem]">
         Iconify图标资源网址：
@@ -19,16 +19,16 @@
 
     <n-card title="本地SVG图标">
       <div class="flex items-center justify-around flex-wrap">
-        <SvgIcon
+        <SvgIconCom
           class="w-[30rem] h-[30rem]"
-          v-for="(item, index) in localSvgIconList"
+          v-for="(item, index) in localSvgIconComList"
           :key="index"
           :name="item"
-        ></SvgIcon>
+        ></SvgIconCom>
       </div>
 
       <div class="mt-[4rem]">
-        下载SVG文件放置在assets/svg文件夹下，使用components文件夹下的SvgIcon文件来使用SVG图标，组件的name属性及时SVG图标的文件名
+        下载SVG文件放置在assets/svg文件夹下，使用components文件夹下的SvgIconCom文件来使用SVG图标，组件的name属性及时SVG图标的文件名
       </div>
       <div class="my-[1rem]">
         如何引入本地SVG参考文章：<a
@@ -45,10 +45,10 @@
 <script setup lang="ts">
 import { NCard } from 'naive-ui'
 
-import IconifyIcon from '@/components/IconifyIcon.vue'
-import SvgIcon from '@/components/SvgIcon.vue'
+import IconifyIconCom from '@/components/IconifyIconCom.vue'
+import SvgIconCom from '@/components/SvgIconCom.vue'
 
-const iconifyIconList = [
+const IconifyIconComList = [
   'ion:accessibility',
   'ion:accessibility-outline',
   'ion:accessibility-sharp',
@@ -85,7 +85,7 @@ const iconifyIconList = [
   'bi:arrow-left-right'
 ]
 
-const localSvgIconList = ['common-icon-404', 'common-icon-cl', 'common-icon-500']
+const localSvgIconComList = ['common-icon-404', 'common-icon-cl', 'common-icon-500']
 </script>
 
 <style scoped>

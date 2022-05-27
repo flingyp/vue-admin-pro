@@ -19,7 +19,7 @@ import { ref } from 'vue'
 import { NConfigProvider, NNotificationProvider, darkTheme, zhCN } from 'naive-ui'
 import type { NLocale } from 'naive-ui'
 
-import { useSysStore } from '@/store/modules/sysStore'
+import { useSysStore } from '@/store/modules/SysStore'
 
 const sysStore = useSysStore()
 const locale = ref<NLocale | null>(zhCN)

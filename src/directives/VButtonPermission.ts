@@ -1,6 +1,6 @@
 import { App } from 'vue'
 
-import { useUserStore } from '@/store/modules/userStore'
+import { useUserStore } from '@/store/modules/UserStore'
 
 /**
  * v-button-permission="[permission]"

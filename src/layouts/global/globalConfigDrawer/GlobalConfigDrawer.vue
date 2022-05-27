@@ -5,10 +5,10 @@
         <div class="w-full text-center">
           <n-switch v-model:value="ThemeModeActive" size="medium" @update:value="changeThemeMode">
             <template #checked>
-              <IconifyIconVue icon-label="bi:moon-stars" :fontSize="12" />
+              <IconifyIconCom icon-label="bi:moon-stars" :fontSize="12" />
             </template>
             <template #unchecked>
-              <IconifyIconVue icon-label="bi:cloud-sun" :fontSize="12" />
+              <IconifyIconCom icon-label="bi:cloud-sun" :fontSize="12" />
             </template>
           </n-switch>
         </div>
@@ -34,12 +34,12 @@
             :style="{ 'background-color': item }"
             @click="changeThemeColor(item)"
           >
-            <SvgIcon
+            <SvgIconCom
               name="layout-checkmark"
               color="#FFF"
               class="w-[2rem] h-[2rem] font-bold"
               v-show="currentThemeColor === item"
-            ></SvgIcon>
+            ></SvgIconCom>
           </div>
         </div>
       </BasicConfigBox>
@@ -75,15 +75,15 @@ import { ref, computed } from 'vue'
 import { NDrawer, NDrawerContent, NButton, NSwitch, NInputNumber } from 'naive-ui'
 import type { DrawerPlacement } from 'naive-ui'
 
-import { useSysStore } from '@/store/modules/sysStore'
-import { getLocalKey, setLocalKey } from '@/utils/common/handleLocalStorage'
+import { useSysStore } from '@/store/modules/SysStore'
+import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorage'
 
-import SvgIcon from '@/components/SvgIcon.vue'
-import IconifyIconVue from '@/components/IconifyIcon.vue'
+import SvgIconCom from '@/components/SvgIconCom.vue'
+import IconifyIconCom from '@/components/IconifyIconCom.vue'
 
 import BasicConfigBox from './BasicConfigBox.vue'
 
-import type { layoutModeType } from '@/types/sysTypes'
+import type { layoutModeType } from '@/types/SysTypes'
 
 import { useSwitchTheme } from '@/hooks/sysHook/useSwitchTheme'
 

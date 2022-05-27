@@ -1,8 +1,8 @@
 import { SysTyping } from '@/typings/Sys'
 
-import Layout from '@/layouts/index.vue'
-import IframeIndexVue from '@/views/plugins/iframe/IframeIndex.vue'
-import NotFound from '@/views/common/exceptPage/NotFound.vue'
+import Layout from '@/layouts/LayoutIndex.vue'
+import IframeIndex from '@/views/plugins/iframe/IframeIndex.vue'
+import NotFound from '@/views/common/exceptPage/NotFoundIndex.vue'
 
 /**
  * Vite 提供的API import.meta.glob
@@ -49,8 +49,8 @@ export const handleServeRouteToSysRoute = (ServeRouters: SysTyping.RouteStruct[]
     // 特殊组件处理
     if (ServeRoute.component === 'Layout') {
       ServeRoute.component = Layout
-    } else if (ServeRoute.component === 'IframeIndexVue') {
-      ServeRoute.component = IframeIndexVue
+    } else if (ServeRoute.component === 'IframeIndex') {
+      ServeRoute.component = IframeIndex
     } else {
       ServeRoute.component = loadViewComponent(ServeRoute.component as string)
     }

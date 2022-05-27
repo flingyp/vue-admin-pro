@@ -36,7 +36,7 @@
 import { NLayout, NLayoutHeader, NLayoutContent, NLayoutSider } from 'naive-ui'
 
 import { computed } from 'vue'
-import { useSysStore } from '@/store/modules/sysStore'
+import { useSysStore } from '@/store/modules/SysStore'
 
 const sysStore = useSysStore()
 

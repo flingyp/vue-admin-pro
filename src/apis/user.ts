@@ -1,5 +1,5 @@
-import { getLocalKey } from '@/utils/common/handleLocalStorage'
-import { ajaxRequest } from '@/utils/request'
+import { getLocalKey } from '@/utils/common/HandleLocalStorage'
+import { ajaxRequest } from '@/utils/Request'
 
 export const userLogin = async (username: string, password: string) => {
   const loginData = await ajaxRequest<UserTyping.ILoginRes>({

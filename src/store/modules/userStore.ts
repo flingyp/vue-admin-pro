@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-import { getLocalKey } from '@/utils/common/handleLocalStorage'
+import { getLocalKey } from '@/utils/common/HandleLocalStorage'
 import { getUserInfoService } from '@/apis/user'
 
 interface IUserStoreState {

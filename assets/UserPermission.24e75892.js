@@ -1,1 +1,0 @@
-import{_ as e,o as r,c as s}from"./index.e5805034.js";const n={};function o(i,c){return r(),s("div",null,"\u666E\u901A\u7528\u6237\u53EF\u89C1\u9875\u9762")}var _=e(n,[["render",o],["__file","/home/runner/work/vue-admin-pro/vue-admin-pro/src/views/permissions/UserPermission.vue"]]);export{_ as default};

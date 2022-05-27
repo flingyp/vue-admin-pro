@@ -1,0 +1,1 @@
+import{_ as e,o as r,c as n}from"./index.c85a46bc.js";const s={};function o(i,c){return r(),n("div",null,"\u666E\u901A\u7528\u6237\u53EF\u89C1\u9875\u9762")}var _=e(s,[["render",o],["__file","/home/runner/work/vue-admin-pro/vue-admin-pro/src/views/permissions/UserPermissionIndex.vue"]]);export{_ as default};

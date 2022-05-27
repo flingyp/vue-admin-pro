@@ -1,1 +1,0 @@
-import{_ as e,o,c as r}from"./index.e5805034.js";const n={};function s(i,c){return o(),r("div",null,"\u8D85\u7EA7\u7BA1\u7406\u5458\u53EF\u89C1\u9875\u9762")}var a=e(n,[["render",s],["__file","/home/runner/work/vue-admin-pro/vue-admin-pro/src/views/permissions/RootPermission.vue"]]);export{a as default};

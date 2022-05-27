@@ -1,0 +1,1 @@
+import{_ as e,d as r,o as a,aF as o,aG as n}from"./index.c85a46bc.js";const t=r({name:"ServerExceptIndex",setup(c){return(p,s)=>(a(),o(n,{type:"500"}))}});var _=e(t,[["__file","/home/runner/work/vue-admin-pro/vue-admin-pro/src/views/common/exceptPage/ServerExceptIndex.vue"]]);export{_ as default};

@@ -1,1 +1,0 @@
-import{_ as e,o,c as r}from"./index.e5805034.js";const t={},c={class:"mt-[1rem]"};function n(s,i){return o(),r("div",c,"\u591A\u7EA7\u83DC\u5355\uFF1A\u4E8C\u7EA7\u83DC\u5355\uFF1A\u5B50\u83DC\u53551")}var m=e(t,[["render",n],["__file","/home/runner/work/vue-admin-pro/vue-admin-pro/src/views/common/multiLevelMenu/multiTwo/MultiTwo_First.vue"]]);export{m as default};

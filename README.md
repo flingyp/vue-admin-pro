@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="https://gitee.com/xiaopeng77/typora-img/raw/master/img/Rocket.png" alt="VueAdminPro Logo" style="zoom:67%;" />
+	<img src="https://gitee.com/xiaopeng77/typora-img/raw/master/img/Rocket.png" alt="VueAdminPro Logo" style="zoom:60%;" />
   <h1>
     Vue Admin Pro
   </h1>

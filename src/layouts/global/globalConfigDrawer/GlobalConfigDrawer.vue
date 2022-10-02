@@ -83,7 +83,7 @@ import IconifyIconCom from '@/components/IconifyIconCom.vue'
 
 import BasicConfigBox from './BasicConfigBox.vue'
 
-import type { layoutModeType } from '@/types/SysType'
+import type { LayoutModeType } from '@/types/SysType'
 
 import { UseSwitchThemeHook } from '@/hooks/sysHook/UseSwitchThemeHook'
 
@@ -99,7 +99,7 @@ const openDrawer = (place: DrawerPlacement) => {
 }
 
 const layoutItemsArray: {
-  key: layoutModeType
+  key: LayoutModeType
   value: string
 }[] = [
   {
@@ -119,7 +119,7 @@ const layoutItemsArray: {
     value: '顶部菜单混合'
   }
 ]
-const changeLayoutMode = (mode: layoutModeType) => {
+const changeLayoutMode = (mode: LayoutModeType) => {
   SysStoreModule.setLayoutMode(mode)
 }
 

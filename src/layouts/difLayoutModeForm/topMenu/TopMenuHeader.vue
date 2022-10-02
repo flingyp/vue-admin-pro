@@ -6,7 +6,6 @@
     </div>
 
     <div class="flex items-center h-full">
-      <ThemeModeIcon></ThemeModeIcon>
       <FullScreenIcon></FullScreenIcon>
       <SysIconConfig></SysIconConfig>
       <UserCenter></UserCenter>
@@ -16,7 +15,6 @@
 
 <script setup lang="ts">
 import LogoTitle from '@/layouts/layoutComComponent/LogoTitle.vue'
-import ThemeModeIcon from '@/layouts/layoutComComponent/ThemeModeIcon.vue'
 import GlobalMenu from '@/layouts/global/globalMenu/GlobalMenu.vue'
 import SysIconConfig from '@/layouts/layoutComComponent/SysIconConfig.vue'
 import FullScreenIcon from '@/layouts/layoutComComponent/FullScreenIcon.vue'

@@ -1,11 +1,12 @@
 import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
 import type { MenuOption, GlobalThemeOverrides } from 'naive-ui'
-import { ISysConfig, layoutModeType, ThemeColorTypes, themeModeType } from '@/types/SysType'
+import { ISysConfig, LayoutModeType, ThemeColorTypes, ThemeModeType } from '@/types/SysType'
 
 import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
 import { addThemeCssVarsToHtml, getSysThemeColors } from '../utils/ThemeColors'
+import { sysGlobalConfig } from '@/globalConfig'
 
 interface ISysStoreModuleState {
   constantRoutes: RouteRecordRaw[]
@@ -24,10 +25,10 @@ export const useSysStoreModule = defineStore('SysStoreModule', {
       asyncRoutes: [],
       sysMenus: [],
       sysConfig: {
-        themeMode: (getLocalKey('themeMode') as themeModeType) || 'light',
+        themeMode: (getLocalKey('themeMode') as ThemeModeType) || sysGlobalConfig.DefaultThemeMode,
         isNeedCollapsed: false,
         layoutMode: 'LEFT_MENU_MODE',
-        themeColor: getLocalKey('themeColor') || '#18a058',
+        themeColor: getLocalKey('themeColor') || sysGlobalConfig.DefaultThemeColor,
         leftIsInverted: false,
         topIsInverted: false,
         leftExtendWidth: 264,
@@ -118,10 +119,10 @@ export const useSysStoreModule = defineStore('SysStoreModule', {
     setIsCollapsed(collapsed: boolean) {
       this.sysConfig.isNeedCollapsed = collapsed
     },
-    setThemeMode(mode: themeModeType) {
+    setThemeMode(mode: ThemeModeType) {
       this.sysConfig.themeMode = mode
     },
-    setLayoutMode(mode: layoutModeType) {
+    setLayoutMode(mode: LayoutModeType) {
       if (mode === 'LEFT_MENU_MIX_MODE') {
         this.sysConfig.isNeedCollapsed = true
         this.sysConfig.layoutMode = 'LEFT_MENU_MODE'

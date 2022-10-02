@@ -19,23 +19,6 @@ export const constantRouters: SysTyping.RouteStruct[] = [
     }
   },
   {
-    path: '/test',
-    name: 'Test',
-    component: Layout,
-    children: [
-      {
-        path: '',
-        name: 'TestIndex',
-        component: () => import('@/views/TestIndex.vue'),
-        meta: {
-          title: '测试页面',
-          icon: 'fluent:window-dev-tools-16-regular',
-          sort: -98
-        }
-      }
-    ]
-  },
-  {
     path: '/login',
     name: 'Login',
     component: () => import('@/views/login/LoginIndex.vue'),

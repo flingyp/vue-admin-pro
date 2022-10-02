@@ -13,7 +13,7 @@ import { handleServeRouteToSysRoute } from './utils/HandleRouteServe'
 import { constantRouters, redirect404Router } from './routers/ConstantRoutes'
 import { asyncRouters } from './routers/AasyncRoutes'
 
-import { RouteHandleConfig } from '@/globalConfig'
+import { sysGlobalConfig } from '@/globalConfig'
 
 import { getSysRouters } from '@/apis/SysApi'
 
@@ -31,7 +31,7 @@ const routeMenuProcess = async (UserStoreModule: any, SysStoreModule: any, route
   let handleSuccessAsyncRouters: RouteRecordRaw[] = []
 
   // 2. 判断当前系统配置是前端控制路由还是后端控制路由
-  if (RouteHandleConfig === 'Web') {
+  if (sysGlobalConfig.RouteHandleConfig === 'Web') {
     // 1. 深拷贝异步路由
     const deepAsyncRouters = lodashUtil.cloneDeep(asyncRouters)
 

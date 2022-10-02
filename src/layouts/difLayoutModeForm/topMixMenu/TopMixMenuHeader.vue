@@ -5,7 +5,6 @@
       <LeftMenuCollapsedIcon class="ml-[1rem]"></LeftMenuCollapsedIcon>
     </div>
     <div class="flex items-center h-full">
-      <ThemeModelIcon></ThemeModelIcon>
       <FullScreenIcon></FullScreenIcon>
       <SysIconConfig></SysIconConfig>
       <UserCenter></UserCenter>
@@ -14,7 +13,6 @@
 </template>
 
 <script setup lang="ts">
-import ThemeModelIcon from '@/layouts/layoutComComponent/ThemeModeIcon.vue'
 import LogoTitle from '@/layouts/layoutComComponent/LogoTitle.vue'
 import LeftMenuCollapsedIcon from '@/layouts/layoutComComponent/LeftMenuCollapsedIcon.vue'
 import SysIconConfig from '@/layouts/layoutComComponent/SysIconConfig.vue'

@@ -1,6 +1,6 @@
 import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
-import { themeModeType } from '@/types/SysType'
+import { ThemeModeType } from '@/types/SysType'
 
 import { useSysStoreModule } from '@/store/modules/SysStoreModule'
 
@@ -27,7 +27,7 @@ export const UseSwitchThemeHook = () => {
   const { addDarkClass, removeDarkClass } = handleWindicssDarkMode()
 
   // 1. 获取当前主题
-  const currentThemeMode = (): themeModeType => {
+  const currentThemeMode = (): ThemeModeType => {
     let localMode = getLocalKey(themeModeTitle)
     if (!localMode || localMode === '') {
       setLocalKey(themeModeTitle, 'light')
@@ -40,10 +40,10 @@ export const UseSwitchThemeHook = () => {
       addDarkClass()
     }
 
-    return localMode as themeModeType
+    return localMode as ThemeModeType
   }
   // 2. 切换主题模式
-  const switchTheme = (mode: themeModeType) => {
+  const switchTheme = (mode: ThemeModeType) => {
     setLocalKey(themeModeTitle, mode)
     if (currentThemeMode() === 'light') {
       removeDarkClass()

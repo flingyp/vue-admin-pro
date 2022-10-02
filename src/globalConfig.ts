@@ -1,9 +1,13 @@
+import { ThemeModeType } from './types/SysType'
+
 interface SycGlobalConfig {
   RouteHandleConfig: 'Web' | 'Serve'
+  DefaultThemeColor: string
+  DefaultThemeMode: ThemeModeType
 }
 
-const sysGlobalConfig: SycGlobalConfig = {
-  RouteHandleConfig: 'Serve'
+export const sysGlobalConfig: SycGlobalConfig = {
+  RouteHandleConfig: 'Serve',
+  DefaultThemeColor: '#7B1FA2',
+  DefaultThemeMode: 'light'
 }
-
-export const { RouteHandleConfig } = sysGlobalConfig
